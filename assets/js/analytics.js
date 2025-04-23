@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set admin status (you would normally use a password, this is just for demo)
   window.setAdminStatus = function() {
     const password = prompt('Enter admin password:');
-    if (password === 'u!T!U6dVxcDRpJ1et') {
+    if (password === 'temporary_password') {
       localStorage.setItem('site_admin', 'true');
       alert('Admin status granted. Refresh the page to see admin controls.');
     }
