@@ -4,14 +4,13 @@ title: Contact
 permalink: /pages/contact/
 ---
 
-# Contact Me
-
-Feel free to reach out if you'd like to collaborate on a project or discuss job opportunities.
 
 ## Contact Information
 
 - **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/andrew-erbs-59bb9365)
 - **GitHub**: [GitHub Profile](https://github.com/LordOfTheTrees)
+
+Feel free to reach out if you'd like to collaborate on a project or discuss job opportunities.
 
 ## Contact Form
 

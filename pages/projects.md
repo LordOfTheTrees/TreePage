@@ -6,7 +6,7 @@ permalink: /pages/projects/
 
 # My Projects
 
-Below is a selection of projects I've worked on. Each project demonstrates different skills and technologies.
+Below is a selection of personal and academic projects I've worked on.
 
 <div class="projects-container">
   {% for project in site.data.projects %}

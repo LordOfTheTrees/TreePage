@@ -1,47 +1,85 @@
-javascript
-// This file works with analytics.html to track visitor information
+// Updated analytics.js - Focuses on tracking geographic data
 document.addEventListener('DOMContentLoaded', function() {
-  // Function to export visitor data as a JSON file
-  window.exportVisitorData = function() {
-    const visits = JSON.parse(localStorage.getItem('site_visits') || '[]');
-    
-    if (visits.length === 0) {
-      alert('No visitor data available.');
-      return;
-    }
-    
-    // Create a downloadable JSON file
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(visits, null, 2));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "visitor_data_" + new Date().toISOString().split('T')[0] + ".json");
-    document.body.appendChild(downloadAnchorNode);
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-  };
-  
-  // Add an admin panel link to the footer if you're the admin
-  const isAdmin = localStorage.getItem('site_admin') === 'true';
-  if (isAdmin) {
-    const footer = document.querySelector('.site-footer .social-links');
-    if (footer) {
-      const adminLink = document.createElement('a');
-      adminLink.href = '#';
-      adminLink.innerHTML = '<span class="icon">Analytics</span>';
-      adminLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.exportVisitorData();
-      });
-      footer.appendChild(adminLink);
+  // Function to get visitor's IP and geographic information
+  async function trackVisit() {
+    try {
+      // Get visitor's IP information using a free IP geolocation API
+      const response = await fetch('https://ipapi.co/json/');
+      const data = await response.json();
+      
+      // Store relevant geographic information
+      const geoData = {
+        country: data.country_name,
+        region: data.region,
+        city: data.city,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Get existing visit data
+      const visits = JSON.parse(localStorage.getItem('site_geo_visits') || '[]');
+      visits.push(geoData);
+      
+      // Save updated visits data
+      localStorage.setItem('site_geo_visits', JSON.stringify(visits));
+      
+      // Update analytics view if we're on the analytics page
+      if (window.location.pathname.includes('analytics-view.html')) {
+        updateAnalyticsView();
+      }
+    } catch (error) {
+      console.error('Failed to track visit:', error);
     }
   }
   
-  // Set admin status (you would normally use a password, this is just for demo)
-  window.setAdminStatus = function() {
-    const password = prompt('Enter admin password:');
-    if (password === 'temporary_password') {
-      localStorage.setItem('site_admin', 'true');
-      alert('Admin status granted. Refresh the page to see admin controls.');
+  // Track this visit
+  trackVisit();
+  
+  // Function to update the analytics view
+  window.updateAnalyticsView = function() {
+    const visits = JSON.parse(localStorage.getItem('site_geo_visits') || '[]');
+    const analyticsContainer = document.getElementById('analytics-container');
+    
+    if (!analyticsContainer || visits.length === 0) {
+      return;
     }
+    
+    // Count visits by country
+    const countryCounts = {};
+    visits.forEach(visit => {
+      const country = visit.country || 'Unknown';
+      countryCounts[country] = (countryCounts[country] || 0) + 1;
+    });
+    
+    // Display the results
+    let html = '<h2>Visitor Statistics</h2>';
+    html += '<div class="stats-section"><h3>Visits by Country</h3><ul>';
+    
+    Object.keys(countryCounts).sort().forEach(country => {
+      html += `<li><strong>${country}</strong>: ${countryCounts[country]} visit(s)</li>`;
+    });
+    
+    html += '</ul></div>';
+    
+    // Count visits by region
+    const regionCounts = {};
+    visits.forEach(visit => {
+      if (visit.country && visit.region) {
+        const region = `${visit.region}, ${visit.country}`;
+        regionCounts[region] = (regionCounts[region] || 0) + 1;
+      }
+    });
+    
+    html += '<div class="stats-section"><h3>Visits by Region</h3><ul>';
+    
+    Object.keys(regionCounts).sort().forEach(region => {
+      html += `<li><strong>${region}</strong>: ${regionCounts[region]} visit(s)</li>`;
+    });
+    
+    html += '</ul></div>';
+    
+    // Show total visits
+    html += `<p class="total-visits">Total visits tracked: ${visits.length}</p>`;
+    
+    analyticsContainer.innerHTML = html;
   };
 });

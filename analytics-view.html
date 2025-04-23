@@ -1,0 +1,74 @@
+---
+layout: default
+title: Site Analytics
+permalink: /analytics-view.html
+---
+
+<div class="analytics-page">
+  <h1>Public Analytics Dashboard</h1>
+  
+  <div id="analytics-container" class="analytics-container">
+    <p>Loading analytics data...</p>
+  </div>
+  
+  <div class="analytics-notes">
+    <h3>About This Dashboard</h3>
+    <p>This dashboard shows anonymous geographic visitor statistics for this site. No personal identifying information is collected.</p>
+    <p>Data is stored in your browser's local storage. If you clear your browser data, these statistics will be reset.</p>
+  </div>
+</div>
+
+<script src="{{ site.baseurl }}/assets/js/analytics.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the analytics view
+    if (window.updateAnalyticsView) {
+      window.updateAnalyticsView();
+    }
+  });
+</script>
+
+<style>
+  .analytics-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .analytics-container {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .stats-section {
+    margin-bottom: 2rem;
+  }
+  
+  .stats-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .stats-section li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .total-visits {
+    font-weight: bold;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #ddd;
+  }
+  
+  .analytics-notes {
+    background-color: #f0f8ff;
+    border-left: 4px solid #007bff;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+</style>

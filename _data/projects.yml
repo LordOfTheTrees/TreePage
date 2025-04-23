@@ -8,7 +8,7 @@
     - iCalendar
     - HTML/CSS
     - Regular Expressions
-  github_url: "https://github.com/LordOfTheTrees/penn-state-football-calendar"
+  github_url: "https://github.com/LordOfTheTrees/PSUFootballSchedule"
   live_url: ""
   documentation: ""
   key_features:
@@ -28,7 +28,7 @@
     - BeautifulSoup
     - iCalendar
     - HTML/CSS
-  github_url: "https://github.com/LordOfTheTrees/yale-football-calendar"
+  github_url: "https://github.com/LordOfTheTrees/YaleFootballSchedule"
   live_url: ""
   documentation: ""
   key_features:
@@ -48,7 +48,7 @@
     - Mermaid (flow charts)
     - HTML/CSS
     - JavaScript
-  github_url: "https://github.com/LordOfTheTrees/flowstate"
+  github_url: "https://github.com/LordOfTheTrees/FlowState"
   live_url: ""
   documentation: ""
   key_features:
@@ -67,7 +67,7 @@
     - Natural Language Processing
     - Strategic Planning
     - IBJJF/MMA Rulesets
-  github_url: "https://github.com/LordOfTheTrees/flowstate"
+  github_url: "https://github.com/LordOfTheTrees/FlowState"
   live_url: ""
   documentation: ""
   key_features:
