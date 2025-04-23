@@ -55,15 +55,8 @@
   
   .social-links {
     display: flex;
+    flex-direction: column;
     gap: $spacing-unit / 2;
-    
-    a {
-      color: $gray;
-      
-      &:hover, &:focus {
-        color: $secondary-color;
-      }
-    }
   }
 }
 
