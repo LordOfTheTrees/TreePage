@@ -1,6 +1,6 @@
 # Andrew Erbs - Personal Website
 
-This repository contains the source code for my personal website, built with Jekyll and hosted on GitHub Pages.
+This repository contains the source code for my personal website, built with Jekyll and hosted on GitHub Pages. It should be extremely easy to repurpose to match your needs.
 
 ## Features
 
