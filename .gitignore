@@ -36,3 +36,4 @@ Desktop.ini
 
 # Local configuration
 .env
+config.env
