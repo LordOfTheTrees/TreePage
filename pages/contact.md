@@ -6,17 +6,16 @@ permalink: /pages/contact/
 
 # Contact Me
 
-Feel free to reach out if you'd like to collaborate on a project, discuss job opportunities, or just connect.
+Feel free to reach out if you'd like to collaborate on a project or discuss job opportunities.
 
 ## Contact Information
 
-- **Email**: [Your Email Address]
 - **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/andrew-erbs-59bb9365)
-- **GitHub**: [GitHub Profile](https://github.com/yourusername)
+- **GitHub**: [GitHub Profile](https://github.com/LordOfTheTrees)
 
 ## Contact Form
 
-<form id="contact-form" action="https://formspree.io/youremail@example.com" method="POST">
+<form id="contact-form" action="https://formspree.io/jonshreb@protonmail.com" method="POST">
   <div class="form-group">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>

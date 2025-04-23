@@ -1,26 +1,78 @@
-- title: Project One
-  description: A brief description of your first project.
-  technologies:
-    - JavaScript
-    - HTML
-    - CSS
-  github_url: https://github.com/yourusername/project-one
-  live_url: https://project-one-demo.com
-  documentation: https://project-one-docs.com
-
-- title: Project Two
-  description: A brief description of your second project.
+# Penn State Football Calendar Generator
+- title: "Penn State Football Calendar Generator"
+  description: "A robust web scraper application that extracts Penn State football schedules and creates standardized calendar files, allowing fans to automatically sync game information with their personal calendars."
   technologies:
     - Python
-    - Django
-    - PostgreSQL
-  github_url: https://github.com/yourusername/project-two
-  live_url: https://project-two-demo.com
+    - Flask
+    - BeautifulSoup
+    - iCalendar
+    - HTML/CSS
+    - Regular Expressions
+  github_url: "https://github.com/LordOfTheTrees/penn-state-football-calendar"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Sophisticated extraction of schedule data from Penn State Athletics website
+    - Dynamic pattern recognition for varying webpage structures
+    - Enhanced error handling for reliable data extraction
+    - Automatic timezone and date formatting
+    - User-friendly web interface with Penn State branding
+    - Daily automatic updates via scheduled tasks
 
-- title: Project Three
-  description: A brief description of your third project.
+# Yale Football Calendar Generator
+- title: "Yale Football Calendar Generator"
+  description: "A Python web scraper that automatically extracts Yale football schedule information and generates an iCalendar file for easy integration with calendar applications."
   technologies:
-    - React
-    - Node.js
-    - MongoDB
-  github_url: https://github.com/yourusername/project-three
+    - Python
+    - Flask
+    - BeautifulSoup
+    - iCalendar
+    - HTML/CSS
+  github_url: "https://github.com/LordOfTheTrees/yale-football-calendar"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Scrapes game schedules from the Yale Bulldogs website
+    - Creates shareable iCalendar (.ics) files
+    - Updates automatically with daily schedule checks
+    - Provides a simple web interface for users to access the calendar
+    - Handles edge cases like TBA game times and location changes
+
+# FlowState Jiu-Jitsu App
+- title: "FlowState: Jiu-Jitsu Strategy Generator"
+  description: "An AI-powered application that analyzes jiu-jitsu techniques and generates personalized training strategies, flow charts, and analytical insights for practitioners of all levels."
+  technologies:
+    - Python
+    - Streamlit
+    - OpenAI API
+    - Mermaid (flow charts)
+    - HTML/CSS
+    - JavaScript
+  github_url: "https://github.com/LordOfTheTrees/flowstate"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Position image analysis for technique recommendations
+    - Interactive "Master Talk" with simulated jiu-jitsu experts
+    - FLOW Chart Generator for mapping move sequences
+    - Video match analysis with AI feedback
+    - Anime OODA Analysis for strategy comparison and improvement
+
+# Adversarial Game Planning System
+- title: "Adversarial Game Planning for Combat Sports"
+  description: "A sophisticated system that generates counter-strategies against established jiu-jitsu and MMA techniques, enabling practitioners to anticipate and prepare for opponent responses. Wrapped into the existing FlowState application."
+  technologies:
+    - Python
+    - AI/ML
+    - Natural Language Processing
+    - Strategic Planning
+    - IBJJF/MMA Rulesets
+  github_url: "https://github.com/LordOfTheTrees/flowstate"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Rule-specific counter-strategy generation (IBJJF or MMA)
+    - Position-based analysis for technical specificity
+    - Athlete attribute consideration for personalized strategies
+    - Interactive strategy battle visualization
+    - Realistic technique flows based on expert knowledge

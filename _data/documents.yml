@@ -1,11 +1,23 @@
-- title: Project Documentation
-  description: Detailed documentation for Project One, including architecture diagrams and API references.
-  file_url: /assets/documents/project-one-docs.pdf
+- title: "FlowState: AI-Powered Grappling Strategy Generator"
+  description: "Technical overview of the FlowState application that uses generative AI to provide context-aware strategy support for jiu-jitsu and MMA practitioners."
+  file_url: "/assets/documents/flow_state_report.pdf"
+  key_points:
+    - "LLM-based tactical modeling for grappling scenarios"
+    - "Mermaid.js visualization of position-specific strategy trees"
+    - "Streamlit implementation with modular Python architecture"
+    - "Addresses the gap between static instructional content and dynamic combat needs"
 
-- title: Technical Whitepaper
-  description: A technical whitepaper explaining the implementation of a custom algorithm.
-  file_url: /assets/documents/technical-whitepaper.pdf
-
-- title: Case Study
-  description: Case study on a successful project implementation.
-  file_url: /assets/documents/case-study.pdf
+# Document entry for Adversarial Game Planning System module
+- title: "Adversarial Game Planning System: Technical Integration with FlowState"
+  description: "Technical documentation covering the adversarial planning module integrated into the FlowState application, detailing the counter-strategy generation system for jiu-jitsu and MMA techniques."
+  file_url: "/assets/documents/flow_state_report.pdf"
+  key_points:
+    - "Implementation as a seamless component within the existing FlowState application architecture"
+    - "Prompt-based adversarial logic system for generating intelligent counter-strategies"
+    - "Ruleset-specific response generation (IBJJF vs MMA) with technical accuracy"
+    - "Visual battle interface for comparing strategy and counter-strategy flowcharts"
+    - "Integration with session state management for continuous strategic development"
+  module_integration:
+    - "Leverages the core flowchart generation engine from FlowState"
+    - "Shares the same UI aesthetic with belt-rank themed styling"
+    - "Accessible through both dedicated section and as a component in other modules"
