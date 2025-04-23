@@ -4,6 +4,10 @@ title: About Me
 permalink: /pages/about/
 ---
 
+<div class="profile-image-container">
+  <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Andrew Erbs" class="profile-image">
+</div>
+
 ## Professional Background
 
 I am Andrew Erbs, a Yale School of Management MBA candidate with extensive leadership experience as a Lieutenant and Surface Warfare Officer in the United States Navy. My professional journey combines strategic planning, data analysis, crisis management, and organizational transformation across multiple high-stakes environments.
