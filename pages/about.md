@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-permalink: ./pages/about/
+permalink: /pages/about/
 ---
 
 ## Professional Background
