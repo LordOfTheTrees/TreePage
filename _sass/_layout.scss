@@ -1,0 +1,250 @@
+
+// Header
+.site-header {
+  border-bottom: 1px solid $border-color;
+  padding: $spacing-unit / 2 0;
+  margin-bottom: $spacing-unit;
+  
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .site-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $secondary-color;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .site-nav {
+    display: flex;
+    gap: $spacing-unit;
+    
+    .nav-link {
+      color: $gray;
+      
+      &:hover, &:focus {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Footer
+.site-footer {
+  border-top: 1px solid $border-color;
+  padding: $spacing-unit 0;
+  margin-top: $spacing-unit;
+  color: $gray;
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media (max-width: $mobile-width) {
+      flex-direction: column;
+      gap: $spacing-unit / 2;
+    }
+  }
+  
+  .social-links {
+    display: flex;
+    gap: $spacing-unit / 2;
+    
+    a {
+      color: $gray;
+      
+      &:hover, &:focus {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Content
+.content {
+  padding: $spacing-unit 0;
+  min-height: calc(100vh - 200px);
+}
+
+// Hero section
+.hero {
+  padding: $spacing-unit * 2 0;
+  text-align: center;
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: $spacing-unit / 2;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    color: $gray;
+    margin-bottom: $spacing-unit;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-unit / 2;
+  }
+}
+
+// Projects
+.projects-grid, .projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-unit;
+  margin-bottom: $spacing-unit;
+}
+
+.project-card {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $spacing-unit;
+  transition: box-shadow 0.2s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  .project-technologies {
+    margin: $spacing-unit / 2 0;
+    
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      
+      li {
+        background-color: $lighter-gray;
+        padding: 0.2em 0.5em;
+        border-radius: 3px;
+        font-size: $small-font-size;
+      }
+    }
+  }
+  
+  .project-links {
+    margin-top: $spacing-unit / 2;
+    display: flex;
+    gap: 0.5em;
+  }
+}
+
+.more-projects {
+  text-align: center;
+  margin-top: $spacing-unit;
+}
+
+// Documents
+.documents-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-unit;
+}
+
+.document-card {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $spacing-unit;
+}
+
+// Posts
+.posts-list {
+  margin-bottom: $spacing-unit;
+  
+  .post-item {
+    margin-bottom: $spacing-unit;
+    
+    h3 {
+      margin-bottom: 0.2em;
+    }
+    
+    .post-date {
+      color: $gray;
+      font-size: $small-font-size;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+// Contact form
+#contact-form {
+  margin-top: $spacing-unit;
+  
+  .form-group {
+    margin-bottom: $spacing-unit / 2;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-weight: 600;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+  
+  button {
+    margin-top: $spacing-unit / 2;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+// Page
+.page {
+  .page-header {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+// Post
+.post {
+  .post-header {
+    margin-bottom: $spacing-unit;
+    
+    .post-meta {
+      color: $gray;
+    }
+  }
+}
+
+// Responsive tweaks
+@media (max-width: $mobile-width) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .projects-grid, .projects-container, .documents-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,20 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-content">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+      <div class="social-links">
+        {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">
+          <span class="icon">GitHub</span>
+        </a>
+        {% endif %}
+        
+        {% if site.linkedin_username %}
+        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">
+          <span class="icon">LinkedIn</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,44 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Andrew Erbs</h1>
+    <p class="subtitle">Professional Developer</p>
+    <div class="cta-buttons">
+      <a href="{{ site.baseurl }}/pages/projects" class="button primary">View My Work</a>
+      <a href="{{ site.baseurl }}/pages/contact" class="button secondary">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<section class="featured-projects">
+  <h2>Featured Projects</h2>
+  <div class="projects-grid">
+    {% for project in site.data.projects limit:3 %}
+    <div class="project-card">
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
+      <a href="{{ project.url }}" class="button" target="_blank" rel="noopener">View Project</a>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="more-projects">
+    <a href="{{ site.baseurl }}/pages/projects" class="button">See All Projects</a>
+  </div>
+</section>
+
+<section class="latest-posts">
+  <h2>Latest Posts</h2>
+  <div class="posts-list">
+    {% for post in site.posts limit:3 %}
+    <article class="post-item">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+      <p>{{ post.excerpt }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>

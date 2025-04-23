@@ -1,0 +1,11 @@
+- title: Project Documentation
+  description: Detailed documentation for Project One, including architecture diagrams and API references.
+  file_url: /assets/documents/project-one-docs.pdf
+
+- title: Technical Whitepaper
+  description: A technical whitepaper explaining the implementation of a custom algorithm.
+  file_url: /assets/documents/technical-whitepaper.pdf
+
+- title: Case Study
+  description: Case study on a successful project implementation.
+  file_url: /assets/documents/case-study.pdf

@@ -1,0 +1,118 @@
+// Reset
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: $spacing-unit / 2;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5, h6 {
+  font-size: 1rem;
+}
+
+p, ul, ol, dl, figure, blockquote {
+  margin-bottom: $spacing-unit / 2;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover, &:focus {
+    color: darken($primary-color, 10%);
+    text-decoration: underline;
+  }
+}
+
+code {
+  font-family: $code-font-family;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background-color: $lighter-gray;
+  border-radius: 3px;
+}
+
+pre {
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit / 2;
+  overflow-x: auto;
+  background-color: $lighter-gray;
+  border-radius: $border-radius;
+  
+  code {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: $primary-color;
+  color: white;
+  border-radius: $border-radius;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  
+  &:hover, &:focus {
+    background-color: darken($primary-color, 10%);
+    color: white;
+    text-decoration: none;
+  }
+  
+  &.secondary {
+    background-color: $gray;
+    
+    &:hover, &:focus {
+      background-color: darken($gray, 10%);
+    }
+  }
+}
+
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+}

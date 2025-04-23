@@ -1,0 +1,26 @@
+- title: Project One
+  description: A brief description of your first project.
+  technologies:
+    - JavaScript
+    - HTML
+    - CSS
+  github_url: https://github.com/yourusername/project-one
+  live_url: https://project-one-demo.com
+  documentation: https://project-one-docs.com
+
+- title: Project Two
+  description: A brief description of your second project.
+  technologies:
+    - Python
+    - Django
+    - PostgreSQL
+  github_url: https://github.com/yourusername/project-two
+  live_url: https://project-two-demo.com
+
+- title: Project Three
+  description: A brief description of your third project.
+  technologies:
+    - React
+    - Node.js
+    - MongoDB
+  github_url: https://github.com/yourusername/project-three

@@ -1,0 +1,33 @@
+# Site settings
+title: Andrew Erbs
+description: >
+  Professional website and portfolio of Andrew Erbs
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # Replace with your GitHub username
+github_username: yourusername
+linkedin_username: andrew-erbs-59bb9365
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+  - README.md
