@@ -24,12 +24,29 @@ title: Home
     <div class="project-card">
       <h3>{{ project.title }}</h3>
       <p>{{ project.description }}</p>
-      <a href="{{ project.url }}" class="button" target="_blank" rel="noopener">View Project</a>
+      <div class="project-links">
+        {% if project.github_url %}
+          <a href="{{ project.github_url }}" class="button" target="_blank" rel="noopener">View on GitHub</a>
+        {% endif %}
+      </div>
     </div>
     {% endfor %}
   </div>
   <div class="more-projects">
     <a href="{{ site.baseurl }}/pages/projects" class="button">See All Projects</a>
+  </div>
+</section>
+
+<section class="featured-photography">
+  <h2>Latest Photography</h2>
+  <p class="section-subtitle">Capturing moments through my lens</p>
+  <div id="photography-banner" class="photography-banner">
+    <div class="loading-photos">
+      <p>Loading latest photos...</p>
+    </div>
+  </div>
+  <div class="more-photography">
+    <a href="{{ site.baseurl }}/pages/photography" class="button">View Full Portfolio</a>
   </div>
 </section>
 
@@ -45,3 +62,96 @@ title: Home
     {% endfor %}
   </div>
 </section>
+
+<script src="{{ site.baseurl }}/assets/js/photography-banner.js"></script>
+
+<style>
+.featured-photography {
+  margin: 4rem 0;
+  padding: 2rem 0;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.photography-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.photo-preview {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+}
+
+.photo-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-preview-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.photo-preview:hover .photo-preview-overlay {
+  transform: translateY(0);
+}
+
+.photo-preview-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.photo-preview-location {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.loading-photos {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.more-photography {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .photography-banner {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-preview {
+    max-height: 250px;
+  }
+}
+</style>
