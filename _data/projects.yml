@@ -1,3 +1,45 @@
+# News Intelligence Pipeline
+- title: "News Intelligence Pipeline"
+  description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
+  technologies:
+    - Python
+    - Claude AI API
+    - NewsAPI
+    - GitHub API
+    - JSON Caching
+    - Natural Language Processing
+  github_url: "https://github.com/LordOfTheTrees/news-intelligence"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Smart query generation using Claude AI for effective NewsAPI searches
+    - Intelligent caching system to reduce API costs and improve performance
+    - Mult# News Intelligence Pipeline
+- title: "News Intelligence Pipeline"
+  description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
+  technologies:
+    - Python
+    - Claude AI API
+    - NewsAPI
+    - GitHub API
+    - JSON Caching
+    - Natural Language Processing
+  github_url: "https://github.com/LordOfTheTrees/news-intelligence"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Smart query generation using Claude AI for effective NewsAPI searches
+    - Intelligent caching system to reduce API costs and improve performance
+    - Multi-source news aggregation from 150k+ sources via NewsAPI
+    - AI-powered synthesis and summarization of articles into structured reports
+    - GitHub integration for automated issue creation and team notifications
+    - Email notifications through GitHub's built-in system
+    - Customizable news topics and i-source news aggregation from 150k+ sources via NewsAPI
+    - AI-powered synthesis and summarization of articles into structured reports
+    - GitHub integration for automated issue creation and team notifications
+    - Email notifications through GitHub's built-in system
+    - Customizable news topics and configurable automation via GitHub Actions
+
 # Penn State Football Calendar Generator
 - title: "Penn State Football Calendar Generator"
   description: "A robust web scraper application that extracts Penn State football schedules and creates standardized calendar files, allowing fans to automatically sync game information with their personal calendars."
