@@ -20,7 +20,7 @@
     - Real-time artifact creation and version control management
     - Multi-stage progression tracking with automated status updates
     - Intelligent error handling and fallback mechanisms for robust operations
-    
+
 # News Intelligence Pipeline
 - title: "News Intelligence Pipeline"
   description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
@@ -46,6 +46,35 @@
     - GitHub integration for automated issue creation and team notifications
     - Email notifications through GitHub's built-in system
     - Customizable news topics and configurable automation via GitHub Actions
+
+# FlowState Jiu-Jitsu App
+- title: "FlowState: Jiu-Jitsu Strategy Generator"
+  description: "An AI-powered application that analyzes jiu-jitsu techniques and generates personalized training strategies, flow charts, adversary response plans, and analytical insights for practitioners of all levels."
+  technologies:
+    - Python
+    - Streamlit
+    - OpenAI API
+    - Mermaid (flow charts)
+    - HTML/CSS
+    - JavaScript
+    - AI/ML
+    - Natural Language Processing
+    - Strategic Planning
+    - IBJJF/MMA Rulesets
+  github_url: "https://github.com/LordOfTheTrees/FlowState"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Position image analysis for technique recommendations
+    - Interactive "Master Talk" with simulated jiu-jitsu experts
+    - FLOW Chart Generator for mapping move sequences
+    - Video match analysis with AI feedback
+    - Anime OODA Analysis for strategy comparison and improvement
+    - Rule-specific counter-strategy generation (IBJJF or MMA)
+    - Position-based analysis for technical specificity
+    - Athlete attribute consideration for personalized strategies
+    - Interactive strategy battle visualization
+    - Realistic technique flows based on expert knowledge
 
 # NFL Quarterback Performance Analytics
 - title: "NFL Quarterback Performance Analytics"
@@ -109,42 +138,3 @@
     - Updates automatically with daily schedule checks
     - Provides a simple web interface for users to access the calendar
     - Handles edge cases like TBA game times and location changes
-
-# FlowState Jiu-Jitsu App
-- title: "FlowState: Jiu-Jitsu Strategy Generator"
-  description: "An AI-powered application that analyzes jiu-jitsu techniques and generates personalized training strategies, flow charts, and analytical insights for practitioners of all levels."
-  technologies:
-    - Python
-    - Streamlit
-    - OpenAI API
-    - Mermaid (flow charts)
-    - HTML/CSS
-    - JavaScript
-  github_url: "https://github.com/LordOfTheTrees/FlowState"
-  live_url: ""
-  documentation: ""
-  key_features:
-    - Position image analysis for technique recommendations
-    - Interactive "Master Talk" with simulated jiu-jitsu experts
-    - FLOW Chart Generator for mapping move sequences
-    - Video match analysis with AI feedback
-    - Anime OODA Analysis for strategy comparison and improvement
-
-# Adversarial Game Planning System
-- title: "Adversarial Game Planning for Combat Sports"
-  description: "A sophisticated system that generates counter-strategies against established jiu-jitsu and MMA techniques, enabling practitioners to anticipate and prepare for opponent responses. Wrapped into the existing FlowState application."
-  technologies:
-    - Python
-    - AI/ML
-    - Natural Language Processing
-    - Strategic Planning
-    - IBJJF/MMA Rulesets
-  github_url: "https://github.com/LordOfTheTrees/FlowState"
-  live_url: ""
-  documentation: ""
-  key_features:
-    - Rule-specific counter-strategy generation (IBJJF or MMA)
-    - Position-based analysis for technical specificity
-    - Athlete attribute consideration for personalized strategies
-    - Interactive strategy battle visualization
-    - Realistic technique flows based on expert knowledge
