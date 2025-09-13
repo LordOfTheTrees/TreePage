@@ -1,3 +1,49 @@
+# Jira-Claude Automation System
+- title: "Jira-Claude Automation System"
+  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 60-80% while maintaining high quality and consistency."
+  technologies:
+    - Node.js
+    - JavaScript
+    - Claude AI API
+    - Jira REST API
+    - GitHub Actions
+    - Netlify Functions
+    - Anthropic SDK
+  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Claude-powered requirements analysis with detailed delivery criteria creation
+    - Automated implementation generation for code, documentation, analysis, and processes
+    - Comprehensive quality evaluation against delivery criteria with detailed scoring
+    - Complete workflow integration between Jira webhooks and GitHub Actions
+    - Real-time artifact creation and version control management
+    - Multi-stage progression tracking with automated status updates
+    - Intelligent error handling and fallback mechanisms for robust operations
+
+# NFL Quarterback Performance Analytics
+- title: "NFL Quarterback Performance Analytics"
+  description: "A comprehensive data analysis toolkit for evaluating NFL quarterback performance through advanced statistical modeling. Scrapes Pro Football Reference data to build detailed performance databases and conduct multi-dimensional analysis of quarterback careers."
+  technologies:
+    - Python
+    - Pandas
+    - BeautifulSoup
+    - Requests
+    - Statistical Analysis
+    - Data Visualization
+    - Web Scraping
+  github_url: "https://github.com/LordOfTheTrees/quarterback-analytics"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Automated data collection with human-like request patterns for reliable scraping
+    - Multi-table data integration combining passing, rushing, and advanced analytics
+    - Draft class analysis specializing in first-round quarterback selections
+    - Peak performance identification and career trajectory modeling
+    - Comprehensive player database with season-by-season statistics
+    - Total offensive yards calculation and sustained peak performance analysis
+    - Rate-limited scraping system respecting server resources and avoiding blocks
+    
 # Penn State Football Calendar Generator
 - title: "Penn State Football Calendar Generator"
   description: "A robust web scraper application that extracts Penn State football schedules and creates standardized calendar files, allowing fans to automatically sync game information with their personal calendars."
