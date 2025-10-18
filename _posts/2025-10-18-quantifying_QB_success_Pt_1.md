@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quantifying QB Success: A 25-Year Analysis of First-Round Performance, Part 1"
-date: 2025-10-19
+date: 2025-10-18
 categories: [Analytics, Quarterbacks, Tableau]
 ---
 
