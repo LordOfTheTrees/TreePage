@@ -62,8 +62,7 @@ The 8-game minimum threshold filters out injury-shortened seasons while capturin
 Another central assumption of this analysis is that raw statistical comparison across NFL eras produces systematically biased evaluation outcomes, with recent performers appearing superior due to league-wide offensive inflation rather than individual skill differences. Without era adjustment, a quarterback producing 4,000 passing yards in 2005 appears equal to one producing 4,000 yards in 2020, despite the earlier performance being relatively more impressive given contemporary league standards.
 
 Raw performance statistics suffer from systematic inflation bias. League-wide passing metrics have increased dramatically, creating evaluation challenges when comparing quarterbacks across different seasons within the 2000-2024 sample period. Over the same time period, quarterback rushing has been normalized by the increase in dual-threat quarterbacks, potentially challenging the validity of QB rushing statistics compared across this time period.
-
-<div class='tableauPlaceholder' id='viz1760819723710' style='position: relative; width: 100%; margin: 20px 0;'>
+<div class='tableauPlaceholder' id='viz1760820496405' style='position: relative; width: 100%; margin: 20px 0;'>
   <noscript>
     <a href='#'>
       <img alt='Inflation Coefficients Dash' src='https://public.tableau.com/static/images/QB/QBoffensivestatisticsinflationcoefficients/InflationCoefficientsDash/1_rss.png' style='border: none; max-width: 100%;' />
@@ -83,25 +82,16 @@ Raw performance statistics suffer from systematic inflation bias. League-wide pa
     <param name='display_overlay' value='yes' />
     <param name='display_count' value='yes' />
     <param name='language' value='en-US' />
-    <param name='filter' value='publish=yes' />
   </object>
 </div>
 <script type='text/javascript'>
-  var divElement = document.getElementById('viz1760819723710');
+  var divElement = document.getElementById('viz1760820496405');
   var vizElement = divElement.getElementsByTagName('object')[0];
   if (divElement.offsetWidth > 800) { 
-    vizElement.style.minWidth='420px';
-    vizElement.style.maxWidth='650px';
     vizElement.style.width='100%';
-    vizElement.style.minHeight='587px';
-    vizElement.style.maxHeight='887px';
     vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else if (divElement.offsetWidth > 500) { 
-    vizElement.style.minWidth='420px';
-    vizElement.style.maxWidth='650px';
     vizElement.style.width='100%';
-    vizElement.style.minHeight='587px';
-    vizElement.style.maxHeight='887px';
     vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else { 
     vizElement.style.width='100%';
