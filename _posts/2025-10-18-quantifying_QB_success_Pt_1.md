@@ -35,7 +35,7 @@ This methodology assumes that contract renewal decisions represent the most obje
 
 **Payment Decision Reconstruction:** Perhaps the most complex methodological challenge involved working backwards from contract information to determine payment years and decision windows. Since NFL contract announcements occur at irregular intervals and teams face different decision points based on rookie contract structures, the analysis required mapping each quarterback's career timeline to identify when organizations made critical extend-or-release decisions. This process involved cross-referencing draft years, rookie contract lengths, and publicly available contract extensions to establish binary payment outcomes for each quarterback.
 
-**Technical Implementation:** The analytical framework leveraged Python's scientific computing ecosystem extensively, with pandas serving as the primary tool for data manipulation, merging quarterback statistics with team performance records, and creating the payment decision labels. The era adjustment calculation required custom functions to fit linear regression models for each statistical category across seasons, generating adjustment factors that were then applied to historical performance data. Ridge regression modeling utilized scikit-learn's cross-validation capabilities to optimize regularization parameters, while custom coefficient analysis functions extracted feature importance rankings and statistical significance testing. The pipeline's modular design enabled iterative refinement of the payment decision criteria and continued usefulness as further seasons unfold.
+**Technical Implementation:** The analytical framework leveraged Python's scientific computing ecosystem extensively, with pandas serving as the primary tool for data manipulation, merging quarterback statistics with team performance records, and creating the payment decision labels. The era adjustment calculation fit linear regression models for each statistical category across seasons, generating adjustment factors that were then applied to historical performance data. Ridge regression was used to model all other regressions due to the high multi-collinearity across boxscore stats. This utilized scikit-learn's cross-validation capabilities to optimize regularization parameters, while custom coefficient analysis functions extracted feature importance rankings and statistical significance testing. The modular design of the overall pipeline enabled iterative refinement of the payment decision criteria and continued usefulness as further seasons unfold.
 
 ## The Scale of the Problem
 
@@ -63,20 +63,20 @@ Another central assumption of this analysis is that raw statistical comparison a
 
 Raw performance statistics suffer from systematic inflation bias. League-wide passing metrics have increased dramatically, creating evaluation challenges when comparing quarterbacks across different seasons within the 2000-2024 sample period. Over the same time period, quarterback rushing has been normalized by the increase in dual-threat quarterbacks, potentially challenging the validity of QB rushing statistics compared across this time period.
 
-<div class='tableauPlaceholder' id='viz1760816946235' style='position: relative; width: 100%; height: 600px; margin: 20px 0;'>
+<div class='tableauPlaceholder' id='viz1760819723710' style='position: relative; width: 100%; margin: 20px 0;'>
   <noscript>
     <a href='#'>
-      <img alt='Inflation Coefficients by Year to Adjust Into 2024' src='https://public.tableau.com/static/images/re/resultspt1/InflationCoefficients/1_rss.png' style='border: none; max-width: 100%;' />
+      <img alt='Inflation Coefficients Dash' src='https://public.tableau.com/static/images/QB/QBoffensivestatisticsinflationcoefficients/InflationCoefficientsDash/1_rss.png' style='border: none; max-width: 100%;' />
     </a>
   </noscript>
   <object class='tableauViz' style='display:none;'>
     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
     <param name='embed_code_version' value='3' /> 
     <param name='site_root' value='' />
-    <param name='name' value='resultspt1/InflationCoefficients' />
+    <param name='name' value='QBoffensivestatisticsinflationcoefficients/InflationCoefficientsDash' />
     <param name='tabs' value='no' />
     <param name='toolbar' value='yes' />
-    <param name='static_image' value='https://public.tableau.com/static/images/re/resultspt1/InflationCoefficients/1.png' /> 
+    <param name='static_image' value='https://public.tableau.com/static/images/QB/QBoffensivestatisticsinflationcoefficients/InflationCoefficientsDash/1.png' /> 
     <param name='animate_transition' value='yes' />
     <param name='display_static_image' value='yes' />
     <param name='display_spinner' value='yes' />
@@ -87,17 +87,25 @@ Raw performance statistics suffer from systematic inflation bias. League-wide pa
   </object>
 </div>
 <script type='text/javascript'>
-  var divElement = document.getElementById('viz1760816946235');
+  var divElement = document.getElementById('viz1760819723710');
   var vizElement = divElement.getElementsByTagName('object')[0];
   if (divElement.offsetWidth > 800) { 
+    vizElement.style.minWidth='420px';
+    vizElement.style.maxWidth='650px';
     vizElement.style.width='100%';
-    vizElement.style.height='600px';
+    vizElement.style.minHeight='587px';
+    vizElement.style.maxHeight='887px';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else if (divElement.offsetWidth > 500) { 
+    vizElement.style.minWidth='420px';
+    vizElement.style.maxWidth='650px';
     vizElement.style.width='100%';
-    vizElement.style.height='500px';
+    vizElement.style.minHeight='587px';
+    vizElement.style.maxHeight='887px';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else { 
     vizElement.style.width='100%';
-    vizElement.style.height='400px';
+    vizElement.style.height='727px';
   }
   var scriptElement = document.createElement('script');
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
@@ -121,20 +129,20 @@ The underlying assumption is that contract decisions should theoretically priori
 
 Ridge regression reveals that this is indeed true. Team-level factors dominate in contract decisions, challenging conventional wisdom that quarterback contracts are given on the basis of individual merit:
 
-<div class='tableauPlaceholder' id='viz1760816352706' style='position: relative; width: 100%; height: 600px; margin: 20px 0;'>
+<div class='tableauPlaceholder' id='viz1760819750422' style='position: relative; width: 100%; margin: 20px 0;'>
   <noscript>
     <a href='#'>
-      <img alt='Ridge Regression Weights' src='https://public.tableau.com/static/images/re/resultspt1/RidgeRegressionWeights/1_rss.png' style='border: none; max-width: 100%;' />
+      <img alt='Payment Regression Dash' src='https://public.tableau.com/static/images/Re/Regressionweightsbytheirimpactonpayment/PaymentRegressionDash/1_rss.png' style='border: none; max-width: 100%;' />
     </a>
   </noscript>
   <object class='tableauViz' style='display:none;'>
     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
     <param name='embed_code_version' value='3' /> 
     <param name='site_root' value='' />
-    <param name='name' value='resultspt1/RidgeRegressionWeights' />
+    <param name='name' value='Regressionweightsbytheirimpactonpayment/PaymentRegressionDash' />
     <param name='tabs' value='no' />
     <param name='toolbar' value='yes' />
-    <param name='static_image' value='https://public.tableau.com/static/images/re/resultspt1/RidgeRegressionWeights/1.png' /> 
+    <param name='static_image' value='https://public.tableau.com/static/images/Re/Regressionweightsbytheirimpactonpayment/PaymentRegressionDash/1.png' /> 
     <param name='animate_transition' value='yes' />
     <param name='display_static_image' value='yes' />
     <param name='display_spinner' value='yes' />
@@ -145,21 +153,21 @@ Ridge regression reveals that this is indeed true. Team-level factors dominate i
   </object>
 </div>
 <script type='text/javascript'>
-  var divElement = document.getElementById('viz1760816352706');
+  var divElement = document.getElementById('viz1760819750422');
   var vizElement = divElement.getElementsByTagName('object')[0];
   if (divElement.offsetWidth > 800) { 
     vizElement.style.width='100%';
-    vizElement.style.height='600px';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else if (divElement.offsetWidth > 500) { 
     vizElement.style.width='100%';
-    vizElement.style.height='500px';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else { 
     vizElement.style.width='100%';
-    vizElement.style.height='400px';
+    vizElement.style.height='727px';
   }
   var scriptElement = document.createElement('script');
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  vizElement.parentNode.insertBorder(scriptElement, vizElement);
 </script>
 
 **Feature Importance Rankings (Standardized Coefficients):**
@@ -194,46 +202,47 @@ The weak predictive power of traditional efficiency metrics like passer rating a
 
 Rushing production is just as valid as passing production, and quarterback evaluation should reflect their ability to convert using their legs. Notwithstanding additional injury concerns that may dampen the signal's strength, rushing success rate emerges as the dominant quarterback-specific predictor of contract success, fundamentally challenging conventional evaluation and suggesting a potential overturning of the passer-dominant meta from arm-centric to athleticism-centric organizational priorities.
 
-<div class='tableauPlaceholder' id='viz1760816623578' style='position: relative; width: 100%; height: 600px; margin: 20px 0;'>
+<div class='tableauPlaceholder' id='viz1760819922608' style='position: relative; width: 100%; margin: 20px 0;'>
   <noscript>
     <a href='#'>
-      <img alt='Ridge Regression Weights by Positive Impact on Payment' src='https://public.tableau.com/static/images/re/resultspt1/paymentpredictionweights/1_rss.png' style='border: none; max-width: 100%;' />
+      <img alt='Winning Ridge Regression Dash' src='https://public.tableau.com/static/images/QB/QBridgeregressionweightsbywinning/WinningRidgeRegressionDash/1_rss.png' style='border: none; max-width: 100%;' />
     </a>
   </noscript>
   <object class='tableauViz' style='display:none;'>
     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
     <param name='embed_code_version' value='3' /> 
     <param name='site_root' value='' />
-    <param name='name' value='resultspt1/paymentpredictionweights' />
+    <param name='name' value='QBridgeregressionweightsbywinning/WinningRidgeRegressionDash' />
     <param name='tabs' value='no' />
     <param name='toolbar' value='yes' />
-    <param name='static_image' value='https://public.tableau.com/static/images/re/resultspt1/paymentpredictionweights/1.png' /> 
+    <param name='static_image' value='https://public.tableau.com/static/images/QB/QBridgeregressionweightsbywinning/WinningRidgeRegressionDash/1.png' /> 
     <param name='animate_transition' value='yes' />
     <param name='display_static_image' value='yes' />
     <param name='display_spinner' value='yes' />
     <param name='display_overlay' value='yes' />
     <param name='display_count' value='yes' />
     <param name='language' value='en-US' />
-    <param name='filter' value='publish=yes' />
   </object>
 </div>
 <script type='text/javascript'>
-  var divElement = document.getElementById('viz1760816623578');
+  var divElement = document.getElementById('viz1760819922608');
   var vizElement = divElement.getElementsByTagName('object')[0];
   if (divElement.offsetWidth > 800) { 
     vizElement.style.width='100%';
-    vizElement.style.height='600px';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else if (divElement.offsetWidth > 500) { 
     vizElement.style.width='100%';
-    vizElement.style.height='500px';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
   } else { 
     vizElement.style.width='100%';
-    vizElement.style.height='400px';
+    vizElement.style.height='727px';
   }
   var scriptElement = document.createElement('script');
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
   vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
+
+The negative coefficient depicted above for total yards when controlling for efficiency metrics demonstrates the complex relationships between quarterback statistics. This finding suggests that volume production without proportional efficiency gains may indicate sub-optimal game situations or stat padding.
 
 **Rushing Success Rate Impact:** Ranking as the #2 overall predictor (β = 0.079) and #1 quarterback-specific metric, rushing success rate outperforms all traditional passing statistics including total yards, touchdown production, and completion-based metrics.
 
