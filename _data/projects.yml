@@ -77,27 +77,36 @@
     - Realistic technique flows based on expert knowledge
 
 # NFL Quarterback Performance Analytics
-- title: "NFL Quarterback Performance Analytics"
-  description: "A comprehensive data analysis toolkit for evaluating NFL quarterback performance through advanced statistical modeling. Scrapes Pro Football Reference data to build detailed performance databases and conduct multi-dimensional analysis of quarterback careers."
+- title: "NFL Quarterback Evaluation Framework: 25-Year Performance Analysis"
+  description: "A comprehensive analytical framework for evaluating NFL quarterback performance and contract decisions through advanced statistical modeling and era-adjusted metrics. Combines systematic data collection from Pro Football Reference with ridge regression analysis to reveal organizational biases in quarterback evaluation and predict contract outcomes."
   technologies:
     - Python
     - Pandas
+    - Scikit-learn
+    - NumPy
     - BeautifulSoup
     - Requests
-    - Statistical Analysis
+    - Linear Regression
+    - Ridge Regression
+    - Statistical Hypothesis Testing
+    - Cross-validation
+    - Tableau Public
+    - Data Pipeline Development
     - Data Visualization
     - Web Scraping
+    - Feature Engineering
   github_url: "https://github.com/LordOfTheTrees/quarterback-analytics"
   live_url: ""
   documentation: ""
   key_features:
-    - Automated data collection with human-like request patterns for reliable scraping
-    - Multi-table data integration combining passing, rushing, and advanced analytics
-    - Draft class analysis specializing in first-round quarterback selections
-    - Peak performance identification and career trajectory modeling
-    - Comprehensive player database with season-by-season statistics
-    - Total offensive yards calculation and sustained peak performance analysis
-    - Rate-limited scraping system respecting server resources and avoiding blocks
+    - Era-adjustment methodology correcting for 25 years of offensive inflation using linear regression
+    - Ridge regression analysis revealing team performance dominance over individual quarterback metrics
+    - Systematic bias detection showing rushing success rate as strongest individual quarterback predictor
+    - Payment decision reconstruction working backwards from contract data to evaluation windows
+    - Data extraction and sanitization from hundreds of individual player pages with robust error handling
+    - Interactive Tableau dashboards with multi-chart heat map visualizations for performance analysis
+    - Comprehensive first-round quarterback database spanning 2000-2024 draft classes
+    - Automated web scraping with rate limiting and robust error handling
     
 # Penn State Football Calendar Generator
 - title: "Penn State Football Calendar Generator"

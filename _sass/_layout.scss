@@ -65,6 +65,27 @@
   min-height: calc(100vh - 200px);
 }
 
+// Ensure all content types have proper padding
+.page, .post {
+  padding: 0 1rem;
+  
+  .page-content, .post-content {
+    max-width: 100%;
+    overflow-x: auto; // Handle wide content like tables
+  }
+}
+
+// Wrapper override for better spacing
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 2rem; // Increased from $spacing-unit
+  
+  @media (max-width: $mobile-width) {
+    padding: 0 1rem;
+  }
+}
+
 // Hero section
 .hero {
   padding: $spacing-unit * 2 0;

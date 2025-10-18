@@ -1,4 +1,4 @@
-// Reset
+// Reset and Base Styles
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -114,7 +114,11 @@ img {
 .wrapper {
   max-width: $content-width;
   margin: 0 auto;
-  padding: 0 $spacing-unit;
+  padding: 0 2rem; // Increased padding
+  
+  @media (max-width: $mobile-width) {
+    padding: 0 1rem;
+  }
 }
 
 // Additional content padding for all pages
@@ -126,6 +130,8 @@ img {
 // Ensure consistent padding across all content types
 .page-content, .post-content, .hero-content {
   padding: 0 1rem;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 @media (max-width: $mobile-width) {

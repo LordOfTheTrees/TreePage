@@ -63,7 +63,46 @@ Another central assumption of this analysis is that raw statistical comparison a
 
 Raw performance statistics suffer from systematic inflation bias. League-wide passing metrics have increased dramatically, creating evaluation challenges when comparing quarterbacks across different seasons within the 2000-2024 sample period. Over the same time period, quarterback rushing has been normalized by the increase in dual-threat quarterbacks, potentially challenging the validity of QB rushing statistics compared across this time period.
 
-<div class='tableauPlaceholder' id='viz1760816946235' style='position: relative'><noscript><a href='#'><img alt='Inflation Coefficients by Year to Adjust Into 2024 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;resultspt1&#47;InflationCoefficients&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='resultspt1&#47;InflationCoefficients' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;resultspt1&#47;InflationCoefficients&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1760816946235');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<div class='tableauPlaceholder' id='viz1760816946235' style='position: relative; width: 100%; height: 600px; margin: 20px 0;'>
+  <noscript>
+    <a href='#'>
+      <img alt='Inflation Coefficients by Year to Adjust Into 2024' src='https://public.tableau.com/static/images/re/resultspt1/InflationCoefficients/1_rss.png' style='border: none; max-width: 100%;' />
+    </a>
+  </noscript>
+  <object class='tableauViz' style='display:none;'>
+    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+    <param name='embed_code_version' value='3' /> 
+    <param name='site_root' value='' />
+    <param name='name' value='resultspt1/InflationCoefficients' />
+    <param name='tabs' value='no' />
+    <param name='toolbar' value='yes' />
+    <param name='static_image' value='https://public.tableau.com/static/images/re/resultspt1/InflationCoefficients/1.png' /> 
+    <param name='animate_transition' value='yes' />
+    <param name='display_static_image' value='yes' />
+    <param name='display_spinner' value='yes' />
+    <param name='display_overlay' value='yes' />
+    <param name='display_count' value='yes' />
+    <param name='language' value='en-US' />
+    <param name='filter' value='publish=yes' />
+  </object>
+</div>
+<script type='text/javascript'>
+  var divElement = document.getElementById('viz1760816946235');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if (divElement.offsetWidth > 800) { 
+    vizElement.style.width='100%';
+    vizElement.style.height='600px';
+  } else if (divElement.offsetWidth > 500) { 
+    vizElement.style.width='100%';
+    vizElement.style.height='500px';
+  } else { 
+    vizElement.style.width='100%';
+    vizElement.style.height='400px';
+  }
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
 
 **A Selection of Inflation Factors (2000 vs 2024):**
 - Total offensive yards: +55% increase
@@ -82,7 +121,46 @@ The underlying assumption is that contract decisions should theoretically priori
 
 Ridge regression reveals that this is indeed true. Team-level factors dominate in contract decisions, challenging conventional wisdom that quarterback contracts are given on the basis of individual merit:
 
-<div class='tableauPlaceholder' id='viz1760816352706' style='position: relative'><noscript><a href='#'><img alt='Ridge Regression Weights ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;resultspt1&#47;RidgeRegressionWeights&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='resultspt1&#47;RidgeRegressionWeights' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;resultspt1&#47;RidgeRegressionWeights&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1760816352706');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<div class='tableauPlaceholder' id='viz1760816352706' style='position: relative; width: 100%; height: 600px; margin: 20px 0;'>
+  <noscript>
+    <a href='#'>
+      <img alt='Ridge Regression Weights' src='https://public.tableau.com/static/images/re/resultspt1/RidgeRegressionWeights/1_rss.png' style='border: none; max-width: 100%;' />
+    </a>
+  </noscript>
+  <object class='tableauViz' style='display:none;'>
+    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+    <param name='embed_code_version' value='3' /> 
+    <param name='site_root' value='' />
+    <param name='name' value='resultspt1/RidgeRegressionWeights' />
+    <param name='tabs' value='no' />
+    <param name='toolbar' value='yes' />
+    <param name='static_image' value='https://public.tableau.com/static/images/re/resultspt1/RidgeRegressionWeights/1.png' /> 
+    <param name='animate_transition' value='yes' />
+    <param name='display_static_image' value='yes' />
+    <param name='display_spinner' value='yes' />
+    <param name='display_overlay' value='yes' />
+    <param name='display_count' value='yes' />
+    <param name='language' value='en-US' />
+    <param name='filter' value='publish=yes' />
+  </object>
+</div>
+<script type='text/javascript'>
+  var divElement = document.getElementById('viz1760816352706');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if (divElement.offsetWidth > 800) { 
+    vizElement.style.width='100%';
+    vizElement.style.height='600px';
+  } else if (divElement.offsetWidth > 500) { 
+    vizElement.style.width='100%';
+    vizElement.style.height='500px';
+  } else { 
+    vizElement.style.width='100%';
+    vizElement.style.height='400px';
+  }
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
 
 **Feature Importance Rankings (Standardized Coefficients):**
 1. Team Win-Loss Percentage (β = 0.084, p < 0.001)
@@ -116,7 +194,46 @@ The weak predictive power of traditional efficiency metrics like passer rating a
 
 Rushing production is just as valid as passing production, and quarterback evaluation should reflect their ability to convert using their legs. Notwithstanding additional injury concerns that may dampen the signal's strength, rushing success rate emerges as the dominant quarterback-specific predictor of contract success, fundamentally challenging conventional evaluation and suggesting a potential overturning of the passer-dominant meta from arm-centric to athleticism-centric organizational priorities.
 
-<div class='tableauPlaceholder' id='viz1760816623578' style='position: relative'><noscript><a href='#'><img alt='Ridge Regression Weights by Positive Impact on Payment ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;resultspt1&#47;paymentpredictionweights&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='resultspt1&#47;paymentpredictionweights' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;re&#47;resultspt1&#47;paymentpredictionweights&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1760816623578');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<div class='tableauPlaceholder' id='viz1760816623578' style='position: relative; width: 100%; height: 600px; margin: 20px 0;'>
+  <noscript>
+    <a href='#'>
+      <img alt='Ridge Regression Weights by Positive Impact on Payment' src='https://public.tableau.com/static/images/re/resultspt1/paymentpredictionweights/1_rss.png' style='border: none; max-width: 100%;' />
+    </a>
+  </noscript>
+  <object class='tableauViz' style='display:none;'>
+    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+    <param name='embed_code_version' value='3' /> 
+    <param name='site_root' value='' />
+    <param name='name' value='resultspt1/paymentpredictionweights' />
+    <param name='tabs' value='no' />
+    <param name='toolbar' value='yes' />
+    <param name='static_image' value='https://public.tableau.com/static/images/re/resultspt1/paymentpredictionweights/1.png' /> 
+    <param name='animate_transition' value='yes' />
+    <param name='display_static_image' value='yes' />
+    <param name='display_spinner' value='yes' />
+    <param name='display_overlay' value='yes' />
+    <param name='display_count' value='yes' />
+    <param name='language' value='en-US' />
+    <param name='filter' value='publish=yes' />
+  </object>
+</div>
+<script type='text/javascript'>
+  var divElement = document.getElementById('viz1760816623578');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if (divElement.offsetWidth > 800) { 
+    vizElement.style.width='100%';
+    vizElement.style.height='600px';
+  } else if (divElement.offsetWidth > 500) { 
+    vizElement.style.width='100%';
+    vizElement.style.height='500px';
+  } else { 
+    vizElement.style.width='100%';
+    vizElement.style.height='400px';
+  }
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
 
 **Rushing Success Rate Impact:** Ranking as the #2 overall predictor (β = 0.079) and #1 quarterback-specific metric, rushing success rate outperforms all traditional passing statistics including total yards, touchdown production, and completion-based metrics.
 
