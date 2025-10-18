@@ -19,9 +19,9 @@ title: Home
 
 <section class="featured-projects">
   <h2>Featured Projects</h2>
-  <div class="projects-grid">
-    {% for project in site.data.projects limit:3 %}
-    <div class="project-card">
+  <div class="projects-grid" id="featured-projects-grid">
+    {% for project in site.data.projects %}
+    <div class="project-card" data-index="{{ forloop.index0 }}">
       <h3>{{ project.title }}</h3>
       <p>{{ project.description }}</p>
       <div class="project-links">
@@ -64,6 +64,44 @@ title: Home
 </section>
 
 <script src="{{ site.baseurl }}/assets/js/photography-banner.js"></script>
+
+<script>
+// Responsive featured projects display
+document.addEventListener('DOMContentLoaded', function() {
+  function adjustFeaturedProjects() {
+    const grid = document.getElementById('featured-projects-grid');
+    const projects = grid.querySelectorAll('.project-card');
+    
+    // Get screen width
+    const screenWidth = window.innerWidth;
+    let maxProjects;
+    
+    // Determine how many projects to show based on screen size
+    if (screenWidth >= 900) { // Desktop
+      maxProjects = 6; // 2 rows of 3
+    } else if (screenWidth >= 600) { // Tablet
+      maxProjects = 4; // 2 rows of 2
+    } else { // Mobile
+      maxProjects = 3; // 3 rows of 1
+    }
+    
+    // Show/hide projects based on screen size
+    projects.forEach((project, index) => {
+      if (index < maxProjects) {
+        project.style.display = 'block';
+      } else {
+        project.style.display = 'none';
+      }
+    });
+  }
+  
+  // Initial adjustment
+  adjustFeaturedProjects();
+  
+  // Adjust on window resize
+  window.addEventListener('resize', adjustFeaturedProjects);
+});
+</script>
 
 <style>
 .featured-photography {

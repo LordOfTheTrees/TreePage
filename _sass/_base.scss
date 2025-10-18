@@ -116,3 +116,24 @@ img {
   margin: 0 auto;
   padding: 0 $spacing-unit;
 }
+
+// Additional content padding for all pages
+.content {
+  padding: $spacing-unit 1.5rem;
+  min-height: calc(100vh - 200px);
+}
+
+// Ensure consistent padding across all content types
+.page-content, .post-content, .hero-content {
+  padding: 0 1rem;
+}
+
+@media (max-width: $mobile-width) {
+  .content {
+    padding: $spacing-unit 1rem;
+  }
+  
+  .page-content, .post-content, .hero-content {
+    padding: 0 0.5rem;
+  }
+}
