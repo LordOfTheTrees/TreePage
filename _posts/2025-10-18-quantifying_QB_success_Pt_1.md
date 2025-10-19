@@ -5,7 +5,6 @@ date: 2025-10-18
 categories: [Analytics, Quarterbacks, Tableau]
 ---
 
-
 The current state of discourse regarding professional American football is poor, suffering from an overabundance of meaningless data, without any effective filtering mechanism for the public to understand what drives quarterback performance and retention decisions. Advanced proprietary metrics dominate front office decision-making, but their data is not accessible to the general fan to contextualize the performance of their favorite players. Public analysis remains constrained to basic box score statistics and subjective evaluation frameworks. This saturated landscape results in confusion about which statistics are actually meaningful, and which are just noise. There is always a stat available to suit any subjective argument being put forward, and the current fan has no way to determine which statistics matter, and which ones do not.
 
 This analysis deliberately embraces the data access constraints, and uses only publicly available, full-season aggregated statistics to demonstrate that meaningful insights about quarterback evaluation can emerge from accessible data sources, improving the overall quarterback evaluation discourse. We focus exclusively on first-round quarterbacks drafted between 2000-2024, as that leverages the draft's natural filtering mechanism - teams only spend first-round capital on players they believe possess franchise-level talent and teams face immediate pressure to justify that investment through on field performance. Using first-round picks creates a controlled sample where evaluation failures represent predictable evaluation biases rather than simple talent scarcity. A draft evaluator felt so strongly about every quarterback in this sample, that they couldn't let them leave the first round. This makes it an ideal laboratory for understanding how teams actually make contract decisions.
@@ -18,12 +17,12 @@ First-round quarterback investments represent the highest-stakes talent allocati
 - Establishes contract renewal as objective measure of organizational quarterback evaluation
 - Introduces era-adjustment methodology to enable fair statistical comparison across NFL seasons
 - Demonstrates systematic bias toward team-dependent metrics over more individually focused performance measures
-- Sets the stage for detailed coefficient analysis, temporal bias examination, and predictive dashboard development in Articles 2 & 3
+- Sets the stage for detailed coefficient and confusion matrix analysis, temporal bias examination, and predictive dashboard development in Articles 2 & 3
 
 **Key Findings:**
-- Era-adjustment methodology improves model accuracy by eliminating statistical inflation bias (passing yards increased 55% since 2000)
-- Ridge regression analysis¹ identifies team wins and points scored as strongest predictors of contract renewal, outweighing individual efficiency metrics
-- Model achieves R² = 0.72² with 5-fold cross-validation³ on held-out test data, demonstrating robust predictive capability
+- Era-adjustment methodology improves model accuracy by eliminating statistical inflation bias
+- Ridge regression analysis¹ reveals team-dependent metrics (wins, points) predict contract renewal more strongly than individual efficiency metrics, with team win percentage showing the highest coefficient
+
 
 ## Dataset and Methodology
 
@@ -45,17 +44,17 @@ Unlike later-round picks where teams can afford developmental patience or accept
 
 **Sample Composition:**
 - N = 47 first-round quarterbacks (2000-2020 draft classes)
-- 350+ individual season records with minimum 8 games started
+- 350+ individual season records
 - Performance metrics: Total yards⁴, touchdown production⁵, efficiency ratings, team win %, etc...
 - Outcome variable: Binary contract renewal (Yes/No) (further investigation is planned around APY as a % of salary cap at signing)
 
 **Statistical Approach:**
 - Ridge regression with L2 regularization⁶ to handle multicollinearity⁷
 - 5-fold cross-validation for hyperparameter optimization
-- Train/test split: 2000-2016 training, 2017-2020 held-out validation
+- 80/20 train/test split for model validation
 - Feature standardization to enable coefficient comparison
 
-The 8-game minimum threshold filters out injury-shortened seasons while capturing sufficient sample size for performance evaluation. Ridge regression addresses the high correlation between quarterback statistics while preserving interpretability of individual metric importance.
+Ridge regression addresses the high correlation between quarterback statistics while preserving interpretability of individual metric importance.
 
 ## Era Adjustment Framework
 
@@ -265,9 +264,9 @@ Articles 2 and 3 will examine temporal weighting bias in quarterback performance
 
 ¹ **Ridge Regression**: A statistical technique that adds a penalty term to standard linear regression to reduce overfitting when predictor variables are highly correlated. It "shrinks" coefficient estimates toward zero, making the model more stable and generalizable.
 
-² **R² (R-squared)**: Measures the proportion of variance in the outcome variable explained by the model, ranging from 0 to 1. An R² of 0.72 means the model explains 72% of the variation in contract renewal decisions.
+² **Ridge Regression Coefficients**: Standardized coefficients that measure the relative importance of each predictor variable while controlling for multicollinearity, with larger absolute values indicating stronger predictive relationships.
 
-³ **5-Fold Cross-Validation**: A model validation technique that splits data into 5 equal parts, trains on 4 parts and tests on the remaining part, repeating this process 5 times to get robust performance estimates.
+³ **Train/Test Split**: A model validation technique that separates data into a training set (used to fit the model) and a test set (held-out data used to evaluate generalization performance), ensuring the model performs well on unseen data.
 
 ⁴ **Total Yards**: Combined passing and rushing yards per season, era-adjusted to account for league-wide offensive inflation over time.
 
