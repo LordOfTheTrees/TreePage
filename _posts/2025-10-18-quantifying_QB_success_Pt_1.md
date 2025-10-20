@@ -20,8 +20,10 @@ First-round quarterback investments represent the highest-stakes talent allocati
 - Sets the stage for detailed coefficient and confusion matrix analysis, temporal bias examination, and predictive dashboard development in Articles 2 & 3
 
 **Key Findings:**
-- Era-adjustment methodology improves model accuracy by eliminating statistical inflation bias
-- Ridge regression analysis¹ reveals team-dependent metrics (wins, points) predict contract renewal more strongly than individual efficiency metrics, with team win percentage showing the highest coefficient
+- Era-adjustment methodology eliminates statistical inflation bias (total offensive yards +6.84%, passing TDs +17% from 2000-2024)
+- Ridge regression analysis¹ reveals team-dependent metrics (wins, points) predict contract renewal more strongly than individual efficiency metrics, with team win percentage showing the highest coefficient (β = 0.084)
+- Rushing success rate emerges as the strongest quarterback-specific predictor (β = 0.079), outperforming all traditional passing efficiency metrics and suggesting a paradigm shift toward dual-threat evaluation
+- Total yards (volume) and ANY/A (efficiency) selected as primary metrics for trajectory modeling in subsequent articles, balancing predictive power with cross-era applicability
 
 
 ## Dataset and Methodology
@@ -103,10 +105,10 @@ Raw performance statistics suffer from systematic inflation bias. League-wide pa
 </script>
 
 **A Selection of Inflation Factors (2000 vs 2024):**
-- Total offensive yards: +55% increase
-- Passing touchdowns: +77% increase  
-- Adjusted Net Yards per Attempt (ANY/A)⁸: +5% increase
-- Rushing success rate⁹: +35% increase
+- Total offensive yards: +6.84% increase
+- Passing touchdowns: +17.77% increase  
+- Adjusted Net Yards per Attempt (ANY/A)⁸: +5.01% increase
+- Rushing success rate⁹: +55.34% increase
 
 **Adjustment Methodology:**
 Era adjustment factors calculated using linear regression against season year, with 2024 as reference baseline. Each historical season's statistics multiplied by adjustment factor to enable fair comparison across eras. This approach assumes linear progression in offensive inflation, chosen for methodological simplicity and interpretability of the resulting adjustment factors.
