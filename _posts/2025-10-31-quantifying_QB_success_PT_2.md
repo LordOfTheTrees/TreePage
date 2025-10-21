@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quantifying QB Success: Temporal Weighting Patterns in Contract Decisions, Part 2"
-date: 2025-10-20
+date: 2025-10-31
 categories: [Analytics, Quarterbacks, Tableau]
 ---
 
