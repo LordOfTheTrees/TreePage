@@ -7,7 +7,7 @@ categories: [Analytics, Quarterbacks, Tableau]
 
 Article 1 established which metrics predict quarterback contract decisions, identifying Total Yards (era-adjusted) and ANY/A (era-adjusted) as the key predictors balancing volume production with efficiency. However, that analysis treated all career years equally, averaging performance across Years 1-3 with uniform weights. This approach optimized overall prediction accuracy but obscured a crucial dimension of organizational evaluation: teams don't weight all career years equally when making contract decisions.
 
-The question Article 1 left unanswered is not which metrics matter, but **when** they matter most. Does a quarterback's rookie season carry the same weight as their most recent performance? Do teams exhibit recency bias, overweighting recent seasons while discounting earlier career data? Or do organizations take a balanced, long-term view of quarterback development?
+The question Article 1 left unanswered is not which metrics matter, but **when** they matter most. Does a quarterback's rookie season carry the same weight as their most recent performance? Do teams exhibit recency bias, weighting recent seasons heavier while discounting earlier career data? Or do organizations take a balanced, long-term view of quarterback development?
 
 This analysis decomposes the temporal patterns in contract evaluation, revealing systematic biases in how teams weight performance across a quarterback's early career. The findings have immediate practical implications: understanding when performance matters most enables better prediction of which current quarterbacks are on track for extensions versus which face uncertain futures despite strong career averages.
 

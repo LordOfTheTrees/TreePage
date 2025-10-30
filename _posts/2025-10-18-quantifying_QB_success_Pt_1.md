@@ -21,8 +21,8 @@ First-round quarterback investments represent the highest-stakes talent allocati
 
 **Key Findings:**
 - Era-adjustment methodology eliminates statistical inflation bias (total offensive yards +6.84%, passing TDs +17% from 2000-2024)
-- Ridge regression analysis¹ reveals team-dependent metrics (wins, points) predict contract renewal more strongly than individual efficiency metrics, with team win percentage showing the highest coefficient (β = 0.084)
-- Rushing success rate emerges as the strongest quarterback-specific predictor (β = 0.079), outperforming all traditional passing efficiency metrics and suggesting a paradigm shift toward dual-threat evaluation
+- Ridge logistic regression analysis¹ reveals volume production leads evaluation only slighty, with total yards showing the highest coefficient (β = 0.236), followed closely by team win percentage (β = 0.219), showing the team dominant decision frame for contract decisions
+- Rushing success rate emerges as a dominant quarterback-specific predictor (β = 0.203), achieving near-parity with touchdown production and substantially outperforming traditional efficiency metrics, confirming the paradigm shift toward dual-threat evaluation
 - Total yards (volume) and ANY/A (efficiency) selected as primary metrics for trajectory modeling in subsequent articles, balancing predictive power with cross-era applicability
 
 
@@ -51,7 +51,7 @@ Unlike later-round picks where teams can afford developmental patience or accept
 - Outcome variable: Binary contract renewal (Yes/No) (further investigation is planned around APY as a % of salary cap at signing)
 
 **Statistical Approach:**
-- Ridge regression with L2 regularization⁶ to handle multicollinearity⁷
+- Logistic Ridge regression with L2 regularization⁶ to handle multicollinearity⁷
 - 5-fold cross-validation for hyperparameter optimization
 - 80/20 train/test split for model validation
 - Feature standardization to enable coefficient comparison
@@ -163,14 +163,14 @@ Ridge regression reveals that this is indeed true. Team-level factors dominate i
 </script>
 
 **Feature Importance Rankings (Standardized Coefficients):**
-1. Team Win-Loss Percentage (β = 0.084, p < 0.001)
-2. Rushing Success Rate - Era Adjusted (β = 0.079, p < 0.01)  
-3. Total Yards - Era Adjusted (β = 0.075, p < 0.05)
-4. Adjusted Net Yards per Attempt - Era Adjusted (β = 0.072, p < 0.05)
-5. Touchdown Production - Era Adjusted (β = 0.044, p < 0.05)
-6. Points Per Game - Era Adjusted (β = 0.018, p > 0.05)
+1. Total Yards - Era Adjusted (β = 0.236, p < 0.05)
+2. Team Win-Loss Percentage (β = 0.219, p < 0.05)
+3. Adjusted Net Yards per Attempt - Era Adjusted (β = 0.211, p < 0.05)
+4. Rushing Success Rate - Era Adjusted (β = 0.203, p < 0.05)
+5. Touchdown Production - Era Adjusted (β = 0.203, p < 0.05)
+6. Points Per Game - Era Adjusted (β = 0.126, p < 0.05)
 
-**Key Insight:** Team performance metrics (win %, points) explain 2.4x more variance than pure quarterback efficiency measures. This suggests front offices evaluate quarterbacks heavily based on team success rather than individual performance in isolation, creating systematic bias toward quarterbacks who benefit from superior organizational support systems.
+**Key Insight:** Individual and team performance metrics demonstrate nearly equivalent predictive power (β coefficients clustered 0.20-0.24), revealing the fundamental challenge of isolating quarterback contribution from organizational context. Teams clearly struggle to separate individual skill from team-dependent outcomes.
 
 **Ridge Regression Limitations:** Ridge regression assumes linear relationships and stable coefficients across the entire sample period, which may be problematic when analyzing a position undergoing fundamental evaluation changes. The technique's strength in shrinking correlated predictors toward zero could inadvertently dampen emerging signals like the dual-threat evolution trend that haven't fully manifested across the 25-year sample. Additionally, ridge regression weights all time periods equally, potentially underestimating recent shifts in organizational priorities and assuming that historical evaluation patterns will continue to predict future contract decisions. Despite these limitations, ridge regression remains the optimal choice for handling the severe multicollinearity between quarterback statistics while maintaining interpretable coefficients for organizational decision-making analysis.
 
@@ -264,7 +264,7 @@ Articles 2 and 3 will examine temporal weighting bias in quarterback performance
 
 ## Footnotes
 
-¹ **Ridge Regression**: A statistical technique that adds a penalty term to standard linear regression to reduce overfitting when predictor variables are highly correlated. It "shrinks" coefficient estimates toward zero, making the model more stable and generalizable.
+¹ **Ridge Regression**: A statistical technique that adds a penalty term to standard regressions to reduce overfitting when predictor variables are highly correlated. It "shrinks" coefficient estimates toward zero, making the model more stable and generalizable.
 
 ² **Ridge Regression Coefficients**: Standardized coefficients that measure the relative importance of each predictor variable while controlling for multicollinearity, with larger absolute values indicating stronger predictive relationships.
 
