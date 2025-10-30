@@ -178,17 +178,10 @@ Ridge regression reveals that this is indeed true. Team-level factors dominate i
 
 Another underlying question is whether decades of media and analytical focus on quarterback-specific metrics like passer rating and QBR actually translate into predictive power for contract decisions. These metrics were specifically designed to attempt to better isolate individual quarterback performance from team context, theoretically making them ideal predictors of organizational evaluation. If teams actually prioritize individual quarterback skill over team outcomes, efficiency-based metrics should outperform volume statistics and team results in contract prediction models.
 
-Traditional "quarterback-centric" metrics show surprising weakness in the predictive model, challenging decades of conventional evaluation frameworks:
-
-**Conventional Metrics with Low Predictive Power:**
-- Passer Rating¹¹: β = 0.032 (non-significant, p = 0.347)
-- Quarterback Rating (QBR)¹²: High multicollinearity with team metrics
-- Completion Percentage¹³: β = -0.018 (non-significant, p = 0.521)
-
 **Volume vs Efficiency Paradox:**
 Era-adjusted volume statistics (total yards, touchdowns) consistently outperform efficiency metrics in predicting contract outcomes. This suggests decision-makers prioritize cumulative production over per-attempt efficiency, possibly because volume statistics correlate more strongly with team success and are less susceptible to small-sample variation.
 
-The weak predictive power of traditional efficiency metrics like passer rating and QBR may reflect their complexity and disconnect from actual game outcomes. In contrast, ANY/A performs well as the #4 predictor, possibly because it directly incorporates sacks and interceptions that affect team performance. Contract decisions appear to favor efficiency measures that connect to team success over those designed purely for statistical comparison.
+The weak predictive power of traditional efficiency metrics like passer rating and QBR may reflect their complexity and disconnect from actual game outcomes. In contrast, ANY/A performs well as the #3 predictor, possibly because it directly incorporates sacks and interceptions that affect team performance. Contract decisions appear to favor efficiency measures that connect to team success over those designed purely for statistical comparison.
 
 ## Dual-Threat Performance Analysis
 
