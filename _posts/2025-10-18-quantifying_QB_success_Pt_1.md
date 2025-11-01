@@ -211,7 +211,7 @@ Our methodology validates total yards and ANY/A as the foundation for temporal b
 
 For teams seeking competitive advantage, the model suggests focusing on era-adjusted volume production (total yards, touchdowns) and efficiency (ANY/A) as primary evaluation dimensions, with dual-threat capability serving as a complementary but not dominant factor in contract decisions.
 
-Articles 2 and 3 will examine temporal weighting bias in quarterback performance evaluation, implement a heat-map of payment probabilities which leverages any biases, and analyse final quarterback trajectories and comparables.
+Articles 2 and 3 will examine temporal weighting bias in quarterback performance evaluation, implement a heat-map of payment probabilities which leverages any biases, and analyse final quarterback trajectories and comparisons.
 
 ---
 
