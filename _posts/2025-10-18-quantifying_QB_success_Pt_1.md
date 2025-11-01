@@ -21,10 +21,9 @@ First-round quarterback investments represent the highest-stakes talent allocati
 
 **Key Findings:**
 - Era-adjustment methodology eliminates statistical inflation bias (total offensive yards +6.84%, passing TDs +17% from 2000-2024)
-- Ridge logistic regression analysis¹ reveals volume production leads evaluation only slighty, with total yards showing the highest coefficient (β = 0.236), followed closely by team win percentage (β = 0.219), showing the team dominant decision frame for contract decisions
-- Rushing success rate emerges as a dominant quarterback-specific predictor (β = 0.203), achieving near-parity with touchdown production and substantially outperforming traditional efficiency metrics, confirming the paradigm shift toward dual-threat evaluation
+- Ridge regression analysis¹ reveals volume production metrics slightly outperform team-dependent and efficiency metrics, with total yards showing the highest coefficient (β = 0.175), followed closely by touchdown production (β = 0.162) and team win percentage (β = 0.152)
+- All predictors cluster within a relatively narrow range (β = 0.109 to 0.175) due to high multicollinearity between quarterback statistics. This necessitates selecting representative metrics from each category—total yards (volume) and ANY/A (efficiency)—to enable clear interpretation of organizational priorities in subsequent trajectory analysis
 - Total yards (volume) and ANY/A (efficiency) selected as primary metrics for trajectory modeling in subsequent articles, balancing predictive power with cross-era applicability
-
 
 ## Dataset and Methodology
 
@@ -129,7 +128,9 @@ Ridge regression reveals that this is indeed true. Team-level factors dominate i
 5. Touchdown Production - Era Adjusted (β = 0.203, p < 0.05)
 6. Points Per Game - Era Adjusted (β = 0.126, p < 0.05)
 
-**Key Insight:** Individual and team performance metrics demonstrate nearly equivalent predictive power (β coefficients clustered 0.20-0.24), revealing the fundamental challenge of isolating quarterback contribution from organizational context. Teams clearly struggle to separate individual skill from team-dependent outcomes.
+**Key Insight:** Volume production metrics (total yards, touchdowns) slightly outperform team-dependent and efficiency metrics, though the narrow coefficient range (0.109-0.175) reflects severe multicollinearity rather than balanced organizational weighting. Quarterback statistics are inherently correlated—high yardage totals typically accompany more touchdowns, better efficiency, and team wins. Ridge regression shrinks these correlated predictors toward similar values, making individual coefficient interpretation challenging. This multicollinearity necessitates selecting representative metrics for trajectory analysis: total yards captures volume production while ANY/A represents efficiency, enabling clearer evaluation of organizational priorities without redundant overlapping signals.
+
+**Key Insight:** Individual and team performance metrics demonstrate nearly equivalent predictive power (β coefficients clustered 0.20-0.24). The narrow coefficient range (0.109-0.175) reflects severe multicollinearity rather than balanced organizational weighting. Ridge regression shrinks these correlated predictors toward similar values, making individual coefficient interpretation challenging. This multicollinearity necessitates selecting representative metrics for trajectory analysis: we select total yards to capture volume production while ANY/A captures passing efficiency, enabling clearer evaluation of organizational priorities without redundant overlapping signals.
 
 **Ridge Regression Limitations:** Ridge regression assumes linear relationships and stable coefficients across the entire sample period, which may be problematic when analyzing a position undergoing fundamental evaluation changes. The technique's strength in shrinking correlated predictors toward zero could inadvertently dampen emerging signals like the dual-threat evolution trend that haven't fully manifested across the 25-year sample. Additionally, ridge regression weights all time periods equally, potentially underestimating recent shifts in organizational priorities and assuming that historical evaluation patterns will continue to predict future contract decisions. Despite these limitations, ridge regression remains the optimal choice for handling the severe multicollinearity between quarterback statistics while maintaining interpretable coefficients for organizational decision-making analysis.
 
@@ -144,7 +145,7 @@ The weak predictive power of traditional efficiency metrics like passer rating a
 
 ## Dual-Threat Performance Analysis
 
-Rushing production is just as valid as passing production, and quarterback evaluation should reflect their ability to convert using their legs. Notwithstanding additional injury concerns that may dampen the signal's strength, rushing success rate emerges as a dominant quarterback-specific predictor of contract success, fundamentally challenging conventional evaluation and suggesting a potential overturning of the passer-dominant meta from arm-centric to athleticism-centric organizational priorities.
+Rushing production is just as valid as passing production, and quarterback evaluation should reflect their ability to convert using their legs. Notwithstanding additional injury concerns that may dampen the signal's strength, rushing success rate demonstrates meaningful predictive power (β = 0.124, p < 0.001), ranking as the 5th strongest predictor overall. While this confirms dual-threat capability contributes to contract decisions, it trails volume production (total yards, touchdowns), team win percentage, and passing efficiency (ANY/A). Nevertheless, the imporance of this metric overall fundamentally challenges conventional evaluation and suggests a potential overturning of the passer-dominant meta from arm-centric to athleticism-centric quarterbacks.
 
 <div class='tableauPlaceholder' id='viz1760819922608' style='position: relative; width: 100%; margin: 20px 0;'>
   <noscript>
@@ -188,13 +189,13 @@ Rushing production is just as valid as passing production, and quarterback evalu
 
 The negative coefficient depicted above for total yards when controlling for efficiency metrics demonstrates the complex relationships between quarterback statistics. This finding suggests that volume production without proportional efficiency gains may indicate sub-optimal game situations or stat padding.
 
-**Rushing Success Rate Impact:** Ranking as the #2 overall predictor (β = 0.079) and #1 quarterback-specific metric, rushing success rate outperforms all traditional passing statistics including total yards, touchdown production, and completion-based metrics.
+**Rushing Success Rate Impact:** Ranking as the #5 overall predictor (β = 0.124, p < 0.001), rushing success rate demonstrates meaningful predictive power as the sole remaining rushing statistic. Rushing success rate trails total yards (β = 0.175), touchdown production (β = 0.162), win percentage (β = 0.152), and ANY/A (β = 0.147). This indicates that while dual-threat ability contributes to contract decisions, traditional volume and efficiency metrics remain more influential in organizational evaluation.
 
-**Why Rushing Succeeds:** Rushing success rate combines pure efficiency (scrambling for first downs when coverage eliminates passing options) with designed offensive schemes that leverage mobility as a primary weapon. While no quarterback metric is truly independent of teammate contribution, rushing requires less offensive line protection and receiver separation than passing statistics, making it more attributable to individual capability. The metric also provides a more comprehensive measure than raw rushing yards, which can be inflated by explosive plays rather than consistent conversion ability.
+**Why Rushing Succeeds:** Rushing success rate combines pure efficiency (scrambling for first downs when coverage eliminates passing options) with designed offensive schemes that leverage mobility as a primary weapon. The importance of the metric makes sense, since quarterback rushing often occurs after the play breaks down, and the rushes are often for first downs (considered "success" under all down and distance circumstances). While no quarterback metric is truly independent of teammate contribution, quarterback rushing often requires less offensive line protection (or even intentional non-blocking) and less receiver competence post-snap than passing statistics, making it more attributable to individual capability.
 
 ## Metric Selection for Trajectory Analysis
 
-While rushing success rate emerges as the strongest quarterback-specific predictor, the trajectory analysis in subsequent articles focuses primarily on total yards and ANY/A for several methodological reasons that balance predictive power with analytical robustness.
+While rushing success rate demonstrates meaningful predictive power as the 5th-ranked metric, the trajectory analysis in subsequent articles focuses primarily on total yards and ANY/A for several methodological reasons that balance predictive power with analytical robustness.
 
 **Sample Size Limitations:** Dual-threat quarterbacks represent a minority of the 2000-2024 sample, with the archetype becoming prevalent only in recent years. This creates signal-to-noise concerns when building trajectory models, as the rushing success rate finding may be driven by a smaller subset of highly successful mobile quarterbacks rather than representing a reliable pattern across the full range of quarterback types.
 
@@ -206,11 +207,11 @@ While rushing success rate emerges as the strongest quarterback-specific predict
 
 This analysis establishes the analytical foundation for era-adjusted quarterback evaluation, demonstrating through linear regression that offensive inflation significantly biases cross-temporal comparisons. Ridge regression analysis reveals with strong statistical significance that team-level factors (wins, points) dominate individual quarterback metrics in contract decisions, contradicting conventional wisdom about individual merit-based evaluation. Teams claim to prioritize individual skill, but they consistently reward team success instead. Teams that can successfully isolate individual quarterback contribution from team-dependent outcomes should therefore possess significant competitive advantages in both draft selection and contract negotiation, even in today's data-saturated talent marketplace.
 
-Our methodology also validates total yards and ANY/A as the foundation for temporal bias analysis and predictive modeling in subsequent articles. Total yards is the dominant  volume metric and ANY/A is the dominant metric for efficiency. Rushing success rate remains an intriguing emerging paradigm shift toward athleticism based evaluation, and worthy of study in future analysis. 
+Our methodology validates total yards and ANY/A as the foundation for temporal bias analysis and predictive modeling in subsequent articles. Total yards is the dominant volume metric and ANY/A is the dominant efficiency metric. Rushing success rate demonstrates meaningful predictive power (β = 0.124), confirming that dual-threat capability contributes to evaluation frameworks, though it ranks below traditional volume and efficiency measures.
 
-For teams seeking competitive advantage, the model suggests focusing on era-adjusted volume production and dual-threat capability while discounting traditional efficiency metrics that correlate weakly with contract outcomes. However, the most significant insight may be the reinforced importance of organizational context - quarterbacks succeed when surrounded by competent coaching and supporting talent, suggesting that for many evaluators, quarterback evaluation cannot be separated from broader organizational assessment.
+For teams seeking competitive advantage, the model suggests focusing on era-adjusted volume production (total yards, touchdowns) and efficiency (ANY/A) as primary evaluation dimensions, with dual-threat capability serving as a complementary but not dominant factor in contract decisions.
 
-Articles 2 and 3 will examine temporal weighting bias in quarterback performance evaluation and implement an interactive dashboard for real-time quarterback contract probability modeling.
+Articles 2 and 3 will examine temporal weighting bias in quarterback performance evaluation, implement a heat-map of payment probabilities which leverages any biases, and analyse final quarterback trajectories and comparables.
 
 ---
 
