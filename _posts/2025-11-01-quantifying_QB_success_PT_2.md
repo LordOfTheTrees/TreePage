@@ -363,14 +363,105 @@ The probability surfaces reveal sharp performance thresholds where contract like
 
 These thresholds appeared consistently across decision years and K values, suggesting they represent bright-line standards in organizational evaluation. Quarterbacks below these boundaries rarely received contracts in our sample regardless of other performance dimensions.
 
+### Probability Surface Comparison
+
+The heatmaps below show contract probability surfaces for Decision Year 6, comparing Total Yards (left) and ANY/A (right) at K=10. Darker regions indicate higher contract probability, with the ~4,200 yard and ~6.5 ANY/A thresholds visible as probability gradients.
+
+<div class='tableauPlaceholder' id='viz1762032137103' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='ANY vs Yards Comparison' src='https://public.tableau.com/static/images/Fu/FullHeatmapYardsandANY-6/ANYvsYardsComparison/1_rss.png' style='border: none' />
+        </a>
+    </noscript>
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='FullHeatmapYardsandANY-6/ANYvsYardsComparison' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https://public.tableau.com/static/images/Fu/FullHeatmapYardsandANY-6/ANYvsYardsComparison/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+        <param name='filter' value='publish=yes' />
+    </object>
+</div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1762032137103');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    
+    // Responsive sizing for side-by-side heatmap
+    if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '1127px';
+    } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '727px';
+    }
+    
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+The side-by-side comparison reveals that both metrics produce similar probability structures, with high-probability zones concentrated in the upper-middle and upper-right (high performance across both dimensions) and low-probability zones in the lower-left and right. The consistency across metrics validates that organizational temporal weighting patterns are metric-agnostic—teams apply similar recency bias whether evaluating volume or efficiency.
+
 ### Multiple K Value Analysis
 
 We generated surfaces for K = 5, 10, 15, 20 to assess sensitivity to neighborhood size. Smaller K values use fewer historical comparisons per prediction point, while larger K values average over more neighbors. This allows users to choose K based on their use case and to verify that probability estimates are stable across different neighborhood sizes rather than artifacts of a single K choice. Often, we select the K=20 for the background of our visuals in article 3 because they are less noisy and easier to use as a background.
 
 All K values showed consistent threshold locations (~4,200 yards, ~6.5 ANY/A), but probability gradient steepness varied.
 
+### K Value Sensitivity Analysis
 
---------------------------------------------------------insert chart backgrounds here
+To assess how neighborhood size affects probability estimates, we generated surfaces for K = 5, 10, 15, and 20. The comparison below shows Decision Year 4 Total Yards surfaces across all K values, revealing how probability estimates change with different numbers of nearest neighbors, and why we ultimately decided to continue forward with K=20 for a more compelling and consistent visual gradient.
+
+<div class='tableauPlaceholder' id='viz1762031256608' style='position: relative'>
+    <noscript>
+        <a href='#'>
+            <img alt='QB Adj Total Yards Heatmap by KNN' src='https://public.tableau.com/static/images/Ye/Year4ContractKNNComparison/QBAdjTotalYardsHeatmapbyKNN/1_rss.png' style='border: none' />
+        </a>
+    </noscript>
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='Year4ContractKNNComparison/QBAdjTotalYardsHeatmapbyKNN' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https://public.tableau.com/static/images/Ye/Year4ContractKNNComparison/QBAdjTotalYardsHeatmapbyKNN/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+        <param name='filter' value='publish=yes' />
+    </object>
+</div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1762031256608');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    
+    // Responsive sizing for heatmap comparison
+    if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '1196px';
+    } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '1327px';
+    }
+    
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBorder(scriptElement, vizElement);
+</script>
+
+Smaller K values (K=5) produce sharper probability boundaries and higher variance in sparse regions, while larger K values (K=20) smooth estimates by averaging over more historical cases. The core high-probability and low-probability zones remain consistent across all K values. As a result, for Article 3's trajectory analysis, we use K=20 to maximize visual gradient clarity in the probability surfaces. The increased smoothing from 20 nearest neighbors produces cleaner heatmap transitions, making individual quarterback trajectories easier to interpret against the background surface.
 
 ### Bridge to Article 3: Trajectory Mapping and Similarity Analysis
 

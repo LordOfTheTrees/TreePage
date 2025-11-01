@@ -16,7 +16,7 @@ First-round quarterback investments represent the highest-stakes talent allocati
 **Article 1 Contributions:**
 - Establishes contract renewal as objective measure of organizational quarterback evaluation
 - Introduces era-adjustment methodology to enable fair statistical comparison across NFL seasons
-- Demonstrates systematic bias toward team-dependent metrics over more individually focused performance measures
+- Demonstrates strong team-frame bias around quarterback evaluation metrics (Team Wins are more predictive than anything other than Adjusted Total Yards⁴)
 - Sets the stage for detailed coefficient and confusion matrix analysis, temporal bias examination, and predictive dashboard development in Articles 2 & 3
 
 **Key Findings:**
