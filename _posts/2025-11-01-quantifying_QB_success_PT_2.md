@@ -17,7 +17,7 @@ Article 2 quantifies the temporal dimension of quarterback evaluation that Artic
 
 **Article 2 Contributions:**
 - **Extreme recency weighting**: Year 2 performance received **69.9% weight** in Year 3 decisions versus 33.3% equal-weight baseline—a **2.10x multiplier** (p = 0.002)
-- **U-shaped importance curve**: Organizations prioritized rookie year (8.4-16.4% weight) and most recent year (46-70% weight) over middle career years
+- **Monotonic recency gradient**: Organizations weighted each earlier season progressively less, with the most recent season consistently receiving the highest importance (46-70% across decision years) down to Year 0 receiving the lowest weight (3-13% across decision years)
 - **Temporal weight decay**: Recent-year weighting moderated as more data accumulated (70% → 60% → 46% from Year 3 to Year 5 decisions)
 - **Consistent performance thresholds**: ~4,200 era-adjusted yards and ~6.5 ANY/A emerged as boundaries where contract probability exceeded 60%
 
