@@ -676,6 +676,7 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 **Analysis:** Schrödinger's QB—simultaneously shows elite mobility comps (Newton/Jackson/Vick) and complete statistical void. The 786 yards means production probability is purely speculative at 10-40%. Age 24 rookie behind veteran Kirk Cousins creates Jordan Love parallels, but Love had more Year 1 reps. The 3,970-yard projection from 8 games suggests legitimate starter upside, and 6.41 ANY/A efficiency is solid.
 
 **Key Metric:** Sample size is everything— no real production track record in year 1. Needs 12+ starts in Year 2 to establish legitimate baseline, but efficiency is solid at 6.41
+
 ---
 
 #### **BRYCE YOUNG** (2023, Pick 1)  
@@ -698,6 +699,7 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 **Analysis:** The worst-case scenario is unfolding in real-time. Year 3 regression from 5.11 to 4.61 ANY/A is historically catastrophic. The database shows <5% of QBs below 4.7 ANY/A in Year 3 receive extensions. The 3,018-yard projection shows even volume is declining.
 
 **Key Metric:** Efficiency regression (5.11 → 4.61) in Year 3 is catastrophic. At 4.61 ANY/A, historically <5% of comps get paid. We project they are likely to part ways after this season.
+
 ---
 
 ### PROBABILITY METHODOLOGY
