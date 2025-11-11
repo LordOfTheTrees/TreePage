@@ -167,12 +167,10 @@ We generate comparisons for both predictive metrics independently. That creates 
 
 ## I. CAREER PATH TREND IDENTIFICATION
 
-------------------------------double check this--------------------
 ### Dataset Overview
-- **47 quarterbacks** from 2000-2020 draft classes (eligible for second contracts)
-- **24 received second contracts** (51% success rate)
-- **23 did not receive extensions** from drafting team
-- Draft position shows minimal impact on contract probability (breakdown per your Article 2 data)
+- **65 quarterbacks** from 2000-2020 draft classes (eligible for second contracts)
+- **Paid: 29 (44.6%)** by their drafting team (fixed for Manning and Rivers)
+- **Unpaid: 36 (55.4%)**
 
 ### Critical Performance Benchmarks
 
