@@ -5,7 +5,7 @@ date: 2025-11-11
 categories: [Analytics, Quarterbacks, Tableau]
 ---
 
-## Opening: The Daniel Jones Problem
+### Opening: The Daniel Jones Problem
 In March 2023, the New York Giants extended Daniel Jones with a 4-year, $160M contract ($40M AAV). The decision sparked immediate debate because his track record painted an ambiguous picture. Through his first four seasons, Jones had accumulated respectable volume: 14,582 passing yards, 4th highest among his 2019 draft class. But his efficiency told a different story: 5.83 career ANY/A, ranking in the bottom third of starting quarterbacks. His Year 4 performance showed 3,205 yards with 6.14 ANY/A—modest improvement, but hardly elite. Both were still well below our 4,200 era-adjusted yards and 6.5 ANY/A.
 
 The Giants bet on the trajectory, leaning on the last year like we have observed in the temporal bias evaluation. Within one year, that contract became one of the league's most criticized decisions as Jones regressed to 5.01 ANY/A in Year 5. In less than 2 years (Nov 2024), he was benched and then cut just four days later.
