@@ -39,12 +39,16 @@ This methodology assumes that contract renewal decisions represent the most obje
 
 ## The Scale of the Problem
 
-Using this criteria, The success rate on quarterback retention remains remarkably low. Of the 47 first-round quarterbacks drafted between 2000-2020 (excluding recent classes still in rookie contracts), only 24 received significant second contracts - a 51% success rate. This failure rate persists despite teams having extensive college scouting, combine measurements, private workouts, proprietary data, and character evaluation resources unavailable to public analysts.
+Using this criteria, The success rate on quarterback retention remains remarkably low. Of the 65 first-round quarterbacks drafted between 2000-2020 (excluding recent classes still in rookie contracts), only 29 received significant second contracts - a 44.6% success rate. This failure rate persists despite teams having extensive college scouting, combine measurements, private workouts, proprietary data, and character evaluation resources unavailable to public analysts.
+
+**QBs Still in Rookie Contract Window (not Cut or Traded): 8 QBs**
+- **2023 class (3):** C.J. Stroud, Bryce Young, Anthony Richardson
+- **2024 class (5):** Caleb Williams, Jayden Daniels, Drake Maye, Michael Penix, Bo Nix
 
 Unlike later-round picks where teams can afford developmental patience or accept limited upside, first-round quarterbacks arrive with immediate starting expectations and franchise-altering contract implications. This allows them to be compared on a year for year basis, allowing peer benchmarking that provides insights into how comparative performance determines contract likelihood. This first-round peer evaluation represents the purest test for what general fans should be focusing on in the evaluation of high-quality NFL-level quarterback talent.
 
 **Sample Composition:**
-- N = 47 first-round quarterbacks (2000-2020 draft classes)
+- N = 65 first-round quarterbacks (2000-2020 draft classes)
 - 350+ individual season records
 - Performance metrics: Total yards⁴, touchdown production⁵, efficiency ratings, team win %, etc...
 - Outcome variable: Binary contract renewal (Yes/No) (further investigation is planned around APY as a % of salary cap at signing)
