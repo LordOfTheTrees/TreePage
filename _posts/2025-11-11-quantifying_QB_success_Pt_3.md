@@ -500,25 +500,40 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 ---
 
-//////////////////////////////Possible future case studies:///////////////////////
+### Case Study 3: Archetype 3 - Late Bloomers  
+**Comparable:** Jordan Love and Aaron Rodgers  
 
-#### Case Study 3: Archetype 3 - Late Bloomers
-**Comparable:** Jordan Love and Aaron Rodgers
+| Metric | Jordan Love | Aaron Rodgers | Variance |
+|--------|--------------|---------------|-----------|
+| Y1 Adj. Total Yards | 442 | 76 | Love +366 |
+| Y2 Adj. Total Yards | 195 | 60 | Love +135 |
+| Y3 Adj. Total Yards | 4,418 | 259 | Love +4,159 |
+| Y4 Adj. Total Yards | 3,472 | 4,434 | Rodgers +962 |
+| Y5 Adj. Total Yards | — | 4,948 | Rodgers sustained |
 
-| Metric | QB1 | QB2 | Variance |
-|--------|-----------------|-------------------|----------|
-
-**Analysis Points:**
+**Analysis Points:**  
+- **Developmental Patience Pays Off:** Rodgers and Love both spent multiple years behind veterans before starting full-time. Early yardage totals were low due to backup roles.  
+- **Breakout in Starting Role:** Love’s third-year leap (4,418 yards) closely mirrors Rodgers’ first full starting season (4,434 yards in 2008).  
+- **Efficiency and Volume Sync Over Time:** Rodgers’ progression beyond Year 4 shows what happens when a late bloomer stabilizes into elite consistency. Love will want to avoid the dangerous efficiency decline trajectory, as that mirrors those of an Early Peak archetype.
 
 ---
 
-#### Case Study 4: Archetype 4 - Early Peak
-**Comparable:**  Justin Fields and Mac Jones
+### Case Study 4: Archetype 4 - Early Peak  
+**Comparable:** Justin Fields and Mac Jones  
 
-| Metric | QB1 | QB2 | Variance |
-|--------|-----------------|-------------------|----------|
+| Metric | Justin Fields | Mac Jones | Variance |
+|--------|----------------|------------|-----------|
+| Y1 Adj. Total Yards | 2,308 | 3,962 | Jones +1,654 |
+| Y2 Adj. Total Yards | 3,403 | 3,116 | Fields +287 |
+| Y3 Adj. Total Yards | 3,228 | 2,222 | Fields +1,006 |
+| Y4 Adj. Total Yards | 1,395 | 1,764 | Jones +369 |
+| Y5 Adj. Total Yards | — | — | — |
 
-**Analysis Points:**
+**Analysis Points:**  
+- **Front-Loaded Success:** Jones’ rookie yardage peak faded faster, while Fields’ totals eventually fell as his limited upside became clearer, and the Lamar comparison grew more and more tenuous. 
+- **Declining Margins of Adaptability:** Both QBs struggled when the offense had to evolve — Fields with reads and rhythm, Jones with velocity and improvisation. Neither scaled their early year strengths into multi-dimensional offenses.  
+- **Market Lesson:** Early production spikes, particularly in well-schemed environments, can be misleading indicators of long-term franchise viability. Sustainable success correlates more with adaptability and enduring offensively exploitable traits than with immediate efficiency or production.  
+- **2025 Application:** Teams evaluating early breakout starters (e.g., rookies who flash in stable setups) should weigh environmental dependency and skill growth over Year 1 and 2 statistical volume.  
 
 
 ---
