@@ -61,7 +61,7 @@ Articles 1 and 2 established what performance levels predict contracts and when 
 
 Each line in the visualizations below represents one quarterback's journey from draft day through Year 5. Some trajectories climb steadily into high-probability zones. Others plateau in the middle. Many are dragged down into the bottom zones. Together, they reveal the archetypal career paths that lead to extensions—or early exits. On this visual, you can select any quarterback trajectory you want to look at. Of note, quarterbacks who were signed but then traded afterwards (think Jared Goff, Carson Wentz etc...) display as unsigned due to the current signing logic implementation.
 
-### 6 year Yards overlay
+### 6 Year Yards overlay
 
 <div class='tableauPlaceholder' id='viz1762873306032' style='position: relative'>
   <noscript>
@@ -105,7 +105,7 @@ Each line in the visualizations below represents one quarterback's journey from 
 
 For the Yards chart, we can clearly observe a trend for teams to begin to "settle for medioctrity" as the years drag on, and general managers are forced to reckon with the riskiness of drafting another quarterback.
 
-### 6 year ANY/A overlay
+### 6 Year ANY/A overlay
 
 <div class='tableauPlaceholder' id='viz1762873388924' style='position: relative'>
   <noscript>
