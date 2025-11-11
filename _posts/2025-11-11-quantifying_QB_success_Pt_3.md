@@ -378,7 +378,22 @@ The key characteristic of this group is a strong initial performance, combined w
 
 ## III. Trajectory Comparison Case Studies
 
-### Case Study 1: Archetype 1 (Joe Burrow to CJ stroud?) (mac jones to CJ?)
+### Case Study 1: Archetype 1 - Elite Early Developer
+**Comparable:** Josh Allen (Paid) and Blake Bortles (Paid, Regretted)
+
+| Metric | Josh Allen | Blake Bortles | Key Difference |
+|--------|------------|---------------|----------------|
+| Y1 ANY/A | 4.42 | 3.89 | Allen worse baseline |
+| Y2 ANY/A | 5.77 | 6.20 | Bortles better Y2 |
+| Y3 ANY/A | 7.88 | 5.31 | Allen sustained, Bortles regressed |
+| Y4 ANY/A | 6.42 | 6.30 | Both adequate contract year |
+| Y1-Y3 Δ | +3.46 | +1.42 | Allen's growth 2.4x larger |
+
+**Analysis Points:**
+- **The Critical Difference is Year 3 Sustainability:** Both QBs showed major Year 2 efficiency jumps after poor rookie seasons, but Allen's Y3 breakout (7.88 ANY/A) proved the improvement was real. Bortles' Y3 regression (6.20 → 5.31) revealed his Y2 was a statistical outlier.
+- **Teams Paid Both Anyway:** Jacksonville extended Bortles despite the Y3 regression, and they paid $54M for a QB trending downward.
+- **Volume Production Masked Efficiency Concerns:** Bortles maintained 4,000+ yard seasons (4,855 Y2, 4,357 Y3) which created false confidence. Allen's volume was more erratic (3,648 Y2, 5,019 Y3) but his efficiency trajectory was unmistakable.
+- **2025 Application:** This comparison directly applies to Caleb Williams and Drake Maye. Both show major Y2 efficiency improvements after rough/limited Y1s. The question is whether they follow Allen's sustained Y3 growth or Bortles' Y3 regression. Williams (6.92 ANY/A over 9 games) and Maye (7.97 over 10 games) need full Y2 samples and Y3 validation before extensions.
 
 Here is the comparison laid out on our trajectory charts for both volume and efficiency:
 
@@ -464,24 +479,31 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
   vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
 
------------------------------I don't love these comps. Let's rework this section
 
 
-#### Case Study 2: Archetype 2
-**Comparable:** Jordan Love trajectory (2020-2023)
-**Current Evaluation Targets:** 
+### Case Study 2: Archetype 2 - Steady Reliable Improver
+**Comparable:** Daniel Jones (Paid) and Ryan Tannehill (Paid)
 
-| Metric | QB1 | QB2 | Variance |
-|--------|-----------------|-------------------|----------|
+| Metric | Daniel Jones | Ryan Tannehill | Key Difference |
+|--------|--------------|----------------|----------------|
+| Y1 ANY/A | 5.43 | 5.36 | Identical solid start |
+| Y2 ANY/A | 4.96 | 5.11 | Both regressed slightly |
+| Y3 ANY/A | 5.65 | 5.95 | Tannehill marginally better |
+| Y4 ANY/A | 5.91 | 6.02 | Tannehill pulled ahead again slightly |
+| Y1 Production | 3,351 yds | 3,621 yds | Tannehill +270 yards |
 
 **Analysis Points:**
-- 
+- **The "Safe" Archetype Gets Extended Despite Mediocrity:** Both QBs never broke through to elite efficiency (6.5+ ANY/A) but showed steady improvement and avoided catastrophic regression. Teams extended them as "known commodities" rather than elite upside bets.
+- **Volume Consistency Matters More Than Efficiency Peaks:** Both maintained 3,300-4,500 yard ranges without elite seasons. No years below 3,000 yards, no years above 5,000. This reliability gets rewarded even at 5.5-6.0 ANY/A efficiency.
+- **The Tennessee Caveat:** Tannehill became elite (7.7 ANY/A) after leaving Miami and joining Tennessee's run-heavy scheme at age 31. This suggests scheme/situation can unlock late-career value that rookie-contract evaluation misses.
+- **2025 Application:** Bo Nix (6.12 → 5.74 ANY/A, 4,205 → 3,963 yards projected) fits this archetype perfectly. If he stabilizes at 5.8-6.1 ANY/A with 3,800+ yards, he can get the Tannehill style extension.
 
 ---
 
-#### Case Study 3: Archetype 3
-**Comparable:** 
-**Current Evaluation Targets:** ???
+//////////////////////////////Possible future case studies:///////////////////////
+
+#### Case Study 3: Archetype 3 - Late Bloomers
+**Comparable:** Jordan Love and Aaron Rodgers
 
 | Metric | QB1 | QB2 | Variance |
 |--------|-----------------|-------------------|----------|
@@ -490,15 +512,14 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 ---
 
-#### Case Study 4: Archetype 4
-**Comparable:** Blake Bortles trajectory (2014-2018)
-**Current Evaluation Targets:** Justin Fields???
+#### Case Study 4: Archetype 4 - Early Peak
+**Comparable:**  Justin Fields and Mac Jones
 
 | Metric | QB1 | QB2 | Variance |
 |--------|-----------------|-------------------|----------|
 
 **Analysis Points:**
-- Bortles' Year 2 spike led to mistaken extension
+
 
 ---
 
