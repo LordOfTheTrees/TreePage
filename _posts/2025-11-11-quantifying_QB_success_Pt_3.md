@@ -59,7 +59,7 @@ Each season becomes a point on the heat map. The line connecting these points sh
 
 Articles 1 and 2 established what performance levels predict contracts and when those performances matter most. Now we can see these patterns in action by overlaying actual quarterback careers onto the probability surfaces.
 
-Each line in the visualizations below represents one quarterback's journey from draft day through Year 5. Some trajectories climb steadily into high-probability zones. Others plateau in the middle. Many are dragged down into the bottom zones. Together, they reveal the archetypal career paths that lead to extensions—or early exits. On this visual, you can select any quarterback trajectory you want to look at. Of note, quarterbacks who were signed but then traded afterwards (think Jared Goff, Carson Wentz etc...) display as unsigned due to the current signing logic implementation.
+Each line in the visualizations below represents one quarterback's journey from draft day through Year 5. Some trajectories climb steadily into high-probability zones. Others plateau in the middle. Many are dragged down into the bottom zones. Together, they reveal the archetypal career paths that lead to extensions—or early exits. On this visual, you can select any quarterback trajectory you want to look at.
 
 ### 6 Year Yards overlay
 
