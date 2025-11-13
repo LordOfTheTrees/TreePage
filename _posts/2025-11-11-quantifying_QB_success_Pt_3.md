@@ -549,7 +549,7 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 #### **JAYDEN DANIELS** (2024, Pick 2)
 **Contract Probability Based on Pre-2025 Season:** 40% Production | 30% Efficiency  
-**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 60% Production | 70% Efficiency
+**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 70% Production | 70% Efficiency
 
 **Career Performance:**
 
@@ -569,7 +569,7 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 #### **DRAKE MAYE** (2024, Pick 3)
 **Contract Probability Based on Pre-2025 Season:** 40% Production | 10% Efficiency  
-**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 70% Production |50% Efficiency
+**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 70% Production |60% Efficiency
 
 **Career Performance:**
 
@@ -613,7 +613,7 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 #### **BO NIX** (2024, Pick 12)  
 **Contract Probability Based on Pre-2025 Season:** 50% Production | 60% Efficiency  
-**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 60% Production | 20% Efficiency
+**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 70% Production | 20% Efficiency
 
 **Career Performance:**
 
@@ -635,7 +635,7 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 #### **CALEB WILLIAMS** (2024, Pick 1)  
 **Contract Probability Based on Pre-2025 Season:** 40% Production | 10% Efficiency  
-**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 60% Production | 60% Efficiency
+**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 70% Production | 70% Efficiency
 
 **Career Performance:**
 
@@ -659,7 +659,7 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 
 #### **MICHAEL PENIX JR.** (2024, Pick 8)  
 **Contract Probability Based on Pre-2025 Season:** 40% Production | 50% Efficiency  
-**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 50% Production | 50% Efficiency
+**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 70% Production | 50% Efficiency
 
 **Career Performance:**
 
@@ -680,8 +680,8 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 ---
 
 #### **BRYCE YOUNG** (2023, Pick 1)  
-**Contract Probability Based on Pre-2025 Season:** 40% Production | 30% Efficiency 
-**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 40% Production | 30% Efficiency
+**Contract Probability Based on Pre-2025 Season:** 40% Production | 30% Efficiency
+**Contract Probability Based on 2025 Per Game Average Extrapolated Out:** 50% Production | 40% Efficiency
 
 **Career Performance:**
 
