@@ -1,6 +1,6 @@
 # Jira-Claude Automation System
 - title: "Jira-Claude Automation System"
-  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 60-80% while maintaining high quality and consistency."
+  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
   technologies:
     - Node.js
     - JavaScript
