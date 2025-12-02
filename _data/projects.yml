@@ -24,7 +24,7 @@
 
 # Airbnb Investment Analysis Framework
 - title: "Airbnb Investment Analysis Framework: Cross-City Short-Term Rental ROI Evaluation"
-  description: "A comprehensive analytical framework for evaluating short-term rental investment opportunities by combining Airbnb listing data with Zillow real estate prices across 22 US cities. Uses advanced statistical modeling, log-transformed regression analysis, and market professionalization metrics to identify profitable property segments and assess market entry barriers."
+  description: "Cross-city market analysis of short-term rental investment opportunities across 22 US cities, combining Airbnb listing data with Zillow real estate prices. Identifies profitable property segments, competitive landscape dynamics, and market entry barriers through statistical modeling and market professionalization metrics."
   technologies:
     - Python
     - Pandas
