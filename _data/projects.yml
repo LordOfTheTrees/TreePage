@@ -1,26 +1,3 @@
-# Jira-Claude Automation System
-- title: "Jira-Claude Automation System"
-  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
-  technologies:
-    - Node.js
-    - JavaScript
-    - Claude AI API
-    - Jira REST API
-    - GitHub Actions
-    - Netlify Functions
-    - Anthropic SDK
-  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
-  live_url: ""
-  documentation: ""
-  key_features:
-    - Claude-powered requirements analysis with detailed delivery criteria creation
-    - Automated implementation generation for code, documentation, analysis, and processes
-    - Comprehensive quality evaluation against delivery criteria with detailed scoring
-    - Complete workflow integration between Jira webhooks and GitHub Actions
-    - Real-time artifact creation and version control management
-    - Multi-stage progression tracking with automated status updates
-    - Intelligent error handling and fallback mechanisms for robust operations
-
 # NFL Quarterback Performance Analytics
 - title: "NFL Quarterback Evaluation Framework: 25-Year Performance Analysis"
   description: "A comprehensive analytical framework for evaluating NFL quarterback performance and contract decisions through advanced statistical modeling and era-adjusted metrics. Combines systematic data collection from Pro Football Reference with ridge regression analysis to reveal organizational biases in quarterback evaluation and predict contract outcomes."
@@ -28,17 +5,9 @@
     - Python
     - Pandas
     - Scikit-learn
-    - NumPy
-    - BeautifulSoup
-    - Requests
-    - Linear Regression
     - Ridge Regression
     - Statistical Hypothesis Testing
-    - Cross-validation
     - Tableau Public
-    - Data Pipeline Development
-    - Data Visualization
-    - Web Scraping
     - Feature Engineering
   github_url: "https://github.com/LordOfTheTrees/quarterback-analytics"
   live_url: ""
@@ -59,16 +28,10 @@
   technologies:
     - Python
     - Pandas
-    - NumPy
-    - Matplotlib
-    - Seaborn
-    - SciPy
-    - Linear Regression
     - Statistical Hypothesis Testing
     - Feature Engineering
-    - Data Pipeline Development
     - Data Visualization
-    - ROI Analysis
+    - Market Research
     - Financial Modeling
   github_url: "https://github.com/LordOfTheTrees/Airbnb_Data"
   live_url: ""
@@ -83,31 +46,28 @@
     - Market entry barrier analysis showing cumulative profit concentration and competitive landscape dynamics
     - Integration of multiple data sources (Inside Airbnb, Zillow Research Data, US Census Bureau) with robust validation
 
-# News Intelligence Pipeline
-- title: "News Intelligence Pipeline"
-  description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
+# Jira-Claude Automation System
+- title: "Jira-Claude Automation System"
+  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
   technologies:
-    - Python
+    - Node.js
+    - JavaScript
     - Claude AI API
-    - NewsAPI
-    - GitHub API
-    - JSON Caching
-    - Natural Language Processing
-  github_url: "https://github.com/LordOfTheTrees/News_Update"
+    - REST APIs
+    - Webhooks
+    - GitHub Actions
+    - Anthropic SDK
+  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
   live_url: ""
   documentation: ""
   key_features:
-    - Smart query generation using Claude AI for effective NewsAPI searches
-    - Intelligent caching system to reduce API costs and improve performance
-    - Multi-source news aggregation from 150k+ sources via NewsAPI
-    - AI-powered synthesis and summarization of articles into structured reports
-    - GitHub integration for automated issue creation and team notifications
-    - Email notifications through GitHub's built-in system
-    - Customizable news topics and i-source news aggregation from 150k+ sources via NewsAPI
-    - AI-powered synthesis and summarization of articles into structured reports
-    - GitHub integration for automated issue creation and team notifications
-    - Email notifications through GitHub's built-in system
-    - Customizable news topics and configurable automation via GitHub Actions
+    - Claude-powered requirements analysis with detailed delivery criteria creation
+    - Automated implementation generation for code, documentation, analysis, and processes
+    - Comprehensive quality evaluation against delivery criteria with detailed scoring
+    - Complete workflow integration between Jira webhooks and GitHub Actions
+    - Real-time artifact creation and version control management
+    - Multi-stage progression tracking with automated status updates
+    - Intelligent error handling and fallback mechanisms for robust operations
 
 # FlowState Jiu-Jitsu App
 - title: "FlowState: Jiu-Jitsu Strategy Generator"
@@ -116,13 +76,10 @@
     - Python
     - Streamlit
     - OpenAI API
-    - Mermaid (flow charts)
     - HTML/CSS
     - JavaScript
-    - AI/ML
     - Natural Language Processing
-    - Strategic Planning
-    - IBJJF/MMA Rulesets
+    - User Experience Design
   github_url: "https://github.com/LordOfTheTrees/FlowState"
   live_url: ""
   documentation: ""
@@ -137,6 +94,28 @@
     - Athlete attribute consideration for personalized strategies
     - Interactive strategy battle visualization
     - Realistic technique flows based on expert knowledge
+
+# News Intelligence Pipeline
+- title: "News Intelligence Pipeline"
+  description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
+  technologies:
+    - Python
+    - Claude AI API
+    - APIs
+    - Data Aggregation
+    - Semi-structured Data Caching
+    - Natural Language Processing
+  github_url: "https://github.com/LordOfTheTrees/News_Update"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Smart query generation using Claude AI for effective NewsAPI searches
+    - Intelligent caching system to reduce API costs and improve performance
+    - Multi-source news aggregation from 150k+ sources via NewsAPI
+    - AI-powered synthesis and summarization of articles into structured reports
+    - GitHub integration for automated issue creation and team notifications
+    - Email notifications through GitHub's built-in system
+    - Customizable news topics and configurable automation via GitHub Actions
 
 # Penn State Football Calendar Generator
 - title: "Penn State Football Calendar Generator"
