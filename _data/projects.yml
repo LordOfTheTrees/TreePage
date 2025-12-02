@@ -53,6 +53,36 @@
     - Comprehensive first-round quarterback database spanning 2000-2024 draft classes
     - Automated web scraping with rate limiting and robust error handling
 
+# Airbnb Investment Analysis Framework
+- title: "Airbnb Investment Analysis Framework: Cross-City Short-Term Rental ROI Evaluation"
+  description: "A comprehensive analytical framework for evaluating short-term rental investment opportunities by combining Airbnb listing data with Zillow real estate prices across 22 US cities. Uses advanced statistical modeling, log-transformed regression analysis, and market professionalization metrics to identify profitable property segments and assess market entry barriers."
+  technologies:
+    - Python
+    - Pandas
+    - NumPy
+    - Matplotlib
+    - Seaborn
+    - SciPy
+    - Linear Regression
+    - Statistical Hypothesis Testing
+    - Feature Engineering
+    - Data Pipeline Development
+    - Data Visualization
+    - ROI Analysis
+    - Financial Modeling
+  github_url: "https://github.com/LordOfTheTrees/Airbnb_Data"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Feature engineering pipeline with log transformations and revenue proxies for 200,000+ listings across 22 cities
+    - Cash-on-cash ROI analysis combining Airbnb revenue data with Zillow purchase prices and mortgage calculations
+    - Log-transformed regression analysis quantifying property size effects on pricing with percentage-based interpretation
+    - Market professionalization scoring system measuring host concentration and operator size distribution using Gini coefficients
+    - Cross-city comparative analysis identifying market-specific patterns in pricing, occupancy, and ROI performance
+    - Property segment performance analysis by room type and size revealing investment opportunities
+    - Market entry barrier analysis showing cumulative profit concentration and competitive landscape dynamics
+    - Integration of multiple data sources (Inside Airbnb, Zillow Research Data, US Census Bureau) with robust validation
+
 # News Intelligence Pipeline
 - title: "News Intelligence Pipeline"
   description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
