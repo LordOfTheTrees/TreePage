@@ -12,22 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // Function to track visit via Netlify Function
-  // The function handles both getting location and storing to GitHub repo
+  // The function handles both getting location and storing to Supabase
   async function trackVisit() {
     try {
+      const functionUrl = getNetlifyFunctionUrl('track-visit');
+      console.log('Calling Netlify function:', functionUrl);
+      
       // Call track-visit function which handles location and storage
-      const response = await fetch(getNetlifyFunctionUrl('track-visit'), {
+      const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        mode: 'cors' // Explicitly set CORS mode
       });
 
       if (response.ok) {
         const result = await response.json();
         console.log('Visit tracked successfully', result);
       } else {
-        console.error('Failed to track visit');
+        const errorText = await response.text();
+        console.error('Failed to track visit:', response.status, errorText);
       }
       
       // Update analytics view if we're on the analytics page
