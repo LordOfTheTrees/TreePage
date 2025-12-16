@@ -64,20 +64,48 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Fetching analytics data from:', dataUrl);
       
       const statsResponse = await fetch(dataUrl);
+      console.log('Response status:', statsResponse.status, 'ok:', statsResponse.ok);
       
       if (!statsResponse.ok) {
         console.error('Failed to load analytics data:', statsResponse.status, statsResponse.statusText);
+        const errorText = await statsResponse.text();
+        console.error('Error response body:', errorText);
         throw new Error(`Failed to load analytics data: ${statsResponse.status}`);
       }
 
-      const stats = await statsResponse.json();
-      console.log('Analytics data loaded:', stats);
+      const responseText = await statsResponse.text();
+      console.log('Response text:', responseText.substring(0, 200));
       
-      if (!stats || stats.totalVisits === 0) {
-        console.log('No visits in stats:', stats);
+      let stats;
+      try {
+        stats = JSON.parse(responseText);
+        console.log('Analytics data parsed successfully:', stats);
+      } catch (parseError) {
+        console.error('Failed to parse JSON:', parseError);
+        console.error('Response text was:', responseText);
+        throw parseError;
+      }
+      console.log('totalVisits value:', stats.totalVisits, 'type:', typeof stats.totalVisits);
+      
+      // Check if we have valid data
+      if (!stats) {
+        console.error('Stats is null or undefined');
         analyticsContainer.innerHTML = '<p>No analytics data available yet. Data is updated monthly.</p>';
         return;
       }
+      
+      const totalVisits = Number(stats.totalVisits) || 0;
+      console.log('Parsed totalVisits:', totalVisits, 'original:', stats.totalVisits);
+      console.log('visitsByCountry:', stats.visitsByCountry, 'keys:', stats.visitsByCountry ? Object.keys(stats.visitsByCountry) : 'null');
+      console.log('visitsByRegion:', stats.visitsByRegion);
+      
+      if (totalVisits === 0) {
+        console.log('No visits found - totalVisits is 0');
+        analyticsContainer.innerHTML = '<p>No analytics data available yet. Data is updated monthly.</p>';
+        return;
+      }
+      
+      console.log('Passed the check, proceeding to display data. totalVisits:', totalVisits);
       
       // Display the results using the aggregated stats
       let html = '<h2>Visitor Statistics</h2>';
@@ -102,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
       html += '</ul></div>';
       
       // Show total visits
-      html += `<p class="total-visits">Total visits tracked: ${stats.totalVisits}</p>`;
+      html += `<p class="total-visits">Total visits tracked: ${totalVisits}</p>`;
       
       // Show last updated
       if (stats.lastUpdated) {
