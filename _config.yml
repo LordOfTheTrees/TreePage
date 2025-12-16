@@ -7,6 +7,9 @@ url: "https://lordofthetrees.github.io" # Replace with your GitHub username
 github_username: lordofthetrees
 linkedin_username: andrew-erbs-59bb9365
 
+# Analytics settings
+netlify_functions_url: "https://remarkable-syrniki-5c721e.netlify.app" # Your Netlify site URL for Functions
+
 # Build settings
 markdown: kramdown
 sass:

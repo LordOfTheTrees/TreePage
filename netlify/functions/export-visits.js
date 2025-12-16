@@ -1,10 +1,7 @@
 // Netlify Function: Export visit data for weekly sync
-// Called by GitHub Actions to fetch all stored visits
+// Called by GitHub Actions to fetch all stored visits from Supabase
 
-const fs = require('fs');
-const path = require('path');
-
-const DATA_FILE = path.join('/tmp', 'visits.json');
+const { createClient } = require('@supabase/supabase-js');
 
 exports.handler = async (event, context) => {
   // Only allow GET requests
@@ -27,22 +24,47 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Read visits from storage
-    // Note: /tmp doesn't persist between function invocations
-    // This will only return visits from the current function execution
-    // For production, use Netlify Forms API or external storage
-    let visits = [];
-    if (fs.existsSync(DATA_FILE)) {
-      try {
-        const data = fs.readFileSync(DATA_FILE, 'utf8');
-        visits = JSON.parse(data);
-      } catch (e) {
-        visits = [];
-      }
+    // Get Supabase credentials
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      return {
+        statusCode: 500,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ error: 'Supabase not configured' })
+      };
     }
-    
-    // TODO: For production, fetch from Netlify Forms API instead
-    // Example: const forms = await fetch('https://api.netlify.com/api/v1/forms/{form_id}/submissions')
+
+    // Initialize Supabase client
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Fetch all visits from Supabase
+    const { data: visits, error } = await supabase
+      .from('visits')
+      .select('*')
+      .order('timestamp', { ascending: true });
+
+    if (error) {
+      console.error('Error fetching visits:', error);
+      return {
+        statusCode: 500,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ error: 'Failed to fetch visits', details: error.message })
+      };
+    }
+
+    // Transform data to match expected format
+    const formattedVisits = (visits || []).map(visit => ({
+      country: visit.country,
+      region: visit.region,
+      city: visit.city,
+      timestamp: visit.timestamp
+    }));
 
     return {
       statusCode: 200,
@@ -50,8 +72,8 @@ exports.handler = async (event, context) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        visits: visits,
-        total: visits.length,
+        visits: formattedVisits,
+        total: formattedVisits.length,
         exportedAt: new Date().toISOString()
       })
     };

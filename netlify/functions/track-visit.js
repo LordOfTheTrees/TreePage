@@ -1,7 +1,7 @@
-// Netlify Function: Track visit and store in GitHub repo
-// Gets location via IP geolocation API and appends to _data/visits.json in repo
+// Netlify Function: Track visit and store in Supabase
+// Gets location via IP geolocation API and stores in Supabase database
 
-const { Octokit } = require('@octokit/rest');
+const { createClient } = require('@supabase/supabase-js');
 
 exports.handler = async (event, context) => {
   // Handle CORS preflight
@@ -52,61 +52,47 @@ exports.handler = async (event, context) => {
       timestamp: new Date().toISOString()
     };
 
-    // Get GitHub token and repo info
-    const githubToken = process.env.GITHUB_TOKEN;
-    const repoOwner = process.env.GITHUB_REPO_OWNER || 'LordOfTheTrees';
-    const repoName = process.env.GITHUB_REPO_NAME || 'TreePage';
+    // Get Supabase credentials
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
-    if (!githubToken) {
+    if (!supabaseUrl || !supabaseKey) {
       return {
         statusCode: 500,
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         },
-        body: JSON.stringify({ error: 'GitHub token not configured' })
+        body: JSON.stringify({ error: 'Supabase not configured' })
       };
     }
 
-    // Initialize Octokit
-    const octokit = new Octokit({ auth: githubToken });
+    // Initialize Supabase client
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Read existing visits.json file
-    let existingVisits = [];
-    let sha = null;
-    try {
-      const { data } = await octokit.repos.getContent({
-        owner: repoOwner,
-        repo: repoName,
-        path: '_data/visits.json'
-      });
-      
-      // Decode base64 content
-      const content = Buffer.from(data.content, 'base64').toString('utf8');
-      existingVisits = JSON.parse(content);
-      sha = data.sha; // Get SHA for update
-    } catch (error) {
-      // File doesn't exist yet, start with empty array
-      if (error.status !== 404) {
-        console.error('Error reading visits.json:', error);
-      }
+    // Insert visit into Supabase
+    const { data: insertedVisit, error: insertError } = await supabase
+      .from('visits')
+      .insert([visitData])
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('Error inserting visit:', insertError);
+      return {
+        statusCode: 500,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ error: 'Failed to store visit', details: insertError.message })
+      };
     }
 
-    // Add new visit
-    existingVisits.push(visitData);
-
-    // Encode content to base64
-    const content = Buffer.from(JSON.stringify(existingVisits, null, 2)).toString('base64');
-
-    // Write updated visits.json to repo
-    await octokit.repos.createOrUpdateFileContents({
-      owner: repoOwner,
-      repo: repoName,
-      path: '_data/visits.json',
-      message: `Add visit from ${visitData.country} [skip ci]`,
-      content: content,
-      sha: sha
-    });
+    // Get total count for response
+    const { count } = await supabase
+      .from('visits')
+      .select('*', { count: 'exact', head: true });
 
     return {
       statusCode: 200,
@@ -117,7 +103,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ 
         success: true,
         visit: visitData,
-        totalVisits: existingVisits.length
+        totalVisits: count || 0
       })
     };
   } catch (error) {

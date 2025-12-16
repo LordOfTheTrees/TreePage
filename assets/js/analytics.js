@@ -1,11 +1,14 @@
 // Updated analytics.js - Uses Netlify Functions for tracking
 document.addEventListener('DOMContentLoaded', function() {
-  // Get Netlify function base URL (works for both local dev and production)
+  // Get Netlify function base URL
+  // Since site is on GitHub Pages, we need to use the Netlify site URL
   const getNetlifyFunctionUrl = (functionName) => {
-    // In production, Netlify automatically handles function URLs
-    // In local dev, you'd use http://localhost:8888/.netlify/functions/
-    const baseUrl = window.location.origin;
-    return `${baseUrl}/.netlify/functions/${functionName}`;
+    // Try to get from data attribute (set by Jekyll)
+    const netlifyUrl = document.documentElement.dataset.netlifyUrl || 
+                      window.NETLIFY_FUNCTIONS_URL ||
+                      'https://your-netlify-site.netlify.app'; // Fallback - update this!
+    
+    return `${netlifyUrl}/.netlify/functions/${functionName}`;
   };
 
   // Function to track visit via Netlify Function
