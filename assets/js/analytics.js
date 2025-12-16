@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
   trackVisit();
   
   // Function to update the analytics view
-  // Reads from _data/analytics-stats.json (served as static file by Jekyll)
+  // Reads from assets/data/analytics-stats.json (served as static file)
   window.updateAnalyticsView = async function() {
     const analyticsContainer = document.getElementById('analytics-container');
     
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try {
       // Fetch aggregated stats from the data file
-      // The file is served via Jekyll data file endpoint
+      // The file is served as a static file from assets/data
       const baseUrl = window.location.origin + (window.location.pathname.includes('/TreePage') ? '/TreePage' : '');
-      const statsResponse = await fetch(`${baseUrl}/analytics-stats.json`);
+      const statsResponse = await fetch(`${baseUrl}/assets/data/analytics-stats.json`);
       
       if (!statsResponse.ok) {
         throw new Error('Failed to load analytics data');

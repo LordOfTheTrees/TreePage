@@ -119,11 +119,11 @@ jobs:
                   "lastUpdated": datetime.now().isoformat()
               }
           
-          # Ensure assets/data directory exists
-          os.makedirs('assets/data', exist_ok=True)
+          # Ensure _data directory exists
+          os.makedirs('_data', exist_ok=True)
           
-          # Write to data file (in assets/data so it's served as static file)
-          with open('assets/data/analytics-stats.json', 'w') as f:
+          # Write to data file (in _data so Jekyll can serve it via analytics-stats.json)
+          with open('_data/analytics-stats.json', 'w') as f:
               json.dump(stats, f, indent=2)
           
           print(f"Aggregated {stats['totalVisits']} visits")
@@ -135,7 +135,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add assets/data/analytics-stats.json
+          git add _data/analytics-stats.json
           if ! git diff --staged --quiet; then
             git commit -m "Update analytics data [skip ci]"
             git push
