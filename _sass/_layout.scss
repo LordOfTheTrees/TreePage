@@ -37,28 +37,29 @@
 // Footer
 .site-footer {
   border-top: 1px solid $border-color;
-  padding: $spacing-unit 2rem;
+  padding: $spacing-unit 0;
   margin-top: $spacing-unit;
   color: $gray;
-  max-width: $content-width;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   
   .footer-content {
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
     align-items: flex-start;
     gap: $spacing-unit * 4;
-    flex-wrap: wrap;
-    padding: $spacing-unit 0;
-    max-width: 600px;
-    margin: 0 auto;
+    flex-wrap: nowrap;
+    padding: $spacing-unit 2rem;
+    max-width: 800px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .footer-section {
     text-align: center;
     flex: 0 0 auto;
-    min-width: 150px;
+    width: auto;
     
     h4 {
       margin-bottom: $spacing-unit / 2;
