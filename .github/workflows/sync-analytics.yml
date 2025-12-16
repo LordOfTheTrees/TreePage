@@ -9,6 +9,8 @@ on:
 jobs:
   sync-analytics:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required to push changes
     
     steps:
       - name: Checkout repository
@@ -32,11 +34,16 @@ jobs:
           import os
           import urllib.request
           
-          netlify_url = os.environ.get('NETLIFY_URL', 'https://remarkable-syrniki-5c721e.netlify.app')
-          export_token = os.environ.get('EXPORT_TOKEN', '')
+          netlify_url = os.environ.get('NETLIFY_URL', '').strip()
+          
+          # Use fallback if secret is not set or empty
+          if not netlify_url:
+              netlify_url = 'https://remarkable-syrniki-5c721e.netlify.app'
           
           # Ensure URL doesn't have trailing slash
           netlify_url = netlify_url.rstrip('/')
+          
+          export_token = os.environ.get('EXPORT_TOKEN', '')
           
           # Fetch visit data from Netlify function
           url = f"{netlify_url}/.netlify/functions/export-visits"
@@ -139,13 +146,16 @@ jobs:
           EOF
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add assets/data/analytics-stats.json
           if ! git diff --staged --quiet; then
             git commit -m "Update analytics data [skip ci]"
-            git push
+            git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+            git push origin HEAD:main
           else
             echo "No changes to commit"
           fi
