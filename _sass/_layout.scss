@@ -43,12 +43,29 @@
   
   .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    gap: $spacing-unit * 3;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    text-align: center;
     
-    @media (max-width: $mobile-width) {
+    h4 {
+      margin-bottom: $spacing-unit / 2;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links {
+      display: flex;
       flex-direction: column;
-      gap: $spacing-unit / 2;
+      gap: $spacing-unit / 3;
     }
   }
   
