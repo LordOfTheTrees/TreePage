@@ -51,7 +51,7 @@ Below are documents related to my work:
     <div class="document-card">
       <h2>{{ document.title }}</h2>
       <p class="document-description">{{ document.description }}</p>
-      <a href="{{ site.baseurl }}{{ document.file_url }}" class="button" target="_blank" rel="noopener">Download</a>
+      <a href="{{ document.file_url | relative_url }}" class="button" target="_blank" rel="noopener">Download</a>
     </div>
   {% endfor %}
 </div>

@@ -1,6 +1,6 @@
 - title: "TGIF Frozen Snacks Customer Insights: Driving Growth by Activating Beliefs and Goals"
   description: "Research whitepaper applying consumer-aligned product management methodologies to drive growth for TGIF Frozen Snacks. Conducts multi-method user research including online ethnography, in-depth interviews, and quantitative A/B testing with 4,051 survey respondents. Uses Yale's Beliefs-Goals-Choices framework to identify emotional and functional drivers of consumer behavior, translating insights into actionable product positioning and messaging strategies."
-  file_url: "/assets/documents/TGIF_Whitepaper.pdf"
+  file_url: "assets/documents/TGIF_Whitepaper.pdf"
   key_points:
     - "Multi-phase consumer research methodology: secondary research, qualitative interviews, and quantitative validation with 4,051 survey respondents"
     - "Behavioral science application to product strategy using Yale's Beliefs-Goals-Choices framework"
@@ -10,7 +10,7 @@
 
 - title: "FlowState: AI-Powered Grappling Strategy Generator with Adversarial Game Planning"
   description: "Technical documentation for an AI-powered grappling strategy application built through consumer-aligned product management. Identifies gaps in existing solutions (static instructional content vs. dynamic training needs) and translates user pain points into product features. Includes context-aware interfaces that adapt to individual user attributes, iterative user experience design, and modular feature development including adversarial game planning for counter-strategy generation."
-  file_url: "/assets/documents/flow_state_report.pdf"
+  file_url: "assets/documents/flow_state_report.pdf"
   key_points:
     - "Addresses the disconnect between static instructional content and the dynamic, context-aware needs of solo learners who lack immediate coaching feedback"
     - "Uses Mermaid.js flowcharts to visualize grappling strategy as interactive decision trees, enabling users to traverse and regenerate charts from any position node"
