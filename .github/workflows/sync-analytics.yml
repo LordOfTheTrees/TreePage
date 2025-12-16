@@ -32,13 +32,18 @@ jobs:
           import os
           import urllib.request
           
-          netlify_url = os.environ.get('NETLIFY_URL', 'https://your-site.netlify.app')
+          netlify_url = os.environ.get('NETLIFY_URL', 'https://remarkable-syrniki-5c721e.netlify.app')
           export_token = os.environ.get('EXPORT_TOKEN', '')
+          
+          # Ensure URL doesn't have trailing slash
+          netlify_url = netlify_url.rstrip('/')
           
           # Fetch visit data from Netlify function
           url = f"{netlify_url}/.netlify/functions/export-visits"
           if export_token:
               url += f"?token={export_token}"
+          
+          print(f"Fetching data from: {url}")
           
           try:
               req = urllib.request.Request(url)
@@ -53,6 +58,8 @@ jobs:
               print(f"Fetched {len(visits)} visits from Netlify")
           except Exception as e:
               print(f"Error fetching data: {e}")
+              import traceback
+              traceback.print_exc()
               # Create empty data structure
               with open('visits-export.json', 'w') as f:
                   json.dump({'visits': [], 'total': 0}, f)
@@ -62,6 +69,7 @@ jobs:
         run: |
           python3 << 'EOF'
           import json
+          import os
           from collections import defaultdict
           from datetime import datetime
           
@@ -117,6 +125,9 @@ jobs:
                   "visits": visits,
                   "lastUpdated": datetime.now().isoformat()
               }
+          
+          # Ensure assets/data directory exists
+          os.makedirs('assets/data', exist_ok=True)
           
           # Write to data file (in assets/data so it's served as static file)
           with open('assets/data/analytics-stats.json', 'w') as f:

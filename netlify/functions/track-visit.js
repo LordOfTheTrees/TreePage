@@ -30,14 +30,22 @@ exports.handler = async (event, context) => {
 
   try {
     console.log('Track-visit function called, method:', event.httpMethod);
+    console.log('Request headers:', JSON.stringify(event.headers, null, 2));
     
     // Get visitor's IP from request headers
-    const clientIP = event.headers['x-forwarded-for']?.split(',')[0] || 
-                     event.headers['x-nf-client-connection-ip'] || 
+    // Netlify provides IP in x-nf-client-connection-ip header
+    const clientIP = event.headers['x-nf-client-connection-ip'] || 
+                     event.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
+                     event.headers['client-ip'] ||
                      event.clientContext?.ip ||
                      'unknown';
     
-    console.log('Client IP:', clientIP);
+    console.log('Client IP detected:', clientIP);
+    
+    // If IP is still unknown, try to get it from Netlify's context
+    if (clientIP === 'unknown' && event.requestContext) {
+      console.log('Request context:', JSON.stringify(event.requestContext, null, 2));
+    }
 
     // Get location via IP geolocation API
     const apiKey = process.env.IP_API_KEY || '';
@@ -45,18 +53,31 @@ exports.handler = async (event, context) => {
       ? `https://ipapi.co/${clientIP}/json/?key=${apiKey}`
       : `https://ipapi.co/${clientIP}/json/`;
 
+    console.log('Calling IP geolocation API:', apiUrl);
     const locationResponse = await fetch(apiUrl);
-    const locationData = await locationResponse.json();
     
-    console.log('Location data received:', locationData);
+    if (!locationResponse.ok) {
+      console.error('IP API error:', locationResponse.status, locationResponse.statusText);
+      const errorText = await locationResponse.text();
+      console.error('IP API error body:', errorText);
+    }
+    
+    const locationData = await locationResponse.json();
+    console.log('Location data received:', JSON.stringify(locationData, null, 2));
 
     // Extract relevant geographic information
+    // Handle different possible response formats
     const visitData = {
-      country: locationData.country_name || 'Unknown',
-      region: locationData.region || 'Unknown',
+      country: locationData.country_name || locationData.country || 'Unknown',
+      region: locationData.region || locationData.regionName || locationData.state || 'Unknown',
       city: locationData.city || 'Unknown',
       timestamp: new Date().toISOString()
     };
+    
+    // Check if we got an error from the API
+    if (locationData.error || locationData.reason) {
+      console.error('IP API returned error:', locationData.error || locationData.reason);
+    }
     
     console.log('Visit data to store:', visitData);
 
@@ -64,14 +85,22 @@ exports.handler = async (event, context) => {
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
+    console.log('Supabase URL configured:', !!supabaseUrl);
+    console.log('Supabase Key configured:', !!supabaseKey);
+
     if (!supabaseUrl || !supabaseKey) {
+      console.error('Supabase environment variables missing!');
       return {
         statusCode: 500,
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         },
-        body: JSON.stringify({ error: 'Supabase not configured' })
+        body: JSON.stringify({ 
+          error: 'Supabase not configured',
+          hasUrl: !!supabaseUrl,
+          hasKey: !!supabaseKey
+        })
       };
     }
 
