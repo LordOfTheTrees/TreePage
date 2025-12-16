@@ -29,11 +29,15 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    console.log('Track-visit function called, method:', event.httpMethod);
+    
     // Get visitor's IP from request headers
     const clientIP = event.headers['x-forwarded-for']?.split(',')[0] || 
                      event.headers['x-nf-client-connection-ip'] || 
                      event.clientContext?.ip ||
                      'unknown';
+    
+    console.log('Client IP:', clientIP);
 
     // Get location via IP geolocation API
     const apiKey = process.env.IP_API_KEY || '';
@@ -43,6 +47,8 @@ exports.handler = async (event, context) => {
 
     const locationResponse = await fetch(apiUrl);
     const locationData = await locationResponse.json();
+    
+    console.log('Location data received:', locationData);
 
     // Extract relevant geographic information
     const visitData = {
@@ -51,6 +57,8 @@ exports.handler = async (event, context) => {
       city: locationData.city || 'Unknown',
       timestamp: new Date().toISOString()
     };
+    
+    console.log('Visit data to store:', visitData);
 
     // Get Supabase credentials
     const supabaseUrl = process.env.SUPABASE_URL;
@@ -71,6 +79,7 @@ exports.handler = async (event, context) => {
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Insert visit into Supabase
+    console.log('Inserting visit into Supabase...');
     const { data: insertedVisit, error: insertError } = await supabase
       .from('visits')
       .insert([visitData])
@@ -88,11 +97,15 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: 'Failed to store visit', details: insertError.message })
       };
     }
+    
+    console.log('Visit inserted successfully:', insertedVisit);
 
     // Get total count for response
     const { count } = await supabase
       .from('visits')
       .select('*', { count: 'exact', head: true });
+    
+    console.log('Total visits count:', count);
 
     return {
       statusCode: 200,
@@ -108,13 +121,18 @@ exports.handler = async (event, context) => {
     };
   } catch (error) {
     console.error('Error tracking visit:', error);
+    console.error('Error stack:', error.stack);
     return {
       statusCode: 500,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify({ error: 'Failed to track visit' })
+      body: JSON.stringify({ 
+        error: 'Failed to track visit',
+        message: error.message,
+        details: error.toString()
+      })
     };
   }
 };
