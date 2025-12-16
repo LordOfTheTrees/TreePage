@@ -41,16 +41,24 @@
   margin-top: $spacing-unit;
   color: $gray;
   
+  .container {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
   .footer-content {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: $spacing-unit * 3;
+    gap: $spacing-unit * 4;
     flex-wrap: wrap;
+    padding: $spacing-unit 0;
   }
   
   .footer-section {
     text-align: center;
+    flex: 0 0 auto;
     
     h4 {
       margin-bottom: $spacing-unit / 2;
@@ -67,6 +75,13 @@
       flex-direction: column;
       gap: $spacing-unit / 3;
     }
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: $spacing-unit;
+    border-top: 1px solid $border-color;
+    margin-top: $spacing-unit;
   }
   
   .social-links {
