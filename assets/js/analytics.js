@@ -60,15 +60,21 @@ document.addEventListener('DOMContentLoaded', function() {
       // Fetch aggregated stats from the data file
       // The file is served as a static file from assets/data
       const baseUrl = window.location.origin + (window.location.pathname.includes('/TreePage') ? '/TreePage' : '');
-      const statsResponse = await fetch(`${baseUrl}/assets/data/analytics-stats.json`);
+      const dataUrl = `${baseUrl}/assets/data/analytics-stats.json`;
+      console.log('Fetching analytics data from:', dataUrl);
+      
+      const statsResponse = await fetch(dataUrl);
       
       if (!statsResponse.ok) {
-        throw new Error('Failed to load analytics data');
+        console.error('Failed to load analytics data:', statsResponse.status, statsResponse.statusText);
+        throw new Error(`Failed to load analytics data: ${statsResponse.status}`);
       }
 
       const stats = await statsResponse.json();
+      console.log('Analytics data loaded:', stats);
       
       if (!stats || stats.totalVisits === 0) {
+        console.log('No visits in stats:', stats);
         analyticsContainer.innerHTML = '<p>No analytics data available yet. Data is updated monthly.</p>';
         return;
       }
