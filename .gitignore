@@ -37,3 +37,6 @@ Desktop.ini
 # Local configuration
 .env
 config.env
+
+# Netlify function data (if stored locally)
+netlify/functions/data/

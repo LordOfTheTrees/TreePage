@@ -1,26 +1,31 @@
-// Updated analytics.js - Focuses on tracking geographic data
+// Updated analytics.js - Uses Netlify Functions for tracking
 document.addEventListener('DOMContentLoaded', function() {
-  // Function to get visitor's IP and geographic information
+  // Get Netlify function base URL (works for both local dev and production)
+  const getNetlifyFunctionUrl = (functionName) => {
+    // In production, Netlify automatically handles function URLs
+    // In local dev, you'd use http://localhost:8888/.netlify/functions/
+    const baseUrl = window.location.origin;
+    return `${baseUrl}/.netlify/functions/${functionName}`;
+  };
+
+  // Function to track visit via Netlify Function
+  // The function handles both getting location and storing to GitHub repo
   async function trackVisit() {
     try {
-      // Get visitor's IP information using a free IP geolocation API
-      const response = await fetch('https://ipapi.co/json/');
-      const data = await response.json();
-      
-      // Store relevant geographic information
-      const geoData = {
-        country: data.country_name,
-        region: data.region,
-        city: data.city,
-        timestamp: new Date().toISOString()
-      };
-      
-      // Get existing visit data
-      const visits = JSON.parse(localStorage.getItem('site_geo_visits') || '[]');
-      visits.push(geoData);
-      
-      // Save updated visits data
-      localStorage.setItem('site_geo_visits', JSON.stringify(visits));
+      // Call track-visit function which handles location and storage
+      const response = await fetch(getNetlifyFunctionUrl('track-visit'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Visit tracked successfully', result);
+      } else {
+        console.error('Failed to track visit');
+      }
       
       // Update analytics view if we're on the analytics page
       if (window.location.pathname.includes('analytics-view.html')) {
@@ -35,51 +40,72 @@ document.addEventListener('DOMContentLoaded', function() {
   trackVisit();
   
   // Function to update the analytics view
-  window.updateAnalyticsView = function() {
-    const visits = JSON.parse(localStorage.getItem('site_geo_visits') || '[]');
+  // Reads from _data/analytics-stats.json (served as static file by Jekyll)
+  window.updateAnalyticsView = async function() {
     const analyticsContainer = document.getElementById('analytics-container');
     
-    if (!analyticsContainer || visits.length === 0) {
+    if (!analyticsContainer) {
       return;
     }
-    
-    // Count visits by country
-    const countryCounts = {};
-    visits.forEach(visit => {
-      const country = visit.country || 'Unknown';
-      countryCounts[country] = (countryCounts[country] || 0) + 1;
-    });
-    
-    // Display the results
-    let html = '<h2>Visitor Statistics</h2>';
-    html += '<div class="stats-section"><h3>Visits by Country</h3><ul>';
-    
-    Object.keys(countryCounts).sort().forEach(country => {
-      html += `<li><strong>${country}</strong>: ${countryCounts[country]} visit(s)</li>`;
-    });
-    
-    html += '</ul></div>';
-    
-    // Count visits by region
-    const regionCounts = {};
-    visits.forEach(visit => {
-      if (visit.country && visit.region) {
-        const region = `${visit.region}, ${visit.country}`;
-        regionCounts[region] = (regionCounts[region] || 0) + 1;
+
+    try {
+      // Fetch aggregated stats from the data file
+      // The file is served via Jekyll data file endpoint
+      const baseUrl = window.location.origin + (window.location.pathname.includes('/TreePage') ? '/TreePage' : '');
+      const statsResponse = await fetch(`${baseUrl}/analytics-stats.json`);
+      
+      if (!statsResponse.ok) {
+        throw new Error('Failed to load analytics data');
       }
-    });
-    
-    html += '<div class="stats-section"><h3>Visits by Region</h3><ul>';
-    
-    Object.keys(regionCounts).sort().forEach(region => {
-      html += `<li><strong>${region}</strong>: ${regionCounts[region]} visit(s)</li>`;
-    });
-    
-    html += '</ul></div>';
-    
-    // Show total visits
-    html += `<p class="total-visits">Total visits tracked: ${visits.length}</p>`;
-    
-    analyticsContainer.innerHTML = html;
+
+      const stats = await statsResponse.json();
+      
+      if (!stats || stats.totalVisits === 0) {
+        analyticsContainer.innerHTML = '<p>No analytics data available yet. Data is updated monthly.</p>';
+        return;
+      }
+      
+      // Display the results using the aggregated stats
+      let html = '<h2>Visitor Statistics</h2>';
+      html += '<div class="stats-section"><h3>Visits by Country</h3><ul>';
+      
+      if (stats.visitsByCountry) {
+        Object.keys(stats.visitsByCountry).sort().forEach(country => {
+          html += `<li><strong>${country}</strong>: ${stats.visitsByCountry[country]} visit(s)</li>`;
+        });
+      }
+      
+      html += '</ul></div>';
+      
+      html += '<div class="stats-section"><h3>Visits by Region</h3><ul>';
+      
+      if (stats.visitsByRegion) {
+        Object.keys(stats.visitsByRegion).sort().forEach(region => {
+          html += `<li><strong>${region}</strong>: ${stats.visitsByRegion[region]} visit(s)</li>`;
+        });
+      }
+      
+      html += '</ul></div>';
+      
+      // Show total visits
+      html += `<p class="total-visits">Total visits tracked: ${stats.totalVisits}</p>`;
+      
+      // Show last updated
+      if (stats.lastUpdated) {
+        html += `<p class="last-updated">Last updated: ${new Date(stats.lastUpdated).toLocaleDateString()}</p>`;
+      }
+      
+      analyticsContainer.innerHTML = html;
+      
+      // Trigger visual analytics if available
+      if (window.createVisualAnalytics && stats.visits && stats.visits.length > 0) {
+        setTimeout(() => {
+          window.createVisualAnalytics(stats.visits);
+        }, 100);
+      }
+    } catch (error) {
+      console.error('Failed to load analytics:', error);
+      analyticsContainer.innerHTML = '<p>Failed to load analytics data. Please try again later.</p>';
+    }
   };
 });

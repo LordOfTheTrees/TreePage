@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Create more visual representations of the data
-    function createVisualAnalytics() {
-      const visits = JSON.parse(localStorage.getItem('site_geo_visits') || '[]');
-      if (visits.length === 0) return;
+    // This function can be called with visits array from analytics-stats.json
+    window.createVisualAnalytics = function(visits) {
+      if (!visits || visits.length === 0) return;
       
       // Create a more advanced container if needed
       const advancedContainer = document.getElementById('advanced-analytics') || 
@@ -227,24 +227,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize when DOM is ready
     function initialize() {
       addVisualizationStyles();
-      createVisualAnalytics();
       
-      // Update analytics view when already defined
-      if (window.updateAnalyticsView) {
-        const originalUpdate = window.updateAnalyticsView;
-        window.updateAnalyticsView = function() {
-          originalUpdate();
-          createVisualAnalytics();
-        };
-      } else {
-        // Set it directly if not defined yet
-        window.updateAnalyticsView = function() {
-          createVisualAnalytics();
-        };
-      }
-      
-      // Initial update
-      window.updateAnalyticsView();
+      // Wait for analytics data to be loaded
+      // The createVisualAnalytics function will be called from analytics.js
+      // after the stats are loaded
     }
     
     // Start initialization

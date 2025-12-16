@@ -1,0 +1,106 @@
+name: Aggregate Analytics Data
+
+on:
+  schedule:
+    # Run on 1st of each month at midnight UTC
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  aggregate-analytics:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Aggregate analytics data
+        run: |
+          python3 << 'EOF'
+          import json
+          from collections import defaultdict
+          from datetime import datetime
+          
+          # Read visits from _data/visits.json
+          try:
+              with open('_data/visits.json', 'r') as f:
+                  visits = json.load(f)
+          except FileNotFoundError:
+              print("visits.json not found, starting with empty data")
+              visits = []
+          
+          if not visits:
+              print("No visits to aggregate")
+              stats = {
+                  "totalVisits": 0,
+                  "visitsByCountry": {},
+                  "visitsByRegion": {},
+                  "timeline": [],
+                  "visits": [],
+                  "lastUpdated": datetime.now().isoformat()
+              }
+          else:
+              # Aggregate by country
+              country_counts = defaultdict(int)
+              for visit in visits:
+                  country = visit.get('country', 'Unknown')
+                  country_counts[country] += 1
+              
+              # Aggregate by region
+              region_counts = defaultdict(int)
+              for visit in visits:
+                  country = visit.get('country')
+                  region = visit.get('region')
+                  if country and region:
+                      region_key = f"{region}, {country}"
+                      region_counts[region_key] += 1
+              
+              # Create timeline (group by day)
+              timeline_dict = defaultdict(int)
+              for visit in visits:
+                  timestamp = visit.get('timestamp', '')
+                  if timestamp:
+                      date = timestamp.split('T')[0]
+                      timeline_dict[date] += 1
+              
+              timeline = [{"date": date, "count": count} 
+                         for date, count in sorted(timeline_dict.items())]
+              
+              # Create aggregated stats object
+              stats = {
+                  "totalVisits": len(visits),
+                  "visitsByCountry": dict(country_counts),
+                  "visitsByRegion": dict(region_counts),
+                  "timeline": timeline,
+                  "visits": visits,
+                  "lastUpdated": datetime.now().isoformat()
+              }
+          
+          # Write to data file in _data directory
+          with open('_data/analytics-stats.json', 'w') as f:
+              json.dump(stats, f, indent=2)
+          
+          print(f"Aggregated {stats['totalVisits']} visits")
+          print(f"Countries: {len(stats['visitsByCountry'])}")
+          print(f"Regions: {len(stats['visitsByRegion'])}")
+          EOF
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add _data/analytics-stats.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Update analytics data [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+

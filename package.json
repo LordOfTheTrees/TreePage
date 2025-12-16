@@ -1,0 +1,9 @@
+{
+  "name": "treepage-netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for TreePage analytics",
+  "dependencies": {
+    "@octokit/rest": "^20.0.0"
+  }
+}
+
