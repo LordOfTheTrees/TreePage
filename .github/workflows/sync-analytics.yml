@@ -25,30 +25,16 @@ jobs:
 
       - name: Fetch visit data from Netlify
         id: fetch-data
-        env:
-          NETLIFY_URL: ${{ secrets.NETLIFY_SITE_URL }}
-          EXPORT_TOKEN: ${{ secrets.NETLIFY_EXPORT_TOKEN }}
         run: |
           python3 << 'EOF'
           import json
-          import os
           import urllib.request
           
-          netlify_url = os.environ.get('NETLIFY_URL', '').strip()
-          
-          # Use fallback if secret is not set or empty
-          if not netlify_url:
-              netlify_url = 'https://remarkable-syrniki-5c721e.netlify.app'
-          
-          # Ensure URL doesn't have trailing slash
-          netlify_url = netlify_url.rstrip('/')
-          
-          export_token = os.environ.get('EXPORT_TOKEN', '')
+          # Hardcoded Netlify site URL
+          netlify_url = 'https://remarkable-syrniki-5c721e.netlify.app'
           
           # Fetch visit data from Netlify function
           url = f"{netlify_url}/.netlify/functions/export-visits"
-          if export_token:
-              url += f"?token={export_token}"
           
           print(f"Fetching data from: {url}")
           
