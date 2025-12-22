@@ -1,9 +1,79 @@
 {
-  "totalVisits": 0,
-  "visitsByCountry": {},
-  "visitsByRegion": {},
-  "timeline": [],
-  "visits": [],
-  "lastUpdated": null
+  "totalVisits": 10,
+  "visitsByCountry": {
+    "United States": 10
+  },
+  "visitsByRegion": {
+    "New York, United States": 1,
+    "Connecticut, United States": 9
+  },
+  "timeline": [
+    {
+      "date": "2025-12-16",
+      "count": 10
+    }
+  ],
+  "visits": [
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York City",
+      "timestamp": "2025-12-16T22:18:02.547+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:24:43.805+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:45:26.877+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:45:28.068+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:50:35.02+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:50:35.962+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:17.259+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:17.749+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:35.31+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:35.918+00:00"
+    }
+  ],
+  "lastUpdated": "2025-12-22T01:44:39.792115"
 }
-
