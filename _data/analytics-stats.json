@@ -1,16 +1,22 @@
 {
-  "totalVisits": 10,
+  "totalVisits": 13,
   "visitsByCountry": {
-    "United States": 10
+    "United States": 10,
+    "Canada": 3
   },
   "visitsByRegion": {
     "New York, United States": 1,
-    "Connecticut, United States": 9
+    "Connecticut, United States": 9,
+    "Ontario, Canada": 3
   },
   "timeline": [
     {
       "date": "2025-12-16",
       "count": 10
+    },
+    {
+      "date": "2025-12-30",
+      "count": 3
     }
   ],
   "visits": [
@@ -73,7 +79,25 @@
       "region": "Connecticut",
       "city": "Hamden",
       "timestamp": "2025-12-16T22:53:35.918+00:00"
+    },
+    {
+      "country": "Canada",
+      "region": "Ontario",
+      "city": "Penetanguishene",
+      "timestamp": "2025-12-30T12:58:15.678+00:00"
+    },
+    {
+      "country": "Canada",
+      "region": "Ontario",
+      "city": "Penetanguishene",
+      "timestamp": "2025-12-30T12:58:17.17+00:00"
+    },
+    {
+      "country": "Canada",
+      "region": "Ontario",
+      "city": "Penetanguishene",
+      "timestamp": "2025-12-30T12:58:19.402+00:00"
     }
   ],
-  "lastUpdated": "2025-12-29T01:48:40.368147"
+  "lastUpdated": "2026-01-05T01:51:28.496032"
 }
