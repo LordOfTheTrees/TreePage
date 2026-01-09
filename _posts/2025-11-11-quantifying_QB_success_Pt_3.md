@@ -6,11 +6,11 @@ categories: [Analytics, Quarterbacks, Tableau]
 ---
 
 ### Opening: The Daniel Jones Problem
-In March 2023, the New York Giants extended Daniel Jones with a 4-year, $160M contract ($40M AAV). The decision sparked immediate debate because his track record painted an ambiguous picture. Through his first four seasons, Jones had accumulated respectable volume: 14,582 passing yards, 4th highest among his 2019 draft class. But his efficiency told a different story: 5.83 career ANY/A, ranking in the bottom third of starting quarterbacks. His Year 4 performance showed 3,205 yards with 6.14 ANY/A—modest improvement, but hardly elite. Both were still well below our 4,200 era-adjusted yards and 6.5 ANY/A.
+In March 2023, the New York Giants extended Daniel Jones with a 4-year, $160M contract ($40M AAV). The decision sparked immediate debate because his track record painted an ambiguous picture. Through his first four seasons, Jones had accumulated respectable volume: 14,582 passing yards, 4th highest among his 2019 draft class. But his efficiency told a different story: 5.83 career ANY/A, ranking in the bottom third of starting quarterbacks. His Year 3 performance showed 3,205 yards with 6.14 ANY/A—modest improvement, but hardly elite. Both were still well below our 4,200 era-adjusted yards and 6.5 ANY/A.
 
-The Giants bet on the trajectory, leaning on the last year like we have observed in the temporal bias evaluation. Within one year, that contract became one of the league's most criticized decisions as Jones regressed to 5.01 ANY/A in Year 5. In less than 2 years (Nov 2024), he was benched and then cut just four days later.
+The Giants bet on the trajectory, leaning on the last year like we have observed in the temporal bias evaluation. Within one year, that contract became one of the league's most criticized decisions as Jones regressed to 5.01 ANY/A in Year 4. In less than 2 years (Nov 2024), he was benched and then cut just four days later.
 
-This case study exemplifies much of the noise in quarterback evaluation: teams systematically overweight recent performance when they aren't in an obvious signing situation, and in doing so they underweight the benchmarks we've observed which actually predict long-term success. Articles 1 and 2 quantified this bias—Year 2 performance receives 59.8% weight in Year 4 decisions despite representing only 25% of available data.  
+This case study exemplifies much of the noise in quarterback evaluation: teams systematically overweight recent performance when they aren't in an obvious signing situation, and in doing so they underweight the benchmarks we've observed which actually predict long-term success. Articles 1 and 2 quantified this bias—Year 3 performance receives 59.8% weight in Year 4 decisions despite representing only 25% of available data.  
 
 Indeed, the public discussion around signing a team's franchise quarterback often prioritizes volume production (total yards) even when we've seen that efficiency metrics (ANY/A) are just as important. The Daniel Jones extension is one manifestation: a quarterback with decent volume but marginal efficiency, evaluated during a contract year with recency bias amplifying one improved season. Our framework would have flagged this risk.
 
@@ -174,28 +174,28 @@ We generate comparisons for both predictive metrics independently. That creates 
 
 ### Critical Performance Benchmarks
 
-**Year 3 Performance Gap (The "Contract Year")**
+**Year 2 Performance Gap (The "Contract Year")**
 - **Paid QBs Average:** 3,639 yards, 6.68 ANY/A
 - **Unpaid QBs Average:** 2,453 yards, 5.31 ANY/A
 - **Gap:** 1,186 yards, 1.37 ANY/A difference
 
 **Growth Trajectory Indicators**
-- **Paid QBs:** Average improvement of **+1,016 yards** from Year 1 to Year 3
-- **Unpaid QBs:** Average improvement of **+214 yards** from Year 1 to Year 3
+- **Paid QBs:** Average improvement of **+1,016 yards** from Year 0 to Year 2
+- **Unpaid QBs:** Average improvement of **+214 yards** from Year 0 to Year 2
 
 **ANY/A (Adjusted Net Yards per Attempt) Delta**
-- **Paid QBs:** Average improvement of **+0.73** from Year 1 to Year 3
-- **Unpaid QBs:** Average improvement of **+0.42** from Year 1 to Year 3
+- **Paid QBs:** Average improvement of **+0.73** from Year 0 to Year 2
+- **Unpaid QBs:** Average improvement of **+0.42** from Year 0 to Year 2
 
 ## II. TRAJECTORY ARCHETYPES FOR COMPARISON ANALYSIS
 
 ### Archetype 1: **ELITE EARLY DEVELOPER**
-*Characteristic: Explosive Year 2-3 breakthrough, sustained excellence*
+*Characteristic: Explosive Year 1-2 breakthrough, sustained excellence*
 
 **Defining Pattern:**
-- Year 1: Decent (4.5-6.0 ANY/A)
-- Year 2: Major leap (+2.0 ANY/A improvement)
-- Year 3: Elite level (7.5+ ANY/A)
+- Year 0: Decent (4.5-6.0 ANY/A)
+- Year 1: Major leap (+2.0 ANY/A improvement)
+- Year 2: Elite level (7.5+ ANY/A)
 
 **Historical Examples:**
 
@@ -225,10 +225,10 @@ We generate comparisons for both predictive metrics independently. That creates 
 - Y3: 3,371 yards, 6.17 ANY/A leads to CONTRACT ($262.5M/5yr)
 
 **Key Indicators:**
-- Year 2 or 3 production above 4,500 yards
+- Year 1 or 2 production above 4,500 yards
 - Consistent efficiency (5.5+ ANY/A) in all seasons
-- Often a big jump in ANY/A of 1.5+ points between Year 1-3
-- Clear upward trajectory visible by Year 2
+- Often a big jump in ANY/A of 1.5+ points between Year 0-2
+- Clear upward trajectory visible by Year 1
 
 The obligatory Mahomes variant:
 
@@ -264,26 +264,26 @@ The key characteristic of this group is incremental growth, either in efficiency
 - Y4: 3,831 yards, 5.85 ANY/A leads to Contract
 
 **Key Indicators:**
-- Consistent playing time across Years 1-4
+- Consistent playing time across Years 0-3
 - Year-over-year improvement (even if modest)
 - Average minimum 3,500 yards annually
-- ANY/A floor of 5.75+ by Year 3
+- ANY/A floor of 5.75+ by Year 2
 - No major regression seasons
 
 **Defining Efficiency Pattern:**
-- Year 1: Adequate (5.0-5.5 ANY/A)
-- Year 2: Modest improvement (+0.5-1.0 ANY/A)
-- Year 3-4: Solid production (5.75+ ANY/A)
+- Year 0: Adequate (5.0-5.5 ANY/A)
+- Year 1: Modest improvement (+0.5-1.0 ANY/A)
+- Year 2-3: Solid production (5.75+ ANY/A)
 
 ---
 
 ### Archetype 3: **LATE BLOOMER**
-The key characteristic of this group is a slow or limited start for any reason, with a dramatic Year 3+ emergence. This group is obviously dominated by players like Aaron rodgers based on our way of labeling years based on drafting, and not based on being the year long starter.
+The key characteristic of this group is a slow or limited start for any reason, with a dramatic Year 2+ emergence. This group is obviously dominated by players like Aaron rodgers based on our way of labeling years based on drafting, and not based on being the year long starter.
 
 **Defining Pattern:**
-- Year 1: Limited action or poor efficiency (3.0-5.0 ANY/A)
-- Year 2: Modest improvement
-- Year 3-4: Major breakthrough (7.0+ ANY/A)
+- Year 0: Limited action or poor efficiency (3.0-5.0 ANY/A)
+- Year 1: Modest improvement
+- Year 2-3: Major breakthrough (7.0+ ANY/A)
 
 **Historical Examples:**
 
@@ -309,9 +309,9 @@ The key characteristic of this group is a slow or limited start for any reason, 
 - Y4: 4,275 yards, 8.30 ANY/A
 
 **Key Indicators:**
-- Limited Year 1-3 opportunity (injury, backup role, or bad situation)
+- Limited Year 0-2 opportunity (injury, backup role, or bad situation)
 - Dramatic improvement when given consistent starts
-- Year 3-4 performance exceeds 7.5 ANY/A
+- Year 2-3 performance exceeds 7.5 ANY/A
 
 ---
 
@@ -351,8 +351,8 @@ The key characteristic of this group is a strong initial performance, combined w
 - Y3: 1,770 yards, 6.24 ANY/A
 
 **Key Indicators:**
-- Best season occurs in Year 1 or 2
-- Year 3+ shows effiency and/or yards regression (1.0+ ANY/A drop)
+- Best season occurs in Year 0 or 1
+- Year 2+ shows effiency and/or yards regression (1.0+ ANY/A drop)
 - **As we noted previously teams often misjudge based on recency bias peak, causing them to abandon players where there is a chance of salvaging them (think Sam Darnold or Geno Smith)**
 
 ---
@@ -363,16 +363,16 @@ The key characteristic of this group is a strong initial performance, combined w
 
 | Year | Minimum ANY/A | Target ANY/A | Minimum Yards | Target Yards |
 |------|---------------|--------------|---------------|--------------|
-| Year 1 | 5.0 | 5.5+ | 1,900 | 2,900 |
-| Year 2 | 5.5 | 6.0+ | 3,000 | 3,900 |
-| **Year 3** | **6.0** | **6.5+** | **3,600** | **4,000** |
-| Year 4 (contract) | 6.3 | 6.8+ | 3,300 | 3,800 |
+| Year 0 | 5.0 | 5.5+ | 1,900 | 2,900 |
+| Year 1 | 5.5 | 6.0+ | 3,000 | 3,900 |
+| **Year 2** | **6.0** | **6.5+** | **3,600** | **4,000** |
+| Year 3 (contract) | 6.3 | 6.8+ | 3,300 | 3,800 |
 
 **Growth Requirements:**
-- **ANY/A:** Year 1 to Year 3 improvement: Minimum +0.8, Target +1.5
-- **Yards:** Year 1 to Year 3 improvement: Minimum +300 yards, Target +900 yards
-- No season below 5.0 ANY/A after Year 2
-- No Year 3 regression from Year 2 by more than 1.0 ANY/A
+- **ANY/A:** Year 0 to Year 2 improvement: Minimum +0.8, Target +1.5
+- **Yards:** Year 0 to Year 2 improvement: Minimum +300 yards, Target +900 yards
+- No season below 5.0 ANY/A after Year 1
+- No Year 2 regression from Year 1 by more than 1.0 ANY/A
 
 ---
 
@@ -383,17 +383,17 @@ The key characteristic of this group is a strong initial performance, combined w
 
 | Metric | Josh Allen | Blake Bortles | Key Difference |
 |--------|------------|---------------|----------------|
-| Y1 ANY/A | 4.42 | 3.89 | Allen worse baseline |
-| Y2 ANY/A | 5.77 | 6.20 | Bortles better Y2 |
-| Y3 ANY/A | 7.88 | 5.31 | Allen sustained, Bortles regressed |
-| Y4 ANY/A | 6.42 | 6.30 | Both adequate contract year |
-| Y1-Y3 Δ | +3.46 | +1.42 | Allen's growth 2.4x larger |
+| Y0 ANY/A | 4.42 | 3.89 | Allen worse baseline |
+| Y1 ANY/A | 5.77 | 6.20 | Bortles better Y1 |
+| Y2 ANY/A | 7.88 | 5.31 | Allen sustained, Bortles regressed |
+| Y3 ANY/A | 6.42 | 6.30 | Both adequate contract year |
+| Y0-Y2 Δ | +3.46 | +1.42 | Allen's growth 2.4x larger |
 
 **Analysis Points:**
-- **The Critical Difference is Year 3 Sustainability:** Both QBs showed major Year 2 efficiency jumps after poor rookie seasons, but Allen's Y3 breakout (7.88 ANY/A) proved the improvement was real. Bortles' Y3 regression (6.20 → 5.31) revealed his Y2 was a statistical outlier.
-- **Teams Paid Both Anyway:** Jacksonville extended Bortles despite the Y3 regression, and they paid $54M for a QB trending downward.
-- **Volume Production Masked Efficiency Concerns:** Bortles maintained 4,000+ yard seasons (4,855 Y2, 4,357 Y3) which created false confidence. Allen's volume was more erratic (3,648 Y2, 5,019 Y3) but his efficiency trajectory was unmistakable.
-- **2025 Application:** This comparison directly applies to Caleb Williams and Drake Maye. Both show major Y2 efficiency improvements after rough/limited Y1s. The question is whether they follow Allen's sustained Y3 growth or Bortles' Y3 regression. Williams (6.92 ANY/A over 9 games) and Maye (7.97 over 10 games) need full Y2 samples and Y3 validation before extensions.
+- **The Critical Difference is Year 2 Sustainability:** Both QBs showed major Year 1 efficiency jumps after poor rookie seasons, but Allen's Y2 breakout (7.88 ANY/A) proved the improvement was real. Bortles' Y2 regression (6.20 → 5.31) revealed his Y1 was a statistical outlier.
+- **Teams Paid Both Anyway:** Jacksonville extended Bortles despite the Y2 regression, and they paid $54M for a QB trending downward.
+- **Volume Production Masked Efficiency Concerns:** Bortles maintained 4,000+ yard seasons (4,855 Y1, 4,357 Y2) which created false confidence. Allen's volume was more erratic (3,648 Y1, 5,019 Y2) but his efficiency trajectory was unmistakable.
+- **2025 Application:** This comparison directly applies to Caleb Williams and Drake Maye. Both show major Y1 efficiency improvements after rough/limited Y0s. The question is whether they follow Allen's sustained Y2 growth or Bortles' Y2 regression. Williams (6.92 ANY/A over 9 games) and Maye (7.97 over 10 games) need full Y1 samples and Y2 validation before extensions.
 
 Here is the comparison laid out on our trajectory charts for both volume and efficiency:
 
@@ -486,11 +486,11 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Metric | Daniel Jones | Ryan Tannehill | Key Difference |
 |--------|--------------|----------------|----------------|
-| Y1 ANY/A | 5.43 | 5.36 | Identical solid start |
-| Y2 ANY/A | 4.96 | 5.11 | Both regressed slightly |
-| Y3 ANY/A | 5.65 | 5.95 | Tannehill marginally better |
-| Y4 ANY/A | 5.91 | 6.02 | Tannehill pulled ahead again slightly |
-| Y1 Production | 3,351 yds | 3,621 yds | Tannehill +270 yards |
+| Y0 ANY/A | 5.43 | 5.36 | Identical solid start |
+| Y1 ANY/A | 4.96 | 5.11 | Both regressed slightly |
+| Y2 ANY/A | 5.65 | 5.95 | Tannehill marginally better |
+| Y3 ANY/A | 5.91 | 6.02 | Tannehill pulled ahead again slightly |
+| Y0 Production | 3,351 yds | 3,621 yds | Tannehill +270 yards |
 
 **Analysis Points:**
 - **The "Safe" Archetype Gets Extended Despite Mediocrity:** Both QBs never broke through to elite efficiency (6.5+ ANY/A) but showed steady improvement and avoided catastrophic regression. Teams extended them as "known commodities" rather than elite upside bets.
@@ -505,16 +505,16 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Metric | Jordan Love | Aaron Rodgers | Variance |
 |--------|--------------|---------------|-----------|
-| Y1 Adj. Total Yards | 442 | 76 | Love +366 |
-| Y2 Adj. Total Yards | 195 | 60 | Love +135 |
-| Y3 Adj. Total Yards | 4,418 | 259 | Love +4,159 |
-| Y4 Adj. Total Yards | 3,472 | 4,434 | Rodgers +962 |
-| Y5 Adj. Total Yards | — | 4,948 | Rodgers sustained |
+| Y0 Adj. Total Yards | 442 | 76 | Love +366 |
+| Y1 Adj. Total Yards | 195 | 60 | Love +135 |
+| Y2 Adj. Total Yards | 4,418 | 259 | Love +4,159 |
+| Y3 Adj. Total Yards | 3,472 | 4,434 | Rodgers +962 |
+| Y4 Adj. Total Yards | — | 4,948 | Rodgers sustained |
 
 **Analysis Points:**  
 - **Developmental Patience Pays Off:** Rodgers and Love both spent multiple years behind veterans before starting full-time. Early yardage totals were low due to backup roles.  
-- **Breakout in Starting Role:** Love’s third-year leap (4,418 yards) closely mirrors Rodgers’ first full starting season (4,434 yards in 2008).  
-- **Efficiency and Volume Sync Over Time:** Rodgers’ progression beyond Year 4 shows what happens when a late bloomer stabilizes into elite consistency. Love will want to avoid the dangerous efficiency decline trajectory, as that mirrors those of an Early Peak archetype.
+- **Breakout in Starting Role:** Love's second-year leap (4,418 yards) closely mirrors Rodgers' first full starting season (4,434 yards in 2008).  
+- **Efficiency and Volume Sync Over Time:** Rodgers' progression beyond Year 3 shows what happens when a late bloomer stabilizes into elite consistency. Love will want to avoid the dangerous efficiency decline trajectory, as that mirrors those of an Early Peak archetype.
 
 ---
 
@@ -523,17 +523,17 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Metric | Justin Fields | Mac Jones | Variance |
 |--------|----------------|------------|-----------|
-| Y1 Adj. Total Yards | 2,308 | 3,962 | Jones +1,654 |
-| Y2 Adj. Total Yards | 3,403 | 3,116 | Fields +287 |
-| Y3 Adj. Total Yards | 3,228 | 2,222 | Fields +1,006 |
-| Y4 Adj. Total Yards | 1,395 | 1,764 | Jones +369 |
-| Y5 Adj. Total Yards | — | — | — |
+| Y0 Adj. Total Yards | 2,308 | 3,962 | Jones +1,654 |
+| Y1 Adj. Total Yards | 3,403 | 3,116 | Fields +287 |
+| Y2 Adj. Total Yards | 3,228 | 2,222 | Fields +1,006 |
+| Y3 Adj. Total Yards | 1,395 | 1,764 | Jones +369 |
+| Y4 Adj. Total Yards | — | — | — |
 
 **Analysis Points:**  
-- **Front-Loaded Success:** Jones’ rookie yardage peak faded faster, while Fields’ totals eventually fell as his limited upside became clearer, and the Lamar comparison grew more and more tenuous. 
+- **Front-Loaded Success:** Jones' rookie yardage peak faded faster, while Fields' totals eventually fell as his limited upside became clearer, and the Lamar comparison grew more and more tenuous. 
 - **Declining Margins of Adaptability:** Both QBs struggled when the offense had to evolve — Fields with reads and rhythm, Jones with velocity and improvisation. Neither scaled their early year strengths into multi-dimensional offenses.  
 - **Market Lesson:** Early production spikes, particularly in well-schemed environments, can be misleading indicators of long-term franchise viability. Sustainable success correlates more with adaptability and enduring offensively exploitable traits than with immediate efficiency or production.  
-- **2025 Application:** Teams evaluating early breakout starters (e.g., rookies who flash in stable setups) should weigh environmental dependency and skill growth over Year 1 and 2 statistical volume.  
+- **2025 Application:** Teams evaluating early breakout starters (e.g., rookies who flash in stable setups) should weigh environmental dependency and skill growth over Year 0 and 1 statistical volume.  
 
 
 ---
@@ -555,15 +555,15 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2024) | 4,459 | - | 6.50 | - |
-| Y2 (2025) | 4,097* | -362 | 6.36 | -0.14 |
+| Y0 (2024) | 4,459 | - | 6.50 | - |
+| Y1 (2025) | 4,097* | -362 | 6.36 | -0.14 |
 
 *Extrapolated from 6 games
 
 **Top Paid Comparables:** Cam Newton, Kyler Murray, Justin Herbert
 **Top Unpaid Comparables:** Jameis Winston, Robert Griffin III, Baker Mayfield
-**Analysis:** Dont get injured, since that elite volume production in year 1 locks in paid comparables right now. Unfortunately, he is injured so we'll see how this year actually ends in volume production, and how that adjusts the comparables. He'll be hoping it is much more of a Joe Burrow situation than a RG3 one.
-**Key Metric:** Sustain 6.3+ ANY/A through Year 3 to lock in elite probability (currently tracking at 6.36 through 6 games). 
+**Analysis:** Dont get injured, since that elite volume production in year 0 locks in paid comparables right now. Unfortunately, he is injured so we'll see how this year actually ends in volume production, and how that adjusts the comparables. He'll be hoping it is much more of a Joe Burrow situation than a RG3 one.
+**Key Metric:** Sustain 6.3+ ANY/A through Year 2 to lock in elite probability (currently tracking at 6.36 through 6 games). 
 ---
 
 
@@ -575,16 +575,16 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2024) | 2,697 | - | 5.10 | - |
-| Y2 (2025) | 4,825* | +2,128 | 7.97 | +2.87 |
+| Y0 (2024) | 2,697 | - | 5.10 | - |
+| Y1 (2025) | 4,825* | +2,128 | 7.97 | +2.87 |
 
 *Extrapolated from 10 games
 
 **Top Paid Comparables:** Ben Roethlisberger, Joe Burrow, Josh Allen
 **Top Unpaid Comparables:** Brandon Weeden, Patrick Ramsey, Mitchell Trubisky
 
-**Analysis:** The +2.87 ANY/A leap from Year 1 to Year 2 is exactly what teams want to see—comparable to Josh Allen and Joe Burrow's explosive improvements. Limited Year 1 sample (mid-season start) actually helps him here, as the 2,697 yards don't drag down his production comps. If he finishes 2025 near the 4,825-yard projection, he vaults into elite Big Ben/Allen territory. The real risk is that 10-game sample proves to be a hot streak rather than a sustainable baseline.
-**Key Metric:** Limited Year 1 sample (mid-season start) creates uncertainty; needs full 16+ game Year 2 sample to validate that elite 7.97 ANY/A is sustainable
+**Analysis:** The +2.87 ANY/A leap from Year 0 to Year 1 is exactly what teams want to see—comparable to Josh Allen and Joe Burrow's explosive improvements. Limited Year 0 sample (mid-season start) actually helps him here, as the 2,697 yards don't drag down his production comps. If he finishes 2025 near the 4,825-yard projection, he vaults into elite Big Ben/Allen territory. The real risk is that 10-game sample proves to be a hot streak rather than a sustainable baseline.
+**Key Metric:** Limited Year 0 sample (mid-season start) creates uncertainty; needs full 16+ game Year 1 sample to validate that elite 7.97 ANY/A is sustainable
 
 ---
 
@@ -596,18 +596,18 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2023) | 4,286 | - | 7.48 | - |
-| Y2 (2024) | 3,960 | -326 | 5.44 | -2.04 |
-| Y3 (2025) | 4,131* | +171 | 5.98 | +0.54 |
+| Y0 (2023) | 4,286 | - | 7.48 | - |
+| Y1 (2024) | 3,960 | -326 | 5.44 | -2.04 |
+| Y2 (2025) | 4,131* | +171 | 5.98 | +0.54 |
 
 *Extrapolated from 8 games
 
 **Top Paid Comparables:** Trevor Lawrence, Joe Flacco, Matt Ryan
 **Top Unpaid Comparables:** Robert Griffin III, Jameis Winston, Mac Jones
 
-**Analysis:** The classic "regression to the mean" case study. Elite 7.48 ANY/A rookie year looked like Patrick Mahomes; 5.44 ANY/A Year 2 looked like Mitchell Trubisky. Current 5.98 rebound suggests he's stabilizing around league-average efficiency rather than elite.
+**Analysis:** The classic "regression to the mean" case study. Elite 7.48 ANY/A rookie year looked like Patrick Mahomes; 5.44 ANY/A Year 1 looked like Mitchell Trubisky. Current 5.98 rebound suggests he's stabilizing around league-average efficiency rather than elite.
 
-**Key Metric:** Efficiency regression from 7.48 → 5.44 → 5.98 raises sustainability concerns. Must hit 6.5+ ANY/A again in Year 3 to push efficiency into upper range
+**Key Metric:** Efficiency regression from 7.48 → 5.44 → 5.98 raises sustainability concerns. Must hit 6.5+ ANY/A again in Year 2 to push efficiency into upper range
 
 ---
 
@@ -619,8 +619,8 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2024) | 4,205 | - | 6.12 | - |
-| Y2 (2025) | 3,963* | -242 | 5.74 | -0.38 |
+| Y0 (2024) | 4,205 | - | 6.12 | - |
+| Y1 (2025) | 3,963* | -242 | 5.74 | -0.38 |
 
 *Extrapolated from 10 games
 
@@ -629,7 +629,7 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 **Analysis:**  The 6.12 → 5.74 ANY/A decline erodes his biggest advantage. Nix's 3,963-yard projection is adequate, pushing production to 40%, but the efficiency slide toward 5.74 is a red flag. Mariota and Wentz comps show what happens when efficiency fades.
 
-**Key Metric:** Efficiency decline (6.12 → 5.74) threatens his primary advantage. Must rebound to 6.2+ ANY/A in Year 2 to maintain 40% efficiency probability; production already improved to 40%
+**Key Metric:** Efficiency decline (6.12 → 5.74) threatens his primary advantage. Must rebound to 6.2+ ANY/A in Year 1 to maintain 40% efficiency probability; production already improved to 40%
 
 ---
 
@@ -641,8 +641,8 @@ Here is the comparison laid out on our trajectory charts for both volume and eff
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2024) | 4,030 | - | 5.09 | - |
-| Y2 (2025) | 4,499* | +469 | 6.92 | +1.83 |
+| Y0 (2024) | 4,030 | - | 5.09 | - |
+| Y1 (2025) | 4,499* | +469 | 6.92 | +1.83 |
 
 *Extrapolated from 9 games
 
@@ -665,17 +665,17 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2024) | 786 | - | 6.29 | - |
-| Y2 (2025) | 3,970* | +3,184 | 6.41 | +0.12 |
+| Y0 (2024) | 786 | - | 6.29 | - |
+| Y1 (2025) | 3,970* | +3,184 | 6.41 | +0.12 |
 
 *Extrapolated from 8 games
 
 **Top Paid Comparables:** Jay Cutler, Lamar Jackson, Michael Vick
 **Top Unpaid Comparables:** Rex Grossman, Jake Locker, Jameis Winston
 
-**Analysis:** Schrödinger's QB—simultaneously shows elite mobility comps (Newton/Jackson/Vick) and complete statistical void. The 786 yards means production probability is purely speculative at 10-40%. Age 24 rookie behind veteran Kirk Cousins creates Jordan Love parallels, but Love had more Year 1 reps. The 3,970-yard projection from 8 games suggests legitimate starter upside, and 6.41 ANY/A efficiency is solid.
+**Analysis:** Schrödinger's QB—simultaneously shows elite mobility comps (Newton/Jackson/Vick) and complete statistical void. The 786 yards means production probability is purely speculative at 10-40%. Age 24 rookie behind veteran Kirk Cousins creates Jordan Love parallels, but Love had more Year 0 reps. The 3,970-yard projection from 8 games suggests legitimate starter upside, and 6.41 ANY/A efficiency is solid.
 
-**Key Metric:** Sample size is everything— no real production track record in year 1. Needs 12+ starts in Year 2 to establish legitimate baseline, but efficiency is solid at 6.41
+**Key Metric:** Sample size is everything— no real production track record in year 0. Needs 12+ starts in Year 1 to establish legitimate baseline, but efficiency is solid at 6.41
 
 ---
 
@@ -687,18 +687,18 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 
 | Year | Yards | Yards Δ | ANY/A | ANY/A Δ |
 |------|-------|---------|-------|---------|
-| Y1 (2023) | 3,138 | - | 3.69 | - |
-| Y2 (2024) | 2,652 | -486 | 5.11 | +1.42 |
-| Y3 (2025) | 3,018* | +366 | 4.61 | -0.50 |
+| Y0 (2023) | 3,138 | - | 3.69 | - |
+| Y1 (2024) | 2,652 | -486 | 5.11 | +1.42 |
+| Y2 (2025) | 3,018* | +366 | 4.61 | -0.50 |
 
 *Extrapolated from 9 games
 
 **Top Paid Comparables:** Ben Roethlisberger, Mark Sanchez, Matt Ryan
 **Top Unpaid Comparables:** Justin Fields, Mac Jones, David Carr
 
-**Analysis:** The worst-case scenario is unfolding in real-time. Year 3 regression from 5.11 to 4.61 ANY/A is historically catastrophic. The database shows <5% of QBs below 4.7 ANY/A in Year 3 receive extensions. The 3,018-yard projection shows even volume is declining.
+**Analysis:** The worst-case scenario is unfolding in real-time. Year 2 regression from 5.11 to 4.61 ANY/A is historically catastrophic. The database shows <5% of QBs below 4.7 ANY/A in Year 2 receive extensions. The 3,018-yard projection shows even volume is declining.
 
-**Key Metric:** Efficiency regression (5.11 → 4.61) in Year 3 is catastrophic. At 4.61 ANY/A, historically <5% of comps get paid. We project they are likely to part ways after this season.
+**Key Metric:** Efficiency regression (5.11 → 4.61) in Year 2 is catastrophic. At 4.61 ANY/A, historically <5% of comps get paid. We project they are likely to part ways after this season.
 
 ---
 
@@ -714,13 +714,13 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 
 ---
 
-1. **Efficiency is the Leading Indicator of Growth Trajectory:** ANY/A changes predict extension probability before volume stats reveal the pattern. QBs who improve efficiency by +1.5 ANY/A or more between Year 1 and Year 2 (Maye +2.87, Williams +1.83, Burrow +1.79, Lamar +2.21) signal developmental upside that teams pay for. Conversely, efficiency regression in Year 2-3 (Stroud -2.04 then +0.54, Young +1.42 then -0.50) triggers immediate concern regardless of volume production. Teams trust efficiency trends as real skill development; volume can be scheme/opportunity-driven.
+1. **Efficiency is the Leading Indicator of Growth Trajectory:** ANY/A changes predict extension probability before volume stats reveal the pattern. QBs who improve efficiency by +1.5 ANY/A or more between Year 0 and Year 1 (Maye +2.87, Williams +1.83, Burrow +1.79, Lamar +2.21) signal developmental upside that teams pay for. Conversely, efficiency regression in Year 1-2 (Stroud -2.04 then +0.54, Young +1.42 then -0.50) triggers immediate concern regardless of volume production. Teams trust efficiency trends as real skill development; volume can be scheme/opportunity-driven.
 
-2. **Year 1 Efficiency Threshold: The 5.5 ANY/A Floor:** First-year performance below 5.5 ANY/A creates extension skepticism that requires extraordinary Year 2-3 recovery. Daniels (6.50), Nix (6.12), and Maye (5.10 mid-season) cleared or approached this bar. Williams (5.09) and especially Young (3.69) started in deep holes requiring Burrow/Goff-level transformations. Historical data shows <15% of QBs starting below 5.0 ANY/A receive extensions from their drafting team, even after improvement.
+2. **Year 0 Efficiency Threshold: The 5.5 ANY/A Floor:** First-year performance below 5.5 ANY/A creates extension skepticism that requires extraordinary Year 1-2 recovery. Daniels (6.50), Nix (6.12), and Maye (5.10 mid-season) cleared or approached this bar. Williams (5.09) and especially Young (3.69) started in deep holes requiring Burrow/Goff-level transformations. Historical data shows <15% of QBs starting below 5.0 ANY/A receive extensions from their drafting team, even after improvement.
 
-3. **Year 2 Efficiency Threshold: The 6.5 ANY/A Separation Point:** Second-year performance above 6.5 ANY/A with 3,500+ yards creates 60%+ extension probability regardless of Year 1 struggles. Maye (7.97), Williams (6.92), and Daniels (6.36) are tracking above or near this critical threshold. Stroud (5.98) and Nix (5.74) fall into the "prove-it Year 3" category between 5.5-6.5 ANY/A—not bad enough to abandon, not good enough to pay yet. Young (4.61) sits below the 5.5 floor where historical recovery rate is <5%.
+3. **Year 1 Efficiency Threshold: The 6.5 ANY/A Separation Point:** Second-year performance above 6.5 ANY/A with 3,500+ yards creates 60%+ extension probability regardless of Year 0 struggles. Maye (7.97), Williams (6.92), and Daniels (6.36) are tracking above or near this critical threshold. Stroud (5.98) and Nix (5.74) fall into the "prove-it Year 2" category between 5.5-6.5 ANY/A—not bad enough to abandon, not good enough to pay yet. Young (4.61) sits below the 5.5 floor where historical recovery rate is <5%.
 
-4. **Year 3 is the Revelation Point—Trajectories Crystallize:** By the end of Year 3, the comparable set stabilizes and extension decisions lock in. Elite Early Developers (Mahomes, Herbert, Burrow) have already demonstrated 6.5+ ANY/A sustainability for multiple seasons. Late Bloomers (Allen, Goff) show clear Year 2-3 efficiency jumps that hold. Early Peaks (Stroud's potential path) must prove Year 1 performance wasn't a statistical outlier. The key pattern: QBs who haven't reached 6.0+ ANY/A by end of Year 3 almost never get extended—teams view Year 4 as "playing out the string" on rookie deals before moving on.
+4. **Year 2 is the Revelation Point—Trajectories Crystallize:** By the end of Year 2, the comparable set stabilizes and extension decisions lock in. Elite Early Developers (Mahomes, Herbert, Burrow) have already demonstrated 6.5+ ANY/A sustainability for multiple seasons. Late Bloomers (Allen, Goff) show clear Year 1-2 efficiency jumps that hold. Early Peaks (Stroud's potential path) must prove Year 0 performance wasn't a statistical outlier. The key pattern: QBs who haven't reached 6.0+ ANY/A by end of Year 2 almost never get extended—teams view Year 3 as "playing out the string" on rookie deals before moving on.
 
 5. **Injury-Adjusted Volume Projections Need Deeper Analysis:** Current methodology extrapolates per-game production to 17 games (ex: Daniels 4,097 projected from 6 games), but this may not reflect how teams actually evaluate injury-impacted seasons. Do teams use games-played volume (penalizing Daniels for missing time) or per-game pace (rewarding him for elite efficiency when healthy)? Future research should separate "injury-year outliers" from "established volume ceiling" in the comparable matching algorithm.
 
@@ -736,18 +736,18 @@ However, the cautionary tales loom large. Blake Bortles posted identical 6.20 AN
 
 | Year | Absolute Min | Lower Bound (Q1) | Average | Upper Bound (Q3) | Max |
 |------|--------------|------------------|---------|------------------|-----|
-| Year 1 | -0.44* | 4.57 | 5.80 | 6.41 | 14.52 |
+| Year 0 | -0.44* | 4.57 | 5.80 | 6.41 | 14.52 |
 | Year 2 | 1.62 | 5.45 | 6.11 | 6.85 | 9.00 |
 | Year 3 | 4.47 | 5.78 | 6.68 | 7.46 | 10.28 |
 | Year 4 | 4.47 | 5.56 | 6.21 | 6.80 | 8.40 |
 
-'*' of interest, this was Aaron Rodgers in his rookie year. He had a -0.44 ANY/A and only 75.8 adjusted total yards. 
+'*' of interest, this was Aaron Rodgers in Year 0 (rookie year). He had a -0.44 ANY/A and only 75.8 adjusted total yards. 
 
 ### Total Yards (Adjusted)
 
 | Year | Absolute Min | Lower Bound (Q1) | Average | Upper Bound (Q3) | Max |
 |------|--------------|------------------|---------|------------------|-----|
-| Year 1 | 71.6 | 1,943.7 | 2,795.1 | 3,702.0 | 4,927.9 |
+| Year 0 | 71.6 | 1,943.7 | 2,795.1 | 3,702.0 | 4,927.9 |
 | Year 2 | 59.9 | 3,017.3 | 3,511.3 | 4,763.6 | 5,456.3 |
 | Year 3 | 195.0 | 3,569.7 | 3,639.3 | 4,359.4 | 5,172.0 |
 | Year 4 | 2,128.1 | 3,280.1 | 3,766.7 | 4,421.9 | 5,323.8 |
