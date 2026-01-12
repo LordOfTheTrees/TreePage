@@ -1,13 +1,14 @@
 {
-  "totalVisits": 13,
+  "totalVisits": 14,
   "visitsByCountry": {
-    "United States": 10,
+    "United States": 11,
     "Canada": 3
   },
   "visitsByRegion": {
     "New York, United States": 1,
     "Connecticut, United States": 9,
-    "Ontario, Canada": 3
+    "Ontario, Canada": 3,
+    "New Jersey, United States": 1
   },
   "timeline": [
     {
@@ -17,6 +18,10 @@
     {
       "date": "2025-12-30",
       "count": 3
+    },
+    {
+      "date": "2026-01-07",
+      "count": 1
     }
   ],
   "visits": [
@@ -97,7 +102,13 @@
       "region": "Ontario",
       "city": "Penetanguishene",
       "timestamp": "2025-12-30T12:58:19.402+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New Jersey",
+      "city": "Secaucus",
+      "timestamp": "2026-01-07T20:49:49.171+00:00"
     }
   ],
-  "lastUpdated": "2026-01-05T01:51:28.496032"
+  "lastUpdated": "2026-01-12T01:47:54.915060"
 }
