@@ -1,16 +1,16 @@
 {
-  "totalVisits": 15,
+  "totalVisits": 16,
   "visitsByCountry": {
     "United States": 11,
     "Canada": 3,
-    "Singapore": 1
+    "Singapore": 2
   },
   "visitsByRegion": {
     "New York, United States": 1,
     "Connecticut, United States": 9,
     "Ontario, Canada": 3,
     "New Jersey, United States": 1,
-    "Unknown, Singapore": 1
+    "Unknown, Singapore": 2
   },
   "timeline": [
     {
@@ -27,6 +27,10 @@
     },
     {
       "date": "2026-02-08",
+      "count": 1
+    },
+    {
+      "date": "2026-02-14",
       "count": 1
     }
   ],
@@ -120,7 +124,13 @@
       "region": "Unknown",
       "city": "Singapore",
       "timestamp": "2026-02-08T17:01:46.078+00:00"
+    },
+    {
+      "country": "Singapore",
+      "region": "Unknown",
+      "city": "Singapore",
+      "timestamp": "2026-02-14T18:06:49.954+00:00"
     }
   ],
-  "lastUpdated": "2026-02-09T02:08:39.132734"
+  "lastUpdated": "2026-02-16T02:06:03.287613"
 }
