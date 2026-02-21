@@ -55,14 +55,21 @@ exports.handler = async (event, context) => {
 
     console.log('Calling IP geolocation API:', apiUrl);
     const locationResponse = await fetch(apiUrl);
-    
+    // Read body once only (reading twice causes "Body has already been read")
+    const responseText = await locationResponse.text();
+
     if (!locationResponse.ok) {
       console.error('IP API error:', locationResponse.status, locationResponse.statusText);
-      const errorText = await locationResponse.text();
-      console.error('IP API error body:', errorText);
+      console.error('IP API error body:', responseText);
     }
-    
-    const locationData = await locationResponse.json();
+
+    let locationData;
+    try {
+      locationData = JSON.parse(responseText);
+    } catch (parseErr) {
+      console.error('IP API response was not JSON:', responseText?.substring(0, 200));
+      locationData = { country_name: 'Unknown', region: 'Unknown', city: 'Unknown' };
+    }
     console.log('Location data received:', JSON.stringify(locationData, null, 2));
 
     // Extract relevant geographic information
