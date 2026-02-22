@@ -1,16 +1,19 @@
 {
-  "totalVisits": 16,
+  "totalVisits": 21,
   "visitsByCountry": {
-    "United States": 11,
+    "United States": 14,
     "Canada": 3,
-    "Singapore": 2
+    "Singapore": 3,
+    "Unknown": 1
   },
   "visitsByRegion": {
-    "New York, United States": 1,
+    "New York, United States": 3,
     "Connecticut, United States": 9,
     "Ontario, Canada": 3,
     "New Jersey, United States": 1,
-    "Unknown, Singapore": 2
+    "Unknown, Singapore": 3,
+    "Florida, United States": 1,
+    "Unknown, Unknown": 1
   },
   "timeline": [
     {
@@ -32,6 +35,18 @@
     {
       "date": "2026-02-14",
       "count": 1
+    },
+    {
+      "date": "2026-02-16",
+      "count": 1
+    },
+    {
+      "date": "2026-02-19",
+      "count": 1
+    },
+    {
+      "date": "2026-02-22",
+      "count": 3
     }
   ],
   "visits": [
@@ -130,7 +145,37 @@
       "region": "Unknown",
       "city": "Singapore",
       "timestamp": "2026-02-14T18:06:49.954+00:00"
+    },
+    {
+      "country": "Singapore",
+      "region": "Unknown",
+      "city": "Singapore",
+      "timestamp": "2026-02-16T03:26:07.063+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Florida",
+      "city": "Orlando",
+      "timestamp": "2026-02-19T01:45:15.635+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York City",
+      "timestamp": "2026-02-22T00:00:37.504+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:04:02.638+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York City",
+      "timestamp": "2026-02-22T00:04:03.827+00:00"
     }
   ],
-  "lastUpdated": "2026-02-16T02:06:03.287613"
+  "lastUpdated": "2026-02-22T00:04:53.361178"
 }
