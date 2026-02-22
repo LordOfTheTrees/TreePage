@@ -121,8 +121,6 @@ jobs:
           
           # Ensure assets/data directory exists (dashboard reads from this path)
           os.makedirs('assets/data', exist_ok=True)
-          
-          # Write to assets/data so the dashboard fetch gets it
           with open('assets/data/analytics-stats.json', 'w') as f:
               json.dump(stats, f, indent=2)
           

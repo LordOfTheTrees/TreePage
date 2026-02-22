@@ -13,8 +13,8 @@ permalink: /analytics-view.html
   
   <div class="analytics-notes">
     <h3>About This Dashboard</h3>
-    <p>This dashboard shows anonymous geographic visitor statistics for this site. No personal identifying information is collected.</p>
-    <p>Visit data is collected via Netlify Functions and stored in the GitHub repository. Statistics are aggregated monthly on the 1st of each month.</p>
+    <p>This dashboard shows anonymous visitor statistics based only on geolocation (country, region, city). No personal or identifying information is collected—only approximate location from IP address.</p>
+    <p>Visits are recorded by a Netlify Function (IP geolocation), stored in Supabase, and aggregated weekly by a GitHub Action. The dashboard updates every Monday after the sync runs.</p>
   </div>
 </div>
 

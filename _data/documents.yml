@@ -18,3 +18,14 @@
     - "Adapts recommendations based on user context: physical attributes, positional status, and ruleset differences (IBJJF vs MMA)"
     - "Uses Streamlit session state to maintain context continuity as users move between analysis modes (flowchart generation, image analysis, video breakdown, chat simulation)"
     - "Integrates multiple analysis modes: still frame analysis, video segment breakdown with FFmpeg, and conversational coaching simulation with historical masters"
+
+- title: "Vuori Outside-In Personalization Assessment"
+  description: "Outside-in assessment of Vuori's personalization in practice. Grades publicly observable customer experience (website, email, checkout, loyalty, in-store) and recommends the next pilot step."
+  file_url: "assets/documents/Vuori-Assessment.pdf"
+  key_points:
+    - "Three personalization buckets: Omnichannel Optimization (360° customer view), Product Personalization (right product at right time), Loyalty Lifecycle (transactions into relationships)"
+    - "Omnichannel gaps: F grades on ship-from-store, BOPIS, in-store try-on from abandoned cart, e-commerce returns to stores, partner assortment, weather-based messaging"
+    - "Product personalization: B/C grades on category recommendations and 'complete the look'; F on back-in-stock alerts, individualized search, cart-based 'you would like' recommendations"
+    - "Loyalty lifecycle: B on birthday and occasion-based offers; C on gamified stretch-basket and post-purchase wraparound; F on lapsed reactivation, customized atomized journeys, personalized support, returns by profile"
+    - "Recommended pilot: Pick-up In Store A/B test—selected for ease of implementation, retail awareness, and cost savings; measures conversion lift and COGS reduction"
+    - "Data foundation by journey stage: pre-purchase (email, gender, checkout), post-purchase (category, size, geography), loyalty (birthday, affinity, price sensitivity)"

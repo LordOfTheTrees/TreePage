@@ -1,3 +1,30 @@
+# Combat Cognition App
+- title: "Combat Cognition"
+  description: "A progressive BJJ training application that accelerates skill acquisition through spaced repetition (SM-2 algorithm) and evidence-based mental visualization techniques. Combines physical training logs, guided 5-minute visualization sessions, smart scheduling, research protocols (nutrition, cardio, strength), and comprehensive progress tracking."
+  technologies:
+    - React
+    - TypeScript
+    - Vite
+    - TailwindCSS
+    - shadcn/ui
+    - React Native
+    - Expo
+    - Express.js
+    - PostgreSQL
+    - Drizzle ORM
+    - Supabase
+  github_url: "https://github.com/LordOfTheTrees/combat-cognition"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Physical training logs for grappling, striking, conditioning, and strength with technique tagging
+    - SM-2 spaced repetition algorithm for mental visualization scheduling and review optimization
+    - 5-minute guided visualization sessions with clarity rating (0-3) and automatic review scheduling
+    - Weekly focus technique rotation (deterministic, cycles through 20+ BJJ techniques)
+    - Evidence-based research protocols (ISSN nutrition, Zone 2/HIIT cardio, periodization, skill acquisition)
+    - Statistics and analytics: 24-week trends, GitHub-style activity calendar, training streaks
+    - Web (React + Vite) and mobile (React Native + Expo) apps with feature parity
+
 # NFL Quarterback Performance Analytics
 - title: "NFL Quarterback Evaluation Framework: 25-Year Performance Analysis"
   description: "A comprehensive analytical framework for evaluating NFL quarterback performance and contract decisions through advanced statistical modeling and era-adjusted metrics. Combines systematic data collection from Pro Football Reference with ridge regression analysis to reveal organizational biases in quarterback evaluation and predict contract outcomes."
@@ -22,6 +49,29 @@
     - Comprehensive first-round quarterback database spanning 2000-2024 draft classes
     - Automated web scraping with rate limiting and robust error handling
 
+# Jira-Claude Automation System
+- title: "Jira-Claude Automation System"
+  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
+  technologies:
+    - Node.js
+    - JavaScript
+    - Claude AI API
+    - REST APIs
+    - Webhooks
+    - GitHub Actions
+    - Anthropic SDK
+  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Claude-powered requirements analysis with detailed delivery criteria creation
+    - Automated implementation generation for code, documentation, analysis, and processes
+    - Comprehensive quality evaluation against delivery criteria with detailed scoring
+    - Complete workflow integration between Jira webhooks and GitHub Actions
+    - Real-time artifact creation and version control management
+    - Multi-stage progression tracking with automated status updates
+    - Intelligent error handling and fallback mechanisms for robust operations
+
 # Airbnb Investment Analysis Framework
 - title: "Airbnb Investment Analysis Framework: Cross-City Short-Term Rental ROI Evaluation"
   description: "Cross-city market analysis of short-term rental investment opportunities across 22 US cities, combining Airbnb listing data with Zillow real estate prices. Identifies profitable property segments, competitive landscape dynamics, and market entry barriers through statistical modeling and market professionalization metrics."
@@ -45,29 +95,6 @@
     - Property segment performance analysis by room type and size revealing investment opportunities
     - Market entry barrier analysis showing cumulative profit concentration and competitive landscape dynamics
     - Integration of multiple data sources (Inside Airbnb, Zillow Research Data, US Census Bureau) with robust validation
-
-# Jira-Claude Automation System
-- title: "Jira-Claude Automation System"
-  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
-  technologies:
-    - Node.js
-    - JavaScript
-    - Claude AI API
-    - REST APIs
-    - Webhooks
-    - GitHub Actions
-    - Anthropic SDK
-  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
-  live_url: ""
-  documentation: ""
-  key_features:
-    - Claude-powered requirements analysis with detailed delivery criteria creation
-    - Automated implementation generation for code, documentation, analysis, and processes
-    - Comprehensive quality evaluation against delivery criteria with detailed scoring
-    - Complete workflow integration between Jira webhooks and GitHub Actions
-    - Real-time artifact creation and version control management
-    - Multi-stage progression tracking with automated status updates
-    - Intelligent error handling and fallback mechanisms for robust operations
 
 # FlowState Jiu-Jitsu App
 - title: "FlowState: Jiu-Jitsu Strategy Generator"

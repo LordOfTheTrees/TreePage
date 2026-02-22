@@ -57,10 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     try {
-      // Fetch aggregated stats from the data file
-      // The file is served as a static file from assets/data
+      // Fetch aggregated stats from the data file (updated weekly by GitHub Actions)
       const baseUrl = window.location.origin + (window.location.pathname.includes('/TreePage') ? '/TreePage' : '');
-      // Cache-bust so we see fresh data after the weekly sync workflow runs
       const dataUrl = `${baseUrl}/assets/data/analytics-stats.json?t=${Date.now()}`;
       console.log('Fetching analytics data from:', dataUrl);
       
