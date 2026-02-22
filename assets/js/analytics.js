@@ -27,22 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         mode: 'cors' // Explicitly set CORS mode
       });
 
-      // #region agent log
-      var _status = response.status;
-      var _body = await response.text();
-      var _data = null;
-      try {
-        _data = JSON.parse(_body);
-        fetch('http://127.0.0.1:7242/ingest/4cd40e58-fd66-447a-b277-fa8a3686f028',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'analytics.js:trackVisit',message:'track-visit response',data:{status:_status,ok:response.ok,result:_data},timestamp:Date.now(),hypothesisId:'H1',runId:'track-visit'})}).catch(function(){});
-      } catch (e) {
-        fetch('http://127.0.0.1:7242/ingest/4cd40e58-fd66-447a-b277-fa8a3686f028',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'analytics.js:trackVisit',message:'track-visit response (body not json)',data:{status:_status,ok:response.ok,rawBody:_body.substring(0,200)},timestamp:Date.now(),hypothesisId:'H1',runId:'track-visit'})}).catch(function(){});
-      }
-      // #endregion
       if (response.ok) {
-        var result = _data != null ? _data : (function(){try{return JSON.parse(_body);}catch(e){return {};}})();
+        const result = await response.json();
         console.log('Visit tracked successfully', result);
       } else {
-        console.error('Failed to track visit:', _status, _body);
+        const errorText = await response.text();
+        console.error('Failed to track visit:', response.status, errorText);
       }
       
       // Update analytics view if we're on the analytics page
@@ -70,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Fetch aggregated stats from the data file
       // The file is served as a static file from assets/data
       const baseUrl = window.location.origin + (window.location.pathname.includes('/TreePage') ? '/TreePage' : '');
-      const dataUrl = `${baseUrl}/assets/data/analytics-stats.json`;
+      // Cache-bust so we see fresh data after the weekly sync workflow runs
+      const dataUrl = `${baseUrl}/assets/data/analytics-stats.json?t=${Date.now()}`;
       console.log('Fetching analytics data from:', dataUrl);
       
       const statsResponse = await fetch(dataUrl);
