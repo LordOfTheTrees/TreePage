@@ -1,16 +1,52 @@
 {
-  "totalVisits": 2,
+  "totalVisits": 29,
   "visitsByCountry": {
-    "United States": 2
+    "United States": 15,
+    "Canada": 3,
+    "Singapore": 3,
+    "Unknown": 8
   },
   "visitsByRegion": {
-    "New York, United States": 1,
-    "Connecticut, United States": 1
+    "New York, United States": 4,
+    "Connecticut, United States": 9,
+    "Ontario, Canada": 3,
+    "New Jersey, United States": 1,
+    "Unknown, Singapore": 3,
+    "Florida, United States": 1,
+    "Unknown, Unknown": 8
   },
   "timeline": [
     {
       "date": "2025-12-16",
-      "count": 2
+      "count": 10
+    },
+    {
+      "date": "2025-12-30",
+      "count": 3
+    },
+    {
+      "date": "2026-01-07",
+      "count": 1
+    },
+    {
+      "date": "2026-02-08",
+      "count": 1
+    },
+    {
+      "date": "2026-02-14",
+      "count": 1
+    },
+    {
+      "date": "2026-02-16",
+      "count": 1
+    },
+    {
+      "date": "2026-02-19",
+      "count": 1
+    },
+    {
+      "date": "2026-02-22",
+      "count": 11
     }
   ],
   "visits": [
@@ -25,7 +61,169 @@
       "region": "Connecticut",
       "city": "Hamden",
       "timestamp": "2025-12-16T22:24:43.805+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:45:26.877+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:45:28.068+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:50:35.02+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:50:35.962+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:17.259+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:17.749+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:35.31+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "Hamden",
+      "timestamp": "2025-12-16T22:53:35.918+00:00"
+    },
+    {
+      "country": "Canada",
+      "region": "Ontario",
+      "city": "Penetanguishene",
+      "timestamp": "2025-12-30T12:58:15.678+00:00"
+    },
+    {
+      "country": "Canada",
+      "region": "Ontario",
+      "city": "Penetanguishene",
+      "timestamp": "2025-12-30T12:58:17.17+00:00"
+    },
+    {
+      "country": "Canada",
+      "region": "Ontario",
+      "city": "Penetanguishene",
+      "timestamp": "2025-12-30T12:58:19.402+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New Jersey",
+      "city": "Secaucus",
+      "timestamp": "2026-01-07T20:49:49.171+00:00"
+    },
+    {
+      "country": "Singapore",
+      "region": "Unknown",
+      "city": "Singapore",
+      "timestamp": "2026-02-08T17:01:46.078+00:00"
+    },
+    {
+      "country": "Singapore",
+      "region": "Unknown",
+      "city": "Singapore",
+      "timestamp": "2026-02-14T18:06:49.954+00:00"
+    },
+    {
+      "country": "Singapore",
+      "region": "Unknown",
+      "city": "Singapore",
+      "timestamp": "2026-02-16T03:26:07.063+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Florida",
+      "city": "Orlando",
+      "timestamp": "2026-02-19T01:45:15.635+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York City",
+      "timestamp": "2026-02-22T00:00:37.504+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:04:02.638+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York City",
+      "timestamp": "2026-02-22T00:04:03.827+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:05:05.577+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:05:06.213+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:06:21.775+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:06:22.361+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:06:22.482+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:06:22.91+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York City",
+      "timestamp": "2026-02-22T00:06:23.545+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-22T00:06:23.957+00:00"
     }
   ],
-  "lastUpdated": "2025-12-16T22:38:52.675848"
+  "lastUpdated": "2026-02-22T00:10:09.987090"
 }
