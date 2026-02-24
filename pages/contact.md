@@ -13,6 +13,7 @@ permalink: /pages/contact/
 Feel free to reach out if you'd like to collaborate on a project or discuss job opportunities.
 
 ## Contact Form
+{: #contact-form-heading}
 
 <form id="contact-form">
   <div class="form-group">
