@@ -13,8 +13,9 @@ permalink: /pages/contact/
 Feel free to reach out if you'd like to collaborate on a project or discuss job opportunities.
 
 ## Contact Form
+{: #contact-form-heading}
 
-<form id="contact-form" action="https://formspree.io/jonshreb@protonmail.com" method="POST">
+<form id="contact-form">
   <div class="form-group">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
@@ -22,12 +23,12 @@ Feel free to reach out if you'd like to collaborate on a project or discuss job 
   
   <div class="form-group">
     <label for="email">Email:</label>
-    <input type="email" id="email" name="_replyto" required>
+    <input type="email" id="email" name="email" required>
   </div>
   
   <div class="form-group">
     <label for="subject">Subject:</label>
-    <input type="text" id="subject" name="subject" required>
+    <input type="text" id="subject" name="subject">
   </div>
   
   <div class="form-group">
@@ -36,4 +37,5 @@ Feel free to reach out if you'd like to collaborate on a project or discuss job 
   </div>
   
   <button type="submit" class="button">Send Message</button>
+  <div id="form-status" class="form-status" hidden></div>
 </form>
