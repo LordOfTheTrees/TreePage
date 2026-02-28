@@ -8,43 +8,20 @@ permalink: /pages/about/
   <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Andrew Erbs" class="profile-image">
 </div>
 
-## Professional Background
+I'm drawn to the gap between how things are supposed to work and how they actually work.
 
-I am Andrew Erbs, a Yale School of Management MBA candidate with extensive leadership experience as a Lieutenant and Surface Warfare Officer in the United States Navy. My professional journey combines strategic planning, data analysis, crisis management, and organizational transformation across multiple high-stakes environments.
+That gap is where the interesting stuff lives. Where consumer behavior diverges from what marketers assumed, where a process that looks efficient on paper quietly destroys morale at the edges, where a product with great metrics is still solving the wrong problem. I've spent most of my career poking at that gap from different directions.
 
-## Strategic Leadership & Planning
+My undergraduate degrees were in Computer Engineering and Philosophy, which sounds like an accident but wasn't. Engineering gave me a way to see systems: inputs, outputs, failure modes, leverage. Philosophy gave me a way to question what the system is even for. I've never fully shaken either instinct, and I don't want to.
 
-During my time with Naval Forces Europe, Naval Forces Africa, and Command Sixth Fleet in Naples, Italy, I served as a Naval Planner where I led comprehensive revisions of naval strategy across two continents. My work directly informed decision-making at the highest levels of government, including the Secretary of Defense and Joint Chiefs of Staff, resulting in significant resource allocation improvements and operational efficiencies.
+Eight years in the Navy sharpened both. When you're writing operational procedures that real people will follow under real stress, you learn very quickly which assumptions were wrong. I built planning systems that scaled capacity 100x, but more importantly, I watched enough things break to develop a deep respect for the distance between a plan and its execution. That's probably why I'm skeptical of clean frameworks and drawn to the messy, human parts of any problem.
 
-I'm particularly proud of my contributions to military planning systems, where I innovated new applications for command and control systems through database engineering. By implementing ETL (Extract, Transform, Load) processes for backend data, I enabled real-time planning capabilities that increased operational capacity by 100-fold.
+At Amazon, I worked on the third-party seller marketplace, a genuinely complex ecosystem where the incentives of sellers, buyers, and the platform itself don't always point in the same direction. I spent a lot of time trying to understand what sellers actually needed versus what they said they needed versus what their behavior revealed. That triangulation between stated preferences, revealed behavior, and system-level data is the kind of problem I find genuinely fun.
 
-## Technical Expertise & Data Analytics
-My technical foundation begins with dual bachelor's degrees in Computer Engineering and Philosophy from The Pennsylvania State University, complemented by a minor in Military Studies. As a cybersecurity researcher with the Army Research Lab and the Systems and Internet Infrastructure Security Lab, I developed a deep understanding of technical systems and security principles.
+The consumer research I did at Yale's Center for Customer Insights pushed me further in that direction. Sitting in on interviews, watching people rationalize choices they'd already made emotionally, seeing how tiny framing shifts change what feels like a reasonable price. It reinforced something I keep coming back to: the most important thing a product team can do is understand what's actually driving behavior, not just what users report.
 
-I leverage my coding proficiency in Python, SQL, C, Java, and HTML to solve complex organizational challenges. Throughout my naval career, I've consistently applied data analytics to improve decision-making processes, create innovative dashboards, and enhance operational readiness.
+I also can't stop building things. Not as a hobby, exactly. More like a compulsion. When I hit friction I can't stop thinking about it until I've either solved it or convinced myself it's unsolvable. That's led me to ship a consumer app for tactical cognitive training, build AI-powered automation tools for PM workflows, develop a quantitative platform for quarterback evaluation, and wire together a personalized news intelligence system. None of them started as portfolio pieces. Each one started with a specific annoyance I couldn't ignore.
 
-## Crisis Management & Leadership
-As Damage Control Assistant aboard USS Higgins, I led emergency response teams through over 40 crisis situations, protecting assets worth more than $2 billion. My leadership extended to revising over 700 pages of emergency procedures and training more than 600 personnel, resulting in exceptional assessment scores.
+Outside of all that, I spent years as a nationally ranked Sabre fencer and have trained in five martial arts. I lived in Naples for two years and speak Italian well enough joke with other italians about Napoli. I'm currently at Yale finishing my MBA, where I spend a lot of time thinking about behavioral science, markets, and how to apply both to consumer products.
 
-My experience as Anti-Submarine Warfare Officer and Fire Control Division Officer further honed my ability to perform under pressure while maintaining precision and accountability. Whether managing weapons systems or coordinating engineering preparations for congressional inspections, I've consistently delivered results that exceed expectations.
-
-## Education & Certifications
-I'm currently pursuing my MBA at Yale School of Management, where I'm an active member of the Tech & Society Club, Data Analytics Club, Media & Sports Club, Veterans Club, and Marketing Club. My academic credentials are complemented by professional certifications including:
-
-Project Management Professional (PMP)
-Harvard Business School Credential of Readiness (Accounting - Honors)
-
-## Languages & Personal Interests
-
-Beyond my professional pursuits, I'm fluent in English and have superior proficiency in Italian. My personal interests reflect my commitment to discipline and continuous improvement:
-
-Trained in five different martial arts
-Former nationally ranked Sabre fencer
-
-##  Professional Philosophy
-
-I believe in leveraging data-driven insights to inform strategic decisions while maintaining a holistic understanding of organizational goals and human factors. My approach combines technical expertise with strong leadership principles, always focused on developing systems and teams that can perform effectively under pressure.
-    
-Throughout my career, I've demonstrated the ability to transform organizations through process innovation, stakeholder engagement, and technical implementation. I'm passionate about creating scalable solutions that enable teams to achieve exceptional results, whether in military operations, business environments, or technical projects.
-
-I look forward to connecting with professionals who share my interests in strategic leadership, data analytics, organizational transformation, and technical innovation.
+If any of that sounds like your kind of person, I'd like to talk.
