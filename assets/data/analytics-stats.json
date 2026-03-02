@@ -1,10 +1,10 @@
 {
-  "totalVisits": 75,
+  "totalVisits": 111,
   "visitsByCountry": {
-    "United States": 16,
+    "United States": 19,
     "Canada": 3,
     "Singapore": 3,
-    "Unknown": 53
+    "Unknown": 86
   },
   "visitsByRegion": {
     "New York, United States": 5,
@@ -13,7 +13,9 @@
     "New Jersey, United States": 1,
     "Unknown, Singapore": 3,
     "Florida, United States": 1,
-    "Unknown, Unknown": 53
+    "Unknown, Unknown": 86,
+    "Ohio, United States": 2,
+    "Oregon, United States": 1
   },
   "timeline": [
     {
@@ -47,6 +49,34 @@
     {
       "date": "2026-02-22",
       "count": 57
+    },
+    {
+      "date": "2026-02-23",
+      "count": 14
+    },
+    {
+      "date": "2026-02-24",
+      "count": 10
+    },
+    {
+      "date": "2026-02-25",
+      "count": 1
+    },
+    {
+      "date": "2026-02-26",
+      "count": 2
+    },
+    {
+      "date": "2026-02-27",
+      "count": 5
+    },
+    {
+      "date": "2026-02-28",
+      "count": 3
+    },
+    {
+      "date": "2026-03-01",
+      "count": 1
     }
   ],
   "visits": [
@@ -499,7 +529,223 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-02-22T23:34:37.088+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T10:23:13.79+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T17:22:16.908+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T18:45:31.95+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T20:07:35.039+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T20:07:58.493+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T21:04:08.116+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T21:04:56.868+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T21:05:09.178+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T21:05:40.101+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T21:08:38.66+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T23:58:55.841+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T23:59:34.682+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T23:59:41.065+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-23T23:59:46.328+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T00:20:33.316+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T19:54:24.877+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T19:54:36.367+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Ohio",
+      "city": "Hilliard",
+      "timestamp": "2026-02-24T19:54:48.835+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T19:55:02.243+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T20:50:57.238+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T20:53:20.968+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T20:55:05.591+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Ohio",
+      "city": "Hilliard",
+      "timestamp": "2026-02-24T20:57:11.116+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-24T23:15:40.118+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-25T23:22:43.458+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-26T01:18:46.135+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-26T18:25:21.887+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-27T13:35:58.947+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-27T14:22:36.862+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-27T14:22:38.326+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Oregon",
+      "city": "Boardman",
+      "timestamp": "2026-02-27T14:33:37.293+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-27T23:45:22.963+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-28T13:46:27.916+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-28T13:46:34.107+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-02-28T23:09:47.983+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-01T20:13:54.937+00:00"
     }
   ],
-  "lastUpdated": "2026-02-23T02:06:51.470023"
+  "lastUpdated": "2026-03-02T02:03:59.042016"
 }
