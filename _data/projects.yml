@@ -14,7 +14,7 @@
     - Drizzle ORM
     - Supabase
   github_url: "https://github.com/LordOfTheTrees/combat-cognition"
-  live_url: ""
+  live_url: "https://combat-cognition-api.onrender.com/"
   documentation: ""
   key_features:
     - Physical training logs for grappling, striking, conditioning, and strength with technique tagging

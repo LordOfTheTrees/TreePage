@@ -109,6 +109,14 @@ img {
       background-color: darken($gray, 10%);
     }
   }
+
+  &.disabled {
+    background-color: lighten($gray, 15%);
+    color: darken($gray, 5%);
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.6;
+  }
 }
 
 .wrapper {
