@@ -327,6 +327,20 @@
 
 // Post
 .post {
+  .post-banner {
+    margin: 0 0 $spacing-unit 0;
+    padding: 0;
+    line-height: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
   .post-header {
     margin-bottom: $spacing-unit;
     
