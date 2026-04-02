@@ -3,7 +3,7 @@ layout: post-banner
 title: "Combat Cognition Beta: Train the Space Between Classes"
 date: 2026-4-02
 categories: [Product, Combat Sports, Behavioral Science]
-banner_image: /assets/images/combat-cognition/Combat_Cognition_Banner.jpg
+banner_image: /assets/images/combat-cognition/feature-graphic.png
 banner_alt: "Combat Cognition — Master the mental game"
 ---
 
