@@ -1,23 +1,25 @@
 {
-  "totalVisits": 202,
+  "totalVisits": 239,
   "visitsByCountry": {
-    "United States": 33,
+    "United States": 37,
     "Canada": 3,
     "Singapore": 4,
-    "Unknown": 162
+    "Unknown": 195
   },
   "visitsByRegion": {
     "New York, United States": 6,
-    "Connecticut, United States": 14,
+    "Connecticut, United States": 15,
     "Ontario, Canada": 3,
-    "New Jersey, United States": 4,
+    "New Jersey, United States": 5,
     "Unknown, Singapore": 4,
     "Florida, United States": 1,
-    "Unknown, Unknown": 162,
+    "Unknown, Unknown": 195,
     "Ohio, United States": 2,
     "Oregon, United States": 1,
     "California, United States": 4,
-    "Massachusetts, United States": 1
+    "Massachusetts, United States": 1,
+    "Texas, United States": 1,
+    "Colorado, United States": 1
   },
   "timeline": [
     {
@@ -162,6 +164,34 @@
     },
     {
       "date": "2026-03-27",
+      "count": 2
+    },
+    {
+      "date": "2026-03-30",
+      "count": 9
+    },
+    {
+      "date": "2026-03-31",
+      "count": 7
+    },
+    {
+      "date": "2026-04-01",
+      "count": 1
+    },
+    {
+      "date": "2026-04-02",
+      "count": 15
+    },
+    {
+      "date": "2026-04-03",
+      "count": 2
+    },
+    {
+      "date": "2026-04-04",
+      "count": 1
+    },
+    {
+      "date": "2026-04-05",
       "count": 2
     }
   ],
@@ -1377,7 +1407,229 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-03-27T19:05:57.283+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:54:53.513+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:54:55.313+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:55:03.19+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:55:07.954+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:55:11.258+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:55:20.982+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T14:55:29.589+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T22:41:13.382+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-30T23:19:40.262+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T13:03:14.668+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T13:03:18.25+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T13:03:21.345+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T13:29:31.096+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T13:29:35.7+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T14:20:44.624+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-03-31T14:20:46.281+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Texas",
+      "city": "Austin",
+      "timestamp": "2026-04-01T00:44:12.548+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T02:50:17.126+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T14:54:19.406+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:04:45.227+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:04:48.356+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:06:37.947+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:06:40.299+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:06:43.477+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:06:44.435+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:06:45.28+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:08:14.873+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:23:57.22+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:24:28.501+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:24:29.191+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-02T21:24:29.905+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "New Haven",
+      "timestamp": "2026-04-02T23:38:56.425+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Colorado",
+      "city": "Broomfield",
+      "timestamp": "2026-04-03T00:43:35.983+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-03T02:01:07.79+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New Jersey",
+      "city": "Secaucus",
+      "timestamp": "2026-04-04T00:42:36.105+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-05T16:33:44.293+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-05T23:46:07.616+00:00"
     }
   ],
-  "lastUpdated": "2026-03-30T02:28:06.807631"
+  "lastUpdated": "2026-04-06T02:28:50.064580"
 }
