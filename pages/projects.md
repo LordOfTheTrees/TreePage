@@ -11,7 +11,12 @@ Below is a selection of personal and academic projects I've worked on.
 <div class="projects-container">
   {% for project in site.data.projects %}
     <div class="project-card">
-      <h2>{{ project.title }}</h2>
+      <div class="project-card-header">
+        <h2>{{ project.title }}</h2>
+        {% if project.in_progress %}
+        <span class="project-status" title="Active development" aria-label="This project is in progress">In progress</span>
+        {% endif %}
+      </div>
       <p class="project-description">{{ project.description }}</p>
       
       {% if project.technologies %}

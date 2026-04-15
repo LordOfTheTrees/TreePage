@@ -164,6 +164,33 @@
   }
 }
 
+.project-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  
+  h2, h3 {
+    margin: 0;
+    flex: 1 1 auto;
+  }
+}
+
+.project-status {
+  flex-shrink: 0;
+  font-size: $small-font-size;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $gray;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: 0.2em 0.55em;
+  line-height: 1.2;
+}
+
 .project-card {
   border: 1px solid $border-color;
   border-radius: $border-radius;
@@ -175,6 +202,10 @@
   }
   
   h3 {
+    margin-top: 0;
+  }
+  
+  .project-card-header + p {
     margin-top: 0;
   }
   

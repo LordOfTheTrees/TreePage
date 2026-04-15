@@ -61,7 +61,7 @@ Below are current screenshots of the web and mobile dashboard and statistics pag
 
 ## Beta and go-to-market: partner gyms first
 
-Combat Cognition is in early beta on Android (Google Play), and iOS will be coming soon. Rather than spraying a generic open signup and hoping for signal, we’re inviting selected gyms to participate first.
+Combat Cognition is in early beta on Android (Google Play) and iOS. Rather than spraying a generic open signup and hoping for signal, we’re inviting selected gyms to participate first.
 
 If you run an academy or you’re a serious student at one, and you want your gym considered for the partner beta, reach out through the contact page on this site with the gym name, location, and a short note on how you train ([contact](/pages/contact/)). We’ll reply with onboarding details if you seem like a fit.
 

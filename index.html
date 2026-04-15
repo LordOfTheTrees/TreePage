@@ -22,7 +22,12 @@ title: Home
   <div class="projects-grid" id="featured-projects-grid">
     {% for project in site.data.projects %}
     <div class="project-card" data-index="{{ forloop.index0 }}">
-      <h3>{{ project.title }}</h3>
+      <div class="project-card-header">
+        <h3>{{ project.title }}</h3>
+        {% if project.in_progress %}
+        <span class="project-status" title="Active development" aria-label="This project is in progress">In progress</span>
+        {% endif %}
+      </div>
       <p>{{ project.description }}</p>
       <div class="project-links">
         {% if project.github_url %}
