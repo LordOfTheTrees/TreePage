@@ -83,50 +83,127 @@ document.addEventListener('DOMContentLoaded', function() {
       container.appendChild(section);
     }
     
+    function startOfWeekMondayUTC(d) {
+      const utc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+      const dow = new Date(utc).getUTCDay();
+      const diffToMonday = dow === 0 ? -6 : 1 - dow;
+      return new Date(utc + diffToMonday * 86400000);
+    }
+
+    function addDaysUTC(monday, n) {
+      const x = new Date(monday.getTime());
+      x.setUTCDate(x.getUTCDate() + n);
+      return x;
+    }
+
+    function weekKeyUTC(ts) {
+      const m = startOfWeekMondayUTC(new Date(ts));
+      return m.toISOString().slice(0, 10);
+    }
+
+    const TOTAL_WEEKS = 52;
+    const VISIBLE_WEEKS = 16;
+
     function createVisitTimeline(container, visits) {
-      // Sort visits by date
-      const sortedVisits = [...visits].sort((a, b) => 
-        new Date(a.timestamp) - new Date(b.timestamp)
-      );
-      
-      // Group visits by day
-      const visitsByDay = {};
-      sortedVisits.forEach(visit => {
-        const date = new Date(visit.timestamp).toISOString().split('T')[0];
-        visitsByDay[date] = (visitsByDay[date] || 0) + 1;
+      const visitsByWeek = {};
+      visits.forEach(visit => {
+        const key = weekKeyUTC(visit.timestamp);
+        visitsByWeek[key] = (visitsByWeek[key] || 0) + 1;
       });
-      
-      // Create timeline section
+
+      let maxTs = 0;
+      visits.forEach(v => {
+        const t = new Date(v.timestamp).getTime();
+        if (t > maxTs) maxTs = t;
+      });
+      const anchor = new Date(Math.max(maxTs, Date.now()));
+      const latestMonday = startOfWeekMondayUTC(anchor);
+
+      const weeksData = [];
+      for (let i = 0; i < TOTAL_WEEKS; i++) {
+        const monday = addDaysUTC(latestMonday, -(TOTAL_WEEKS - 1 - i) * 7);
+        const key = monday.toISOString().slice(0, 10);
+        const count = visitsByWeek[key] || 0;
+        const label = monday.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        weeksData.push({ monday, key, count, label });
+      }
+
       const section = document.createElement('div');
-      section.className = 'visual-section';
-      section.innerHTML = '<h3>Visit Timeline</h3>';
-      
+      section.className = 'visual-section timeline-section';
+
+      const heading = document.createElement('h3');
+      heading.textContent = 'Visit timeline (weekly)';
+      section.appendChild(heading);
+
+      const help = document.createElement('p');
+      help.className = 'timeline-help';
+      help.textContent =
+        `Each bar is one week (Monday–Sunday). Showing ${VISIBLE_WEEKS} weeks (~four months) at a time over the last ${TOTAL_WEEKS} weeks. Use the slider to view earlier periods.`;
+      section.appendChild(help);
+
+      const controls = document.createElement('div');
+      controls.className = 'timeline-controls';
+
+      const sliderLabel = document.createElement('label');
+      sliderLabel.className = 'timeline-slider-label';
+      sliderLabel.setAttribute('for', 'timeline-week-window');
+      sliderLabel.innerHTML =
+        '<span class="timeline-slider-hint">Earlier</span><span class="timeline-slider-hint">More recent</span>';
+
+      const slider = document.createElement('input');
+      slider.type = 'range';
+      slider.id = 'timeline-week-window';
+      slider.className = 'timeline-slider';
+      slider.min = '0';
+      slider.max = String(TOTAL_WEEKS - VISIBLE_WEEKS);
+      slider.value = String(TOTAL_WEEKS - VISIBLE_WEEKS);
+      slider.setAttribute('aria-valuemin', '0');
+      slider.setAttribute('aria-valuemax', String(TOTAL_WEEKS - VISIBLE_WEEKS));
+      slider.setAttribute(
+        'aria-label',
+        'Scroll the weekly chart between older and more recent weeks'
+      );
+
+      controls.appendChild(sliderLabel);
+      controls.appendChild(slider);
+      section.appendChild(controls);
+
       const timeline = document.createElement('div');
       timeline.className = 'visit-timeline';
-      
-      // Create timeline data points
-      const days = Object.keys(visitsByDay).sort();
-      const maxVisits = Math.max(...Object.values(visitsByDay));
-      
-      days.forEach(day => {
-        const height = (visitsByDay[day] / maxVisits) * 100;
-        const bar = document.createElement('div');
-        bar.className = 'timeline-bar';
-        bar.style.height = height + '%';
-        bar.title = `${day}: ${visitsByDay[day]} visits`;
-        
-        const label = document.createElement('div');
-        label.className = 'timeline-label';
-        label.textContent = day.split('-').slice(1).join('/');
-        
-        const point = document.createElement('div');
-        point.className = 'timeline-point';
-        point.appendChild(bar);
-        point.appendChild(label);
-        
-        timeline.appendChild(point);
+      timeline.setAttribute('role', 'img');
+      timeline.setAttribute('aria-label', 'Weekly visit counts');
+
+      function renderWindow(startIndex) {
+        const slice = weeksData.slice(startIndex, startIndex + VISIBLE_WEEKS);
+        const maxVisits = Math.max(1, ...slice.map(w => w.count));
+        timeline.innerHTML = '';
+        slice.forEach(week => {
+          const height = (week.count / maxVisits) * 100;
+          const bar = document.createElement('div');
+          bar.className = 'timeline-bar';
+          bar.style.height = height + '%';
+          bar.title = `Week of ${week.key}: ${week.count} visit(s)`;
+
+          const label = document.createElement('div');
+          label.className = 'timeline-label';
+          label.textContent = week.label;
+
+          const point = document.createElement('div');
+          point.className = 'timeline-point';
+          point.appendChild(bar);
+          point.appendChild(label);
+
+          timeline.appendChild(point);
+        });
+      }
+
+      const startIndex = () => parseInt(slider.value, 10);
+      renderWindow(startIndex());
+
+      slider.addEventListener('input', () => {
+        renderWindow(startIndex());
       });
-      
+
       section.appendChild(timeline);
       container.appendChild(section);
     }
@@ -188,18 +265,46 @@ document.addEventListener('DOMContentLoaded', function() {
           font-weight: bold;
         }
         
+        .timeline-section .timeline-help {
+          font-size: 0.9rem;
+          color: #555;
+          margin: 0 0 0.75rem 0;
+          line-height: 1.4;
+        }
+
+        .timeline-controls {
+          margin-bottom: 0.75rem;
+        }
+
+        .timeline-slider-label {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.8rem;
+          color: #666;
+          margin-bottom: 0.35rem;
+        }
+
+        .timeline-slider {
+          width: 100%;
+          display: block;
+        }
+
         .visit-timeline {
           display: flex;
           align-items: flex-end;
           height: 200px;
-          gap: 5px;
-          margin-top: 1rem;
-          padding-bottom: 25px;
+          gap: 4px;
+          margin-top: 0.5rem;
+          padding: 0 2px 28px 2px;
           border-bottom: 1px solid #ddd;
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
         }
         
         .timeline-point {
           flex: 1;
+          min-width: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -208,16 +313,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
         .timeline-bar {
           width: 80%;
+          max-width: 100%;
           background-color: #007bff;
           border-radius: 4px 4px 0 0;
           min-height: 4px;
         }
         
         .timeline-label {
-          transform: rotate(-45deg);
-          font-size: 12px;
-          margin-top: 10px;
+          font-size: 10px;
+          margin-top: 6px;
           color: #666;
+          text-align: center;
+          line-height: 1.1;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       `;
       
