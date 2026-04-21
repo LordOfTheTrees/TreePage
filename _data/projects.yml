@@ -98,7 +98,7 @@
 
 # MMA Pre-Fight Handicapping Model
 - title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
-  description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines cross-promotion ELO construction, ELO-weighted style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals—using only information available before the opening bell."
+  description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines ELO construction, ELO-weighted fighter style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals based on track-record reliability."
   technologies:
     - Python
     - NumPy
@@ -122,7 +122,7 @@
 
 # Enron email graph anomaly detection
 - title: "Enron Email Graph: GNN-Based Anomaly Detection"
-  description: "A research-oriented pipeline that models the Enron corpus as a communication graph and aims to surface behaviorally unusual actors from structure and metadata alone (headers, timing, threading, CC patterns)—not email body content. The design uses person-level nodes, a directed multigraph, rolling temporal windows with per-person baselines, and self-supervised graph autoencoders with optional temporal drift; evaluation is planned around held-out indicted executives and event-aligned sanity checks. The repo currently ships an installable Python package scaffold, documented architecture decisions, corpus extraction from the public maildir tarball, a root-level runner with per-stage rebuild vs cache flags, tests, and a plain-language roadmap for parsing, graph build, features, training, and eval."
+  description: "A research-oriented pipeline that models the Enron corpus as a communication graph and aims to surface behaviorally unusual actors from structure and metadata alone (headers, timing, threading, CC patterns). The design uses person-level nodes, a directed multigraph, rolling temporal windows with per-person baselines, and self-supervised graph autoencoders with optional temporal drift."
   technologies:
     - Python
     - NetworkX
