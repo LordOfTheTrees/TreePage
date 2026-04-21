@@ -1,22 +1,22 @@
 {
-  "totalVisits": 269,
+  "totalVisits": 287,
   "visitsByCountry": {
-    "United States": 41,
+    "United States": 44,
     "Canada": 3,
     "Singapore": 4,
-    "Unknown": 221
+    "Unknown": 236
   },
   "visitsByRegion": {
     "New York, United States": 8,
-    "Connecticut, United States": 16,
+    "Connecticut, United States": 17,
     "Ontario, Canada": 3,
     "New Jersey, United States": 5,
     "Unknown, Singapore": 4,
     "Florida, United States": 1,
-    "Unknown, Unknown": 221,
+    "Unknown, Unknown": 236,
     "Ohio, United States": 2,
     "Oregon, United States": 1,
-    "California, United States": 5,
+    "California, United States": 7,
     "Massachusetts, United States": 1,
     "Texas, United States": 1,
     "Colorado, United States": 1
@@ -224,7 +224,27 @@
     },
     {
       "date": "2026-04-13",
+      "count": 7
+    },
+    {
+      "date": "2026-04-14",
       "count": 1
+    },
+    {
+      "date": "2026-04-15",
+      "count": 6
+    },
+    {
+      "date": "2026-04-16",
+      "count": 1
+    },
+    {
+      "date": "2026-04-17",
+      "count": 2
+    },
+    {
+      "date": "2026-04-19",
+      "count": 2
     }
   ],
   "visits": [
@@ -1841,7 +1861,115 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-04-13T00:09:33.387+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-13T12:31:14.584+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-13T19:39:01.706+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-13T19:53:12.677+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-13T19:53:36.117+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-13T19:53:48.009+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "New Haven",
+      "timestamp": "2026-04-13T22:21:31.065+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-14T18:44:19.592+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-15T03:56:20.2+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "California",
+      "city": "Los Angeles",
+      "timestamp": "2026-04-15T14:47:42.989+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-15T15:17:50.801+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-15T18:02:49.365+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "California",
+      "city": "Mountain View",
+      "timestamp": "2026-04-15T18:06:31.232+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-15T18:06:37.957+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-16T20:35:39.212+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-17T07:03:32.93+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-17T12:06:22.985+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-19T09:28:25.355+00:00"
+    },
+    {
+      "country": "Unknown",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-04-19T21:23:22.605+00:00"
     }
   ],
-  "lastUpdated": "2026-04-13T02:37:39.830707"
+  "lastUpdated": "2026-04-20T02:37:48.929092"
 }
