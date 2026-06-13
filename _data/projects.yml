@@ -96,7 +96,31 @@
     - Email notifications through GitHub's built-in system
     - Customizable news topics and configurable automation via GitHub Actions
 
-# MMA Pre-Fight Handicapping Model
+# OctagonELO — Live MMA prediction site
+- title: "OctagonELO"
+  description: "Live pre-fight MMA handicapping site that turns tiered fight history, per-division ELO, and interpretable matchup features into calibrated six-outcome probability distributions with 90% confidence intervals. Ships weekly artifact exports from the training pipeline to a FastAPI + React SPA at octagonelo.com."
+  technologies:
+    - Python
+    - FastAPI
+    - React
+    - TypeScript
+    - NumPy
+    - SciPy
+    - Multinomial Logistic Regression
+    - ELO Rating System
+    - Bootstrap Confidence Intervals
+  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
+  live_url: "https://octagonelo.com"
+  documentation: ""
+  key_features:
+    - Six-outcome pre-fight distributions (win/lose by KO-TKO, submission, or decision) with derived finish and decision aggregates
+    - Per-division ELO rankings with uncertainty column and fighter search across profiles
+    - Bout pages with method-split win bars, 90% CIs, days-idle percentiles, and matchup feature breakdown
+    - Weekly model refresh from UFCStats ingest with JSON artifact export to production
+    - About-the-model hub with data distribution charts and architecture decision records
+    - Free tier for the next upcoming event; subscription unlocks full calendar, ELO trajectories, and hypothetical bouts
+
+# MMA Pre-Fight Handicapping Model (training pipeline)
 - title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
   description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines ELO construction, ELO-weighted fighter style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals based on track-record reliability."
   technologies:
@@ -108,9 +132,8 @@
     - Feature Engineering
     - Statistical Modeling
   github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
-  live_url: ""
+  live_url: "https://octagonelo.com"
   documentation: ""
-  in_progress: true
   key_features:
     - Tiered CSV ingest: UFCStats stats, optional promotions, Sherdog, chronological fights
     - Cross-promotion ELO construction with configurable era cutoffs for regression training
