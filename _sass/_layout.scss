@@ -351,22 +351,118 @@
 
 // Page
 .page {
+  max-width: $prose-width;
+  margin: 0 auto;
+
   .page-header {
     margin-bottom: $spacing-unit;
+
+    .page-title {
+      font-size: 1.85rem;
+      line-height: 1.25;
+    }
+  }
+}
+
+// Posts archive
+.posts-archive {
+  .post-preview {
+    padding: $spacing-unit / 2 0;
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .post-preview-banner {
+      display: block;
+      margin-bottom: 0.75rem;
+      border-radius: 6px;
+      overflow: hidden;
+      line-height: 0;
+
+      img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        object-position: center 35%;
+        border-radius: 6px;
+        border: 1px solid $border-color;
+        transition: opacity 0.2s ease;
+      }
+
+      &:hover img {
+        opacity: 0.92;
+      }
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+
+      a {
+        color: $secondary-color;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .post-date {
+      color: $gray;
+      font-size: $small-font-size;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .category-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: $gray;
+      background-color: $lighter-gray;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      padding: 0.15em 0.5em;
+    }
+
+    p {
+      font-size: $small-font-size;
+      line-height: 1.55;
+      color: $gray;
+      margin-bottom: 0;
+    }
   }
 }
 
 // Post
 .post {
+  max-width: $prose-width;
+  margin: 0 auto;
+
   .post-banner {
     margin: 0 0 $spacing-unit 0;
     padding: 0;
     line-height: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    max-height: 220px;
 
     img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 220px;
+      object-fit: cover;
+      object-position: center 35%;
       border-radius: 6px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
     }
@@ -374,8 +470,73 @@
 
   .post-header {
     margin-bottom: $spacing-unit;
+
+    .post-title {
+      font-size: 1.85rem;
+      line-height: 1.25;
+    }
     
     .post-meta {
+      color: $gray;
+      font-size: $small-font-size;
+    }
+  }
+
+  .post-content {
+    font-size: $small-font-size;
+    line-height: 1.65;
+
+    h2 {
+      font-size: 1.35rem;
+      margin-top: $spacing-unit;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    table {
+      width: 100%;
+      font-size: 0.85rem;
+      border-collapse: collapse;
+      margin: $spacing-unit / 2 0;
+
+      th, td {
+        padding: 0.45em 0.6em;
+        border: 1px solid $border-color;
+        text-align: left;
+      }
+
+      th {
+        background-color: $lighter-gray;
+        font-weight: 600;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: $spacing-unit / 2 auto;
+      border-radius: 6px;
+      border: 1px solid $border-color;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+// Homepage latest posts
+.latest-posts {
+  max-width: $prose-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  .posts-list .post-item {
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    p {
+      font-size: $small-font-size;
       color: $gray;
     }
   }

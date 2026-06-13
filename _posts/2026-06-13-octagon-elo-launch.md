@@ -3,7 +3,7 @@ layout: post-banner
 title: "OctagonELO Is Live: Pre-Fight MMA Predictions You Can Read"
 date: 2026-6-13
 categories: [Product, Combat Sports, Data Science]
-banner_image: /assets/images/octagon-elo/banner cropped.png
+banner_image: /assets/images/octagon-elo/octagon-elo-banner.png
 banner_alt: "OctagonELO: MMA fight predictions and analytics"
 ---
 
@@ -72,7 +72,7 @@ Long layoffs, division changes, and thin in-division histories trigger wider int
 
 Below is a current screenshot from the live site as of launch week. Predictions reflect the model snapshot exported on **June 6, 2026** and refresh on the weekly backend cadence.
 
-![Bout page: win probability, layoffs, and confidence intervals]({{ '/assets/images/octagon-elo/about-model.png' | relative_url }})
+![Bout page: win probability, layoffs, and confidence intervals]({{ '/assets/images/octagon-elo/prediction-page.png' | relative_url }})
 
 ## What is free, what is subscribed
 
