@@ -3,7 +3,7 @@ layout: post-banner
 title: "OctagonELO Is Live: Pre-Fight MMA Predictions You Can Read"
 date: 2026-6-13
 categories: [Product, Combat Sports, Data Science]
-banner_image: /assets/images/octagon-elo/feature-graphic.png
+banner_image: /assets/images/octagon-elo/banner cropped.png
 banner_alt: "OctagonELO: MMA fight predictions and analytics"
 ---
 
@@ -70,28 +70,24 @@ Long layoffs, division changes, and thin in-division histories trigger wider int
 
 ## Inside the site (screenshots from octagonelo.com)
 
-Below are current screenshots from the live site as of launch week. Predictions reflect the model snapshot exported on **June 6, 2026** and refresh on the weekly backend cadence.
+Below is a current screenshot from the live site as of launch week. Predictions reflect the model snapshot exported on **June 6, 2026** and refresh on the weekly backend cadence.
 
-![Events calendar: upcoming UFC cards]({{ '/assets/images/octagon-elo/homepage.png' | relative_url }})
-
-![Bout page: win probability, layoffs, and confidence intervals]({{ '/assets/images/octagon-elo/fight-prediction.png' | relative_url }})
-
-![Rankings browser: ELO and uncertainty by division]({{ '/assets/images/octagon-elo/rankings.png' | relative_url }})
-
-![About the model: methodology and documentation hub]({{ '/assets/images/octagon-elo/about-model.png' | relative_url }})
+![Bout page: win probability, layoffs, and confidence intervals]({{ '/assets/images/octagon-elo/about-model.png' | relative_url }})
 
 ## What is free, what is subscribed
 
 OctagonELO is live with a straightforward access model:
 
-| Content | Free | Subscribed |
-|---|---|---|
-| Next upcoming event (not yet started) | Full predictions | Full predictions |
-| Events beyond the next card | Locked | Unlocked |
-| Fighter search and profiles | Full access | Full access |
-| ELO rankings browser | Full access | Full access |
-| ELO trajectory charts | Blurred teaser | Unlocked |
-| Hypothetical bout builder | Locked (subscribe prompt) | Full access |
+
+| Content                               | Free                      | Subscribed       |
+| ------------------------------------- | ------------------------- | ---------------- |
+| Next upcoming event (not yet started) | Full predictions          | Full predictions |
+| Events beyond the next card           | Locked                    | Unlocked         |
+| Fighter search and profiles           | Full access               | Full access      |
+| ELO rankings browser                  | Full access               | Full access      |
+| ELO trajectory charts                 | Blurred teaser            | Unlocked         |
+| Hypothetical bout builder             | Locked (subscribe prompt) | Full access      |
+
 
 The next card that has not started is open for everyone. Once an event begins, its prediction window closes. That keeps the free tier useful without pretending every future fight on the calendar is a teaser forever.
 
