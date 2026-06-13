@@ -514,7 +514,9 @@
     }
 
     img {
-      max-width: 100%;
+      display: block;
+      max-width: min(100%, 400px);
+      width: 100%;
       height: auto;
       margin: $spacing-unit / 2 auto;
       border-radius: 6px;
