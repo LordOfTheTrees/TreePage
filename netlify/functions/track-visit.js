@@ -1,7 +1,95 @@
 // Netlify Function: Track visit and store in Supabase
-// Gets location via IP geolocation API and stores in Supabase database
+// Geolocation via Netlify x-nf-geo header (MaxMind). ipapi.co fallback kept for non-Netlify hosts.
 
 const { createClient } = require('@supabase/supabase-js');
+
+// Set true when hosting off Netlify (set IP_API_KEY in env for production use).
+const USE_IPAPI_GEO = false;
+
+function parseNetlifyGeo(event) {
+  const header = event.headers['x-nf-geo'];
+  if (!header) {
+    return null;
+  }
+
+  try {
+    const geo = JSON.parse(Buffer.from(header, 'base64').toString('utf8'));
+    return {
+      country: geo.country?.name || geo.country?.code || 'Unknown',
+      region: geo.subdivision?.name || geo.subdivision?.code || 'Unknown',
+      city: geo.city || 'Unknown'
+    };
+  } catch (err) {
+    console.error('Failed to parse x-nf-geo:', err.message);
+    return null;
+  }
+}
+
+function hasUsableGeo({ country, region, city }) {
+  return [country, region, city].some((value) => value && value !== 'Unknown');
+}
+
+async function getLocationFromIpapi(clientIP) {
+  const apiKey = process.env.IP_API_KEY || '';
+  const apiUrl = apiKey
+    ? `https://ipapi.co/${clientIP}/json/?key=${apiKey}`
+    : `https://ipapi.co/${clientIP}/json/`;
+
+  console.log('Calling IP geolocation API:', apiUrl);
+  const locationResponse = await fetch(apiUrl);
+  const responseText = await locationResponse.text();
+
+  if (!locationResponse.ok) {
+    console.error('IP API error:', locationResponse.status, locationResponse.statusText);
+    console.error('IP API error body:', responseText);
+  }
+
+  let locationData;
+  try {
+    locationData = JSON.parse(responseText);
+  } catch (parseErr) {
+    console.error('IP API response was not JSON:', responseText?.substring(0, 200));
+    locationData = { country_name: 'Unknown', region: 'Unknown', city: 'Unknown' };
+  }
+
+  console.log('Location data received:', JSON.stringify(locationData, null, 2));
+
+  if (locationData.error || locationData.reason) {
+    console.error('IP API returned error:', locationData.error || locationData.reason);
+  }
+
+  return {
+    country: locationData.country_name || locationData.country || 'Unknown',
+    region: locationData.region || locationData.regionName || locationData.state || 'Unknown',
+    city: locationData.city || 'Unknown'
+  };
+}
+
+async function resolveVisitLocation(event, clientIP) {
+  const netlifyGeo = parseNetlifyGeo(event);
+
+  if (netlifyGeo && hasUsableGeo(netlifyGeo)) {
+    console.log('Location from x-nf-geo:', netlifyGeo);
+    return netlifyGeo;
+  }
+
+  if (USE_IPAPI_GEO && clientIP !== 'unknown') {
+    console.log('x-nf-geo unavailable; falling back to ipapi.co');
+    return getLocationFromIpapi(clientIP);
+  }
+
+  if (netlifyGeo) {
+    console.log('Location from x-nf-geo (partial):', netlifyGeo);
+    return netlifyGeo;
+  }
+
+  console.log('No geolocation data available');
+  return {
+    country: 'Unknown',
+    region: 'Unknown',
+    city: 'Unknown'
+  };
+}
 
 exports.handler = async (event, context) => {
   // Handle CORS preflight
@@ -30,65 +118,23 @@ exports.handler = async (event, context) => {
 
   try {
     console.log('Track-visit function called, method:', event.httpMethod);
-    console.log('Request headers:', JSON.stringify(event.headers, null, 2));
-    
-    // Get visitor's IP from request headers
-    // Netlify provides IP in x-nf-client-connection-ip header
-    const clientIP = event.headers['x-nf-client-connection-ip'] || 
+
+    const clientIP = event.headers['x-nf-client-connection-ip'] ||
                      event.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
                      event.headers['client-ip'] ||
                      event.clientContext?.ip ||
                      'unknown';
-    
+
     console.log('Client IP detected:', clientIP);
-    
-    // If IP is still unknown, try to get it from Netlify's context
-    if (clientIP === 'unknown' && event.requestContext) {
-      console.log('Request context:', JSON.stringify(event.requestContext, null, 2));
-    }
 
-    // Get location via IP geolocation API
-    const apiKey = process.env.IP_API_KEY || '';
-    const apiUrl = apiKey 
-      ? `https://ipapi.co/${clientIP}/json/?key=${apiKey}`
-      : `https://ipapi.co/${clientIP}/json/`;
-
-    console.log('Calling IP geolocation API:', apiUrl);
-    const locationResponse = await fetch(apiUrl);
-    // Read body once only (reading twice causes "Body has already been read")
-    const responseText = await locationResponse.text();
-
-    if (!locationResponse.ok) {
-      console.error('IP API error:', locationResponse.status, locationResponse.statusText);
-      console.error('IP API error body:', responseText);
-    }
-
-    let locationData;
-    try {
-      locationData = JSON.parse(responseText);
-    } catch (parseErr) {
-      console.error('IP API response was not JSON:', responseText?.substring(0, 200));
-      locationData = { country_name: 'Unknown', region: 'Unknown', city: 'Unknown' };
-    }
-    console.log('Location data received:', JSON.stringify(locationData, null, 2));
-
-    // Extract relevant geographic information
-    // Handle different possible response formats
+    const location = await resolveVisitLocation(event, clientIP);
     const visitData = {
-      country: locationData.country_name || locationData.country || 'Unknown',
-      region: locationData.region || locationData.regionName || locationData.state || 'Unknown',
-      city: locationData.city || 'Unknown',
+      ...location,
       timestamp: new Date().toISOString()
     };
-    
-    // Check if we got an error from the API
-    if (locationData.error || locationData.reason) {
-      console.error('IP API returned error:', locationData.error || locationData.reason);
-    }
-    
+
     console.log('Visit data to store:', visitData);
 
-    // Get Supabase credentials
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
@@ -103,7 +149,7 @@ exports.handler = async (event, context) => {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           error: 'Supabase not configured',
           hasUrl: !!supabaseUrl,
           hasKey: !!supabaseKey
@@ -111,10 +157,8 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Initialize Supabase client
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Insert visit into Supabase
     console.log('Inserting visit into Supabase...');
     const { data: insertedVisit, error: insertError } = await supabase
       .from('visits')
@@ -133,14 +177,13 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: 'Failed to store visit', details: insertError.message })
       };
     }
-    
+
     console.log('Visit inserted successfully:', insertedVisit);
 
-    // Get total count for response
     const { count } = await supabase
       .from('visits')
       .select('*', { count: 'exact', head: true });
-    
+
     console.log('Total visits count:', count);
 
     return {
@@ -149,7 +192,7 @@ exports.handler = async (event, context) => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         success: true,
         visit: visitData,
         totalVisits: count || 0
@@ -164,7 +207,7 @@ exports.handler = async (event, context) => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         error: 'Failed to track visit',
         message: error.message,
         details: error.toString()
@@ -172,4 +215,3 @@ exports.handler = async (event, context) => {
     };
   }
 };
-
