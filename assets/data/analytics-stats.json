@@ -1,7 +1,7 @@
 {
-  "totalVisits": 714,
+  "totalVisits": 742,
   "visitsByCountry": {
-    "United States": 132,
+    "United States": 160,
     "Canada": 3,
     "Singapore": 4,
     "Unknown": 574,
@@ -17,13 +17,13 @@
     "Unknown, Unknown": 574,
     "Ohio, United States": 2,
     "Oregon, United States": 1,
-    "California, United States": 30,
+    "California, United States": 31,
     "Massachusetts, United States": 1,
     "Texas, United States": 1,
     "Colorado, United States": 1,
     "Beijing, China": 1,
-    "Unknown, United States": 55,
-    "Washington, United States": 1
+    "Unknown, United States": 81,
+    "Washington, United States": 2
   },
   "timeline": [
     {
@@ -564,6 +564,34 @@
     },
     {
       "date": "2026-07-13",
+      "count": 4
+    },
+    {
+      "date": "2026-07-14",
+      "count": 3
+    },
+    {
+      "date": "2026-07-15",
+      "count": 3
+    },
+    {
+      "date": "2026-07-16",
+      "count": 4
+    },
+    {
+      "date": "2026-07-17",
+      "count": 6
+    },
+    {
+      "date": "2026-07-18",
+      "count": 4
+    },
+    {
+      "date": "2026-07-19",
+      "count": 4
+    },
+    {
+      "date": "2026-07-20",
       "count": 1
     }
   ],
@@ -4851,7 +4879,175 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-07-13T00:14:20.182+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-13T07:50:21.14+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-13T10:12:26.926+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-13T14:42:05.227+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-14T03:28:57.042+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-14T08:19:30.336+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-14T10:46:58.817+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-15T01:40:47.81+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-15T07:56:20.725+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-15T10:48:45.838+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-16T03:52:16.891+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-16T07:33:09.431+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-16T10:22:25.479+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "California",
+      "city": "San Jose",
+      "timestamp": "2026-07-16T21:38:51.933+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-17T07:17:44.181+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-17T08:16:16.794+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-17T10:48:38.584+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-17T15:39:09.802+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-17T15:41:13.11+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-17T18:33:30.624+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-18T01:36:09.508+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-18T07:59:26.418+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-18T09:24:07.153+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-18T22:56:20.593+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-19T08:14:25.878+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-19T08:59:38.401+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Washington",
+      "city": "Unknown",
+      "timestamp": "2026-07-19T10:39:57.15+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-19T14:23:15.721+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-07-20T01:41:48.846+00:00"
     }
   ],
-  "lastUpdated": "2026-07-13T02:41:10.133995"
+  "lastUpdated": "2026-07-20T02:51:38.929759"
 }
