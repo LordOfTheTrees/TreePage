@@ -38,6 +38,12 @@
       }
     }
   }
+
+  .site-footer {
+    .footer-content {
+      gap: $spacing-unit $spacing-unit * 2;
+    }
+  }
 }
 
 // Footer
@@ -52,8 +58,8 @@
     display: flex !important;
     justify-content: center !important;
     align-items: flex-start;
-    gap: $spacing-unit * 4;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: $spacing-unit * 2 $spacing-unit * 4;
     padding: $spacing-unit 2rem;
     max-width: 800px;
     margin-left: auto !important;

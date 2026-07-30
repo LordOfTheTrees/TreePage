@@ -30,7 +30,9 @@ title: Home
       </div>
       <p>{{ project.description }}</p>
       <div class="project-links">
-        {% if project.github_url %}
+        {% if project.live_url and project.live_url != "" %}
+          <a href="{{ project.live_url }}" class="button" target="_blank" rel="noopener">View Live</a>
+        {% elsif project.github_url %}
           <a href="{{ project.github_url }}" class="button" target="_blank" rel="noopener">View on GitHub</a>
         {% endif %}
       </div>
