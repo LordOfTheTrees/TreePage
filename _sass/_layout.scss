@@ -6,29 +6,50 @@
   
   .wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    row-gap: $spacing-unit / 3;
   }
-  
+
   .site-title {
     font-size: 1.5rem;
     font-weight: 600;
     color: $secondary-color;
-    
+
     &:hover {
       text-decoration: none;
     }
   }
-  
+
   .site-nav {
     display: flex;
-    gap: $spacing-unit;
-    
+    flex-wrap: wrap;
+    gap: $spacing-unit / 2 $spacing-unit;
+
     .nav-link {
       color: $gray;
-      
+
       &:hover, &:focus {
         color: $secondary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .site-header {
+    .wrapper {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .site-nav {
+      justify-content: center;
+      gap: $spacing-unit / 4 $spacing-unit / 2;
+
+      .nav-link {
+        font-size: $small-font-size;
       }
     }
   }
