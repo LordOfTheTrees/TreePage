@@ -99,7 +99,68 @@ document.addEventListener('DOMContentLoaded', function() {
       statusEl.hidden = false;
     }
   }
-  
+
+  // Anonymous feedback form submission
+  const feedbackForm = document.getElementById('feedback-form');
+  if (feedbackForm) {
+    const statusEl = document.getElementById('feedback-form-status');
+    const submitBtn = feedbackForm.querySelector('button[type="submit"]');
+
+    feedbackForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const topicInput = document.getElementById('feedback-topic');
+      const actionInput = document.getElementById('feedback-action');
+      const messageInput = document.getElementById('feedback-message');
+
+      if (!messageInput.value.trim()) {
+        messageInput.classList.add('error');
+        showStatus('Please enter your feedback before sending.', 'error');
+        return;
+      }
+      messageInput.classList.remove('error');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      statusEl.hidden = true;
+
+      const netlifyUrl = window.NETLIFY_FUNCTIONS_URL || '';
+      const functionUrl = `${netlifyUrl}/.netlify/functions/send-feedback`;
+
+      try {
+        const response = await fetch(functionUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            topic: topicInput.value,
+            action: actionInput.value,
+            message: messageInput.value.trim()
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          showStatus('Feedback sent anonymously. Thank you.', 'success');
+          feedbackForm.reset();
+        } else {
+          showStatus(data.error || 'Something went wrong. Please try again.', 'error');
+        }
+      } catch (err) {
+        showStatus('Could not reach the server. Please try again later.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Anonymous Feedback';
+      }
+    });
+
+    function showStatus(msg, type) {
+      statusEl.textContent = msg;
+      statusEl.className = 'form-status ' + type;
+      statusEl.hidden = false;
+    }
+  }
+
   function isValidEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());

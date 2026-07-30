@@ -287,33 +287,33 @@
 }
 
 // Contact form
-#contact-form {
+#contact-form, #feedback-form {
   margin-top: $spacing-unit;
-  
+
   .form-group {
     margin-bottom: $spacing-unit / 2;
   }
-  
+
   label {
     display: block;
     margin-bottom: 0.3em;
     font-weight: 600;
   }
-  
-  input, textarea {
+
+  input, textarea, select {
     width: 100%;
     padding: 0.5em;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     font-family: $base-font-family;
     font-size: $base-font-size;
-    
+
     &:focus {
       outline: none;
       border-color: $primary-color;
     }
   }
-  
+
   input.error, textarea.error {
     border-color: #dc3545;
   }
