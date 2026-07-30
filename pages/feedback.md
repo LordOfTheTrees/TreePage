@@ -4,9 +4,11 @@ title: Anonymous Feedback
 permalink: /pages/feedback/
 ---
 
-If you've worked with me, managed me, been managed by me, or just interacted with me professionally, I'd genuinely like to know what I could do better — and what's working. This form is anonymous: I don't collect your name, email, or any other identifying information, and nothing here is logged or stored anywhere.
+I would truly like to know your candid feedback about anything. Whatever you want to share, I'd like to hear it.
 
-Be candid. That's the point.
+Please make it as concrete as possible, but try not to include anything identifying. I don't collect or store anything on my end.
+
+THANK YOU
 
 <form id="feedback-form">
   <div class="form-group">
