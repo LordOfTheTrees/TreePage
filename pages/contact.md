@@ -12,6 +12,8 @@ permalink: /pages/contact/
 
 Feel free to reach out if you'd like to collaborate on a project or discuss job opportunities.
 
+Prefer to give candid, anonymous feedback instead? Use the [Anonymous Feedback]({{ site.baseurl }}/pages/feedback/) page — no name or email required.
+
 ## Contact Form
 {: #contact-form-heading}
 
