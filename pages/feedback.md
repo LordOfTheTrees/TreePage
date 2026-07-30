@@ -12,10 +12,9 @@ Be candid. That's the point.
   <div class="form-group">
     <label for="feedback-topic">What's this about?</label>
     <select id="feedback-topic" name="topic">
-      <option value="website">Website & portfolio</option>
-      <option value="work">Professional work & skills</option>
-      <option value="communication">Communication & collaboration style</option>
-      <option value="career">Career direction & choices</option>
+      <option value="what">What I do</option>
+      <option value="how">How I do it</option>
+      <option value="seem">How I seem</option>
       <option value="other">Other</option>
     </select>
   </div>

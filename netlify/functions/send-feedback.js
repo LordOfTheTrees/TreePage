@@ -1,10 +1,9 @@
 const { Resend } = require('resend');
 
 const TOPICS = {
-  website: 'Website & portfolio',
-  work: 'Professional work & skills',
-  communication: 'Communication & collaboration style',
-  career: 'Career direction & choices',
+  what: 'What I do',
+  how: 'How I do it',
+  seem: 'How I seem',
   other: 'Other'
 };
 
