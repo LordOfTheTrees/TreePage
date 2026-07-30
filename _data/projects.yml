@@ -51,28 +51,28 @@
     - Tableau dashboards fed by CSVs or published extracts
     - Cross-validation, grid search, coefficient and importance reporting
 
-# Jira-Claude Automation System
-- title: "Jira-Claude Automation System"
-  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
+# MMA Pre-Fight Handicapping Model (training pipeline)
+- title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
+  description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines ELO construction, ELO-weighted fighter style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals based on track-record reliability."
   technologies:
-    - Node.js
-    - JavaScript
-    - Claude AI API
-    - REST APIs
-    - Webhooks
-    - GitHub Actions
-    - Anthropic SDK
-  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
-  live_url: ""
+    - Python
+    - NumPy
+    - SciPy
+    - Multinomial Logistic Regression
+    - ELO Rating System
+    - Feature Engineering
+    - Statistical Modeling
+  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
+  live_url: "https://octagonelo.com"
   documentation: ""
   key_features:
-    - Claude-powered requirements analysis with detailed delivery criteria creation
-    - Automated implementation generation for code, documentation, analysis, and processes
-    - Comprehensive quality evaluation against delivery criteria with detailed scoring
-    - Complete workflow integration between Jira webhooks and GitHub Actions
-    - Real-time artifact creation and version control management
-    - Multi-stage progression tracking with automated status updates
-    - Intelligent error handling and fallback mechanisms for robust operations
+    - Tiered CSV ingest: UFCStats stats, optional promotions, Sherdog, chronological fights
+    - Cross-promotion ELO construction with configurable era cutoffs for regression training
+    - Cold-start and pedigree priors in the rating stack for sparse fighter histories
+    - Six-class multinomial head with win, finish, and decision aggregate helpers
+    - Optional uncertainty layer on softmax probabilities (sparsity-aware parameterization)
+    - CLI entrypoints for train, optional full data rebuild, predict, log-odds explain
+    - Architecture documentation and phased roadmap for data, validation, and tuning
 
 # News Intelligence Pipeline
 - title: "News Intelligence Pipeline"
@@ -95,6 +95,29 @@
     - GitHub integration for automated issue creation and team notifications
     - Email notifications through GitHub's built-in system
     - Customizable news topics and configurable automation via GitHub Actions
+
+# Jira-Claude Automation System
+- title: "Jira-Claude Automation System"
+  description: "An intelligent project management automation system that integrates Jira with Claude AI to automatically analyze requirements, generate implementations, and evaluate deliverables, reducing manual effort by 70-90% while maintaining high quality and consistency."
+  technologies:
+    - Node.js
+    - JavaScript
+    - Claude AI API
+    - REST APIs
+    - Webhooks
+    - GitHub Actions
+    - Anthropic SDK
+  github_url: "https://github.com/LordOfTheTrees/jira-claude-automation"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Claude-powered requirements analysis with detailed delivery criteria creation
+    - Automated implementation generation for code, documentation, analysis, and processes
+    - Comprehensive quality evaluation against delivery criteria with detailed scoring
+    - Complete workflow integration between Jira webhooks and GitHub Actions
+    - Real-time artifact creation and version control management
+    - Multi-stage progression tracking with automated status updates
+    - Intelligent error handling and fallback mechanisms for robust operations
 
 # OctagonELO — Live MMA prediction site
 - title: "OctagonELO"
@@ -119,29 +142,6 @@
     - Weekly model refresh from UFCStats ingest with JSON artifact export to production
     - About-the-model hub with data distribution charts and architecture decision records
     - Free tier for the next upcoming event; subscription unlocks full calendar, ELO trajectories, and hypothetical bouts
-
-# MMA Pre-Fight Handicapping Model (training pipeline)
-- title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
-  description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines ELO construction, ELO-weighted fighter style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals based on track-record reliability."
-  technologies:
-    - Python
-    - NumPy
-    - SciPy
-    - Multinomial Logistic Regression
-    - ELO Rating System
-    - Feature Engineering
-    - Statistical Modeling
-  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
-  live_url: "https://octagonelo.com"
-  documentation: ""
-  key_features:
-    - Tiered CSV ingest: UFCStats stats, optional promotions, Sherdog, chronological fights
-    - Cross-promotion ELO construction with configurable era cutoffs for regression training
-    - Cold-start and pedigree priors in the rating stack for sparse fighter histories
-    - Six-class multinomial head with win, finish, and decision aggregate helpers
-    - Optional uncertainty layer on softmax probabilities (sparsity-aware parameterization)
-    - CLI entrypoints for train, optional full data rebuild, predict, log-odds explain
-    - Architecture documentation and phased roadmap for data, validation, and tuning
 
 # Enron email graph anomaly detection
 - title: "Enron Email Graph: GNN-Based Anomaly Detection"
