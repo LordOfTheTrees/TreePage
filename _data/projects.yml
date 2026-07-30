@@ -1,29 +1,26 @@
-# Combat Cognition App
-- title: "Combat Cognition"
-  description: "A progressive BJJ training application that accelerates skill acquisition through spaced repetition (SM-2 algorithm) and evidence-based mental visualization techniques. Combines physical training logs, guided 5-minute visualization sessions, smart scheduling, research protocols (nutrition, cardio, strength), and comprehensive progress tracking."
+# OctagonELO — Live MMA prediction site
+- title: "OctagonELO"
+  description: "Live pre-fight MMA handicapping site that turns tiered fight history, per-division ELO, and interpretable matchup features into calibrated six-outcome probability distributions with 90% confidence intervals. Ships weekly artifact exports from the training pipeline to a FastAPI + React SPA at octagonelo.com."
   technologies:
+    - Python
+    - FastAPI
     - React
     - TypeScript
-    - Vite
-    - TailwindCSS
-    - shadcn/ui
-    - React Native
-    - Expo
-    - Express.js
-    - PostgreSQL
-    - Drizzle ORM
-    - Supabase
-  github_url: "https://github.com/LordOfTheTrees/combat-cognition"
-  live_url: "https://apps.apple.com/in/app/combat-cognition/id6761689319"
+    - NumPy
+    - SciPy
+    - Multinomial Logistic Regression
+    - ELO Rating System
+    - Bootstrap Confidence Intervals
+  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
+  live_url: "https://octagonelo.com"
   documentation: ""
   key_features:
-    - Physical training logs for grappling, striking, conditioning, and strength with technique tagging
-    - SM-2 spaced repetition for visualization scheduling and review optimization
-    - Guided five-minute visualization sessions with clarity ratings and automatic rescheduling
-    - Weekly focus rotation that deterministically cycles through 20+ BJJ techniques
-    - Evidence-based research protocols covering nutrition, cardio, strength periodization, and skill acquisition
-    - Training analytics with multi-week trends, GitHub-style activity calendars, and streak tracking
-    - Cross-platform web and mobile clients with feature parity (React + Vite, React Native + Expo)
+    - Six-outcome pre-fight distributions (win/lose by KO-TKO, submission, or decision) with derived finish and decision aggregates
+    - Per-division ELO rankings with uncertainty column and fighter search across profiles
+    - Bout pages with method-split win bars, 90% CIs, days-idle percentiles, and matchup feature breakdown
+    - Weekly model refresh from UFCStats ingest with JSON artifact export to production
+    - About-the-model hub with data distribution charts and architecture decision records
+    - Free tier for the next upcoming event; subscription unlocks full calendar, ELO trajectories, and hypothetical bouts
 
 # NFL Quarterback Performance Analytics
 - title: "NFL Quarterback Evaluation Framework: 25-Year Performance Analysis"
@@ -50,6 +47,33 @@
     - Model specs swapping raw-volume and injury-projected feature blocks
     - Tableau dashboards fed by CSVs or published extracts
     - Cross-validation, grid search, coefficient and importance reporting
+
+# Combat Cognition App
+- title: "Combat Cognition"
+  description: "A progressive BJJ training application that accelerates skill acquisition through spaced repetition (SM-2 algorithm) and evidence-based mental visualization techniques. Combines physical training logs, guided 5-minute visualization sessions, smart scheduling, research protocols (nutrition, cardio, strength), and comprehensive progress tracking."
+  technologies:
+    - React
+    - TypeScript
+    - Vite
+    - TailwindCSS
+    - shadcn/ui
+    - React Native
+    - Expo
+    - Express.js
+    - PostgreSQL
+    - Drizzle ORM
+    - Supabase
+  github_url: "https://github.com/LordOfTheTrees/combat-cognition"
+  live_url: "https://apps.apple.com/in/app/combat-cognition/id6761689319"
+  documentation: ""
+  key_features:
+    - Physical training logs for grappling, striking, conditioning, and strength with technique tagging
+    - SM-2 spaced repetition for visualization scheduling and review optimization
+    - Guided five-minute visualization sessions with clarity ratings and automatic rescheduling
+    - Weekly focus rotation that deterministically cycles through 20+ BJJ techniques
+    - Evidence-based research protocols covering nutrition, cardio, strength periodization, and skill acquisition
+    - Training analytics with multi-week trends, GitHub-style activity calendars, and streak tracking
+    - Cross-platform web and mobile clients with feature parity (React + Vite, React Native + Expo)
 
 # MMA Pre-Fight Handicapping Model (training pipeline)
 - title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
@@ -118,30 +142,6 @@
     - Real-time artifact creation and version control management
     - Multi-stage progression tracking with automated status updates
     - Intelligent error handling and fallback mechanisms for robust operations
-
-# OctagonELO — Live MMA prediction site
-- title: "OctagonELO"
-  description: "Live pre-fight MMA handicapping site that turns tiered fight history, per-division ELO, and interpretable matchup features into calibrated six-outcome probability distributions with 90% confidence intervals. Ships weekly artifact exports from the training pipeline to a FastAPI + React SPA at octagonelo.com."
-  technologies:
-    - Python
-    - FastAPI
-    - React
-    - TypeScript
-    - NumPy
-    - SciPy
-    - Multinomial Logistic Regression
-    - ELO Rating System
-    - Bootstrap Confidence Intervals
-  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
-  live_url: "https://octagonelo.com"
-  documentation: ""
-  key_features:
-    - Six-outcome pre-fight distributions (win/lose by KO-TKO, submission, or decision) with derived finish and decision aggregates
-    - Per-division ELO rankings with uncertainty column and fighter search across profiles
-    - Bout pages with method-split win bars, 90% CIs, days-idle percentiles, and matchup feature breakdown
-    - Weekly model refresh from UFCStats ingest with JSON artifact export to production
-    - About-the-model hub with data distribution charts and architecture decision records
-    - Free tier for the next upcoming event; subscription unlocks full calendar, ELO trajectories, and hypothetical bouts
 
 # Enron email graph anomaly detection
 - title: "Enron Email Graph: GNN-Based Anomaly Detection"
