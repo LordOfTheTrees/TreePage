@@ -7,24 +7,15 @@
   .wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     row-gap: $spacing-unit / 3;
-  }
-
-  .site-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: $secondary-color;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   .site-nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: $spacing-unit / 2 $spacing-unit;
 
     .nav-link {
@@ -39,13 +30,7 @@
 
 @media (max-width: $mobile-width) {
   .site-header {
-    .wrapper {
-      justify-content: center;
-      text-align: center;
-    }
-
     .site-nav {
-      justify-content: center;
       gap: $spacing-unit / 4 $spacing-unit / 2;
 
       .nav-link {
