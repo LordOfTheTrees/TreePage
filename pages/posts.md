@@ -2,6 +2,7 @@
 layout: page
 title: Posts & Written Investigations
 permalink: /pages/posts/
+prose: true
 ---
 
 <div class="posts-archive">

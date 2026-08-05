@@ -2,6 +2,7 @@
 layout: page
 title: Anonymous Feedback
 permalink: /pages/feedback/
+prose: true
 ---
 
 I would truly like to know your candid feedback about anything. Whatever you want to share, I'd like to hear it.
