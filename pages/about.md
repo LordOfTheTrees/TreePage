@@ -2,6 +2,7 @@
 layout: page
 title: About Me
 permalink: /pages/about/
+prose: true
 ---
 
 <div class="profile-image-container">

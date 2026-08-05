@@ -106,7 +106,9 @@
 
 // Content
 .content {
-  padding: $spacing-unit 1.5rem;
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: $spacing-unit 2rem; // matches .wrapper so body lines up with header nav
   min-height: calc(100vh - 200px);
 }
 
@@ -154,26 +156,16 @@
   }
 }
 
-// Projects - Responsive grid that adapts to screen size
+// Projects - Responsive grid that adapts to screen size.
+// auto-fit lets the column count fall out of the available width instead of
+// forcing three fixed tracks that overflow their container on narrow parents.
 .projects-grid, .projects-container {
   display: grid;
+  // min() keeps the 300px track floor from overflowing containers narrower
+  // than 300px (e.g. a 320px phone), where it collapses to a single column
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: $spacing-unit;
   margin-bottom: $spacing-unit;
-  
-  // Desktop: 3 columns
-  @media (min-width: $tablet-width) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  // Tablet: 2 columns
-  @media (min-width: $mobile-width) and (max-width: ($tablet-width - 1px)) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  // Mobile: 1 column
-  @media (max-width: ($mobile-width - 1px)) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .project-card-header {
@@ -208,7 +200,9 @@
   border-radius: $border-radius;
   padding: $spacing-unit;
   transition: box-shadow 0.2s ease;
-  
+  min-width: 0; // grid items default to min-width:auto, which blocks shrinking
+  overflow-wrap: break-word; // long URLs/titles can't force the track wider
+
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
@@ -252,9 +246,10 @@
       font-size: 0.9em; // Slightly smaller text for longer labels
       padding: 0.4em 0.8em; // Adjust padding for better fit
       
-      // Ensure buttons don't get too narrow
+      // Ensure buttons don't get too narrow, but stay under the 300px column
+      // floor so two of them still fit on one row in the narrowest card
       @media (min-width: $mobile-width) {
-        min-width: 120px;
+        min-width: 100px;
       }
     }
   }
@@ -268,7 +263,7 @@
 // Documents
 .documents-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: $spacing-unit;
 }
 
@@ -276,6 +271,8 @@
   border: 1px solid $border-color;
   border-radius: $border-radius;
   padding: $spacing-unit;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 // Posts
@@ -363,8 +360,13 @@
 
 // Page
 .page {
-  max-width: $prose-width;
   margin: 0 auto;
+
+  // Text-only pages opt in to a narrower measure via `prose: true` front matter.
+  // Grid/gallery pages (projects, photography) need the full content width.
+  &.page--prose {
+    max-width: $prose-width;
+  }
 
   .page-header {
     margin-bottom: $spacing-unit;
