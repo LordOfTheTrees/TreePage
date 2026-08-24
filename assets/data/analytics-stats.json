@@ -1,7 +1,7 @@
 {
-  "totalVisits": 960,
+  "totalVisits": 985,
   "visitsByCountry": {
-    "United States": 378,
+    "United States": 403,
     "Canada": 3,
     "Singapore": 4,
     "Unknown": 574,
@@ -22,11 +22,11 @@
     "Texas, United States": 1,
     "Colorado, United States": 1,
     "Beijing, China": 1,
-    "Unknown, United States": 195,
+    "Unknown, United States": 218,
     "Washington, United States": 13,
     "Virginia, United States": 5,
     "Illinois, United States": 1,
-    "North Carolina, United States": 72,
+    "North Carolina, United States": 74,
     "Maryland, United States": 5
   },
   "timeline": [
@@ -704,7 +704,31 @@
     },
     {
       "date": "2026-08-17",
-      "count": 1
+      "count": 3
+    },
+    {
+      "date": "2026-08-18",
+      "count": 4
+    },
+    {
+      "date": "2026-08-19",
+      "count": 2
+    },
+    {
+      "date": "2026-08-20",
+      "count": 7
+    },
+    {
+      "date": "2026-08-21",
+      "count": 3
+    },
+    {
+      "date": "2026-08-22",
+      "count": 4
+    },
+    {
+      "date": "2026-08-23",
+      "count": 3
     }
   ],
   "visits": [
@@ -6467,7 +6491,157 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-08-17T00:56:57.709+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-17T07:38:46.323+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-17T10:02:42.284+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-18T00:23:12.013+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-18T07:49:22.849+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-18T10:05:50.058+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-18T16:12:38.09+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-19T04:29:11.645+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-19T10:56:29.81+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-20T01:21:01.972+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-20T08:30:26.447+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Cary",
+      "timestamp": "2026-08-20T18:03:20.158+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-20T19:32:36.167+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-20T20:35:44.149+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-20T22:05:35.455+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-20T23:38:58.441+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-21T03:45:31.31+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-21T07:49:08.298+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-21T08:45:10.415+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-22T08:24:19.525+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-22T09:44:48.406+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-22T13:00:24.333+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-22T23:41:58.547+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-23T01:08:06.593+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Cary",
+      "timestamp": "2026-08-23T11:54:20.564+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-23T14:40:51.852+00:00"
     }
   ],
-  "lastUpdated": "2026-08-17T01:10:25.759182"
+  "lastUpdated": "2026-08-24T01:11:53.207045"
 }
