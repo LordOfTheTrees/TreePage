@@ -1,15 +1,15 @@
 {
-  "totalVisits": 985,
+  "totalVisits": 1000,
   "visitsByCountry": {
-    "United States": 403,
+    "United States": 418,
     "Canada": 3,
     "Singapore": 4,
     "Unknown": 574,
     "China": 1
   },
   "visitsByRegion": {
-    "New York, United States": 14,
-    "Connecticut, United States": 25,
+    "New York, United States": 15,
+    "Connecticut, United States": 26,
     "Ontario, Canada": 3,
     "New Jersey, United States": 5,
     "Unknown, Singapore": 4,
@@ -22,11 +22,11 @@
     "Texas, United States": 1,
     "Colorado, United States": 1,
     "Beijing, China": 1,
-    "Unknown, United States": 218,
+    "Unknown, United States": 227,
     "Washington, United States": 13,
     "Virginia, United States": 5,
     "Illinois, United States": 1,
-    "North Carolina, United States": 74,
+    "North Carolina, United States": 78,
     "Maryland, United States": 5
   },
   "timeline": [
@@ -729,6 +729,22 @@
     {
       "date": "2026-08-23",
       "count": 3
+    },
+    {
+      "date": "2026-08-24",
+      "count": 4
+    },
+    {
+      "date": "2026-08-25",
+      "count": 9
+    },
+    {
+      "date": "2026-08-26",
+      "count": 1
+    },
+    {
+      "date": "2026-08-27",
+      "count": 1
     }
   ],
   "visits": [
@@ -6641,7 +6657,97 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-08-23T14:40:51.852+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-24T08:21:31.104+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-24T12:42:07.324+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "New York",
+      "city": "New York",
+      "timestamp": "2026-08-24T13:01:31.166+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-24T17:46:45.158+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Cary",
+      "timestamp": "2026-08-25T20:09:57.818+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Cary",
+      "timestamp": "2026-08-25T20:09:59.752+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Cary",
+      "timestamp": "2026-08-25T20:10:00.299+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-25T20:19:20.374+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-25T20:19:22.997+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-25T20:33:41.888+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-25T20:33:41.895+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-25T20:33:48.643+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Cary",
+      "timestamp": "2026-08-25T22:06:13.919+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Connecticut",
+      "city": "New Haven",
+      "timestamp": "2026-08-26T03:47:04.665+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-08-27T09:25:23.254+00:00"
     }
   ],
-  "lastUpdated": "2026-08-24T01:11:53.207045"
+  "lastUpdated": "2026-08-31T03:49:38.642439"
 }
