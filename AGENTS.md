@@ -32,6 +32,26 @@ There are no dedicated lint or test commands configured in this repository. Jeky
 
 Serverless functions live in `netlify/functions/` and require `SUPABASE_URL` and `SUPABASE_ANON_KEY` environment variables. These are only needed for the analytics subsystem and are **not required** for the Jekyll site to run locally.
 
+### Analytics — read before editing
+
+**Read [`docs/analytics.md`](docs/analytics.md) before changing anything in
+`netlify/functions/export-visits.js`, `netlify/functions/track-visit.js`,
+`.github/workflows/sync-analytics.yml`, `assets/js/analytics*.js`, or the disclosure
+text in `analytics-view.html`.**
+
+Several choices in that subsystem look like bugs and are deliberate. The load-bearing
+ones, each of which has a plausible-looking "fix" that breaks something:
+
+- Raw visit rows are published on purpose — the timeline and country charts read them.
+- `totalVisits` comes from a separate count query, **not** `len(visits)`. Making the
+  numbers "agree" freezes the counter permanently.
+- The export takes the **newest** 1000 rows. Removing the limit, or raising it above
+  1000 without adding pagination, silently re-truncates (PostgREST caps at 1000).
+- `export-visits` has no auth by design. Adding a required token without configuring
+  it in both Netlify and GitHub Actions breaks the weekly sync.
+- The privacy wording in `analytics-view.html` is deliberate and rests on a recorded
+  rationale. Do not reword it without the site owner's sign-off.
+
 ### Known Gotchas
 
 - Jekyll 3.9.x with Ruby 3.3+ emits a `bigdecimal` deprecation warning from the `liquid` gem — this is harmless and can be ignored.
