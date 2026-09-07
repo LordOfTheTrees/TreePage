@@ -1,0 +1,154 @@
+// Public analytics dashboard. Consolidated from an inline <style> block in
+// analytics-view.html and a stylesheet analytics-display.js used to inject
+// at runtime, so every style has one home.
+
+.analytics-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.analytics-container {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stats-section {
+  margin-bottom: 2rem;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.total-visits {
+  font-weight: bold;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #ddd;
+}
+
+.analytics-notes {
+  background-color: #f0f8ff;
+  border-left: 4px solid #007bff;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+// Visual sections rendered by analytics-display.js
+
+.advanced-analytics {
+  margin-top: 2rem;
+}
+
+.visual-section {
+  margin-bottom: 2rem;
+}
+
+.country-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 1rem;
+}
+
+.country-bar {
+  height: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: $border-radius;
+  transition: all 0.3s;
+  cursor: default;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateX(5px);
+  }
+}
+
+.country-label {
+  font-weight: bold;
+  flex: 1;
+}
+
+.country-value {
+  font-weight: bold;
+}
+
+.timeline-section .timeline-help {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+.timeline-controls {
+  margin-bottom: 0.75rem;
+}
+
+.timeline-slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-slider {
+  width: 100%;
+  display: block;
+}
+
+.visit-timeline {
+  display: flex;
+  align-items: flex-end;
+  height: 200px;
+  gap: 4px;
+  margin-top: 0.5rem;
+  padding: 0 2px 28px 2px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.timeline-point {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.timeline-bar {
+  width: 80%;
+  max-width: 100%;
+  background-color: #007bff;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+}
+
+.timeline-label {
+  font-size: 10px;
+  margin-top: 6px;
+  color: #666;
+  text-align: center;
+  line-height: 1.1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

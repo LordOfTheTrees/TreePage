@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Create more visual representations of the data
-    // This function can be called with visits array from analytics-stats.json
+    // Called from analytics.js with the visits array from assets/data/analytics-stats.json
     window.createVisualAnalytics = function(visits) {
       if (!visits || visits.length === 0) return;
       
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createCountryDistribution(container, visits) {
       // Count visits by country
       const countryCounts = {};
-      let totalVisits = visits.length;
+      const totalVisits = visits.length;
       
       visits.forEach(visit => {
         const country = visit.country || 'Unknown';
@@ -221,124 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return colors;
     }
     
-    // Add CSS for visualizations
-    function addVisualizationStyles() {
-      const style = document.createElement('style');
-      style.textContent = `
-        .advanced-analytics {
-          margin-top: 2rem;
-        }
-        
-        .visual-section {
-          margin-bottom: 2rem;
-        }
-        
-        .country-chart {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          margin-top: 1rem;
-        }
-        
-        .country-bar {
-          height: 30px;
-          color: white;
-          display: flex;
-          align-items: center;
-          padding: 0 10px;
-          border-radius: 4px;
-          transition: all 0.3s;
-          cursor: default;
-        }
-        
-        .country-bar:hover {
-          opacity: 0.9;
-          transform: translateX(5px);
-        }
-        
-        .country-label {
-          font-weight: bold;
-          flex: 1;
-        }
-        
-        .country-value {
-          font-weight: bold;
-        }
-        
-        .timeline-section .timeline-help {
-          font-size: 0.9rem;
-          color: #555;
-          margin: 0 0 0.75rem 0;
-          line-height: 1.4;
-        }
-
-        .timeline-controls {
-          margin-bottom: 0.75rem;
-        }
-
-        .timeline-slider-label {
-          display: flex;
-          justify-content: space-between;
-          font-size: 0.8rem;
-          color: #666;
-          margin-bottom: 0.35rem;
-        }
-
-        .timeline-slider {
-          width: 100%;
-          display: block;
-        }
-
-        .visit-timeline {
-          display: flex;
-          align-items: flex-end;
-          height: 200px;
-          gap: 4px;
-          margin-top: 0.5rem;
-          padding: 0 2px 28px 2px;
-          border-bottom: 1px solid #ddd;
-          width: 100%;
-          max-width: 100%;
-          box-sizing: border-box;
-        }
-        
-        .timeline-point {
-          flex: 1;
-          min-width: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          height: 100%;
-        }
-        
-        .timeline-bar {
-          width: 80%;
-          max-width: 100%;
-          background-color: #007bff;
-          border-radius: 4px 4px 0 0;
-          min-height: 4px;
-        }
-        
-        .timeline-label {
-          font-size: 10px;
-          margin-top: 6px;
-          color: #666;
-          text-align: center;
-          line-height: 1.1;
-          max-width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-      `;
-      
-      document.head.appendChild(style);
-    }
     
     // Initialize when DOM is ready
     function initialize() {
-      addVisualizationStyles();
-      
       // Wait for analytics data to be loaded
       // The createVisualAnalytics function will be called from analytics.js
       // after the stats are loaded
