@@ -1,91 +1,70 @@
 // Netlify Function: Export visit data for weekly sync
-// Called by GitHub Actions to fetch all stored visits from Supabase
+// Called by GitHub Actions to fetch recent visits from Supabase.
+//
+// Returns a bounded window of the most recent visits plus an exact all-time
+// count. The window keeps the published payload a fixed size no matter how
+// large the table grows; the count is queried separately so the dashboard's
+// running total stays accurate rather than saturating at the window size.
 
 const { createClient } = require('@supabase/supabase-js');
 
-exports.handler = async (event, context) => {
-  // Only allow GET requests
+// Size of the published window. Also the ceiling PostgREST would impose
+// anyway, so this is one request, never a truncated one.
+const RECENT_VISIT_LIMIT = 1000;
+
+const jsonResponse = (statusCode, payload) => ({
+  statusCode,
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+});
+
+exports.handler = async (event) => {
   if (event.httpMethod !== 'GET') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
+    return jsonResponse(405, { error: 'Method not allowed' });
   }
 
-  // Optional: Add authentication token check
-  const authToken = event.headers['x-auth-token'] || event.queryStringParameters?.token;
-  const expectedToken = process.env.EXPORT_AUTH_TOKEN;
-  
-  if (expectedToken && authToken !== expectedToken) {
-    return {
-      statusCode: 401,
-      body: JSON.stringify({ error: 'Unauthorized' })
-    };
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    return jsonResponse(500, { error: 'Supabase not configured' });
   }
 
   try {
-    // Get Supabase credentials
-    const supabaseUrl = process.env.SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_ANON_KEY;
-
-    if (!supabaseUrl || !supabaseKey) {
-      return {
-        statusCode: 500,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ error: 'Supabase not configured' })
-      };
-    }
-
-    // Initialize Supabase client
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Fetch all visits from Supabase
-    const { data: visits, error } = await supabase
+    // Exact all-time total. head: true fetches no rows, only the count.
+    const { count, error: countError } = await supabase
       .from('visits')
-      .select('*')
-      .order('timestamp', { ascending: true });
+      .select('*', { count: 'exact', head: true });
 
-    if (error) {
-      console.error('Error fetching visits:', error);
-      return {
-        statusCode: 500,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ error: 'Failed to fetch visits', details: error.message })
-      };
+    if (countError) {
+      throw new Error(`Supabase count failed: ${countError.message}`);
     }
 
-    // Transform data to match expected format
-    const formattedVisits = (visits || []).map(visit => ({
-      country: visit.country,
-      region: visit.region,
-      city: visit.city,
-      timestamp: visit.timestamp
-    }));
+    // Newest first so the window tracks current traffic, then flipped back to
+    // chronological order because every consumer reads it oldest-to-newest.
+    const { data, error } = await supabase
+      .from('visits')
+      .select('country, region, city, timestamp')
+      .order('timestamp', { ascending: false })
+      .limit(RECENT_VISIT_LIMIT);
 
-    return {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        visits: formattedVisits,
-        total: formattedVisits.length,
-        exportedAt: new Date().toISOString()
-      })
-    };
+    if (error) {
+      throw new Error(`Supabase query failed: ${error.message}`);
+    }
+
+    const visits = data.reverse();
+
+    return jsonResponse(200, {
+      visits,
+      total: count,
+      returned: visits.length,
+      windowSize: RECENT_VISIT_LIMIT,
+      exportedAt: new Date().toISOString()
+    });
   } catch (error) {
     console.error('Error exporting visits:', error);
-    return {
-      statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ error: 'Failed to export visits' })
-    };
+    return jsonResponse(500, { error: 'Failed to export visits' });
   }
 };
-
