@@ -6,12 +6,15 @@ on:
     - cron: '0 0 * * 1'
   workflow_dispatch: # Allow manual triggering
 
+env:
+  NETLIFY_URL: https://remarkable-syrniki-5c721e.netlify.app
+
 jobs:
   sync-analytics:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # Required to push changes
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,112 +22,78 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Fetch visit data from Netlify
-        id: fetch-data
-        run: |
-          python3 << 'EOF'
-          import json
-          import urllib.request
-          
-          # Hardcoded Netlify site URL
-          netlify_url = 'https://remarkable-syrniki-5c721e.netlify.app'
-          
-          # Fetch visit data from Netlify function
-          url = f"{netlify_url}/.netlify/functions/export-visits"
-          
-          print(f"Fetching data from: {url}")
-          
-          try:
-              req = urllib.request.Request(url)
-              with urllib.request.urlopen(req) as response:
-                  data = json.loads(response.read().decode())
-                  
-              # Save to file
-              with open('visits-export.json', 'w') as f:
-                  json.dump(data, f, indent=2)
-              
-              visits = data.get('visits', [])
-              print(f"Fetched {len(visits)} visits from Netlify")
-          except Exception as e:
-              print(f"Error fetching data: {e}")
-              import traceback
-              traceback.print_exc()
-              # Create empty data structure
-              with open('visits-export.json', 'w') as f:
-                  json.dump({'visits': [], 'total': 0}, f)
-          EOF
-
-      - name: Aggregate analytics data
+      - name: Fetch and aggregate visit data
         run: |
           python3 << 'EOF'
           import json
           import os
+          import sys
+          import urllib.request
           from collections import defaultdict
-          from datetime import datetime
-          
-          # Read visits from export
-          with open('visits-export.json', 'r') as f:
-              export_data = json.load(f)
-          
+          from datetime import datetime, timezone
+
+          url = f"{os.environ['NETLIFY_URL']}/.netlify/functions/export-visits"
+          print(f"Fetching data from: {url}")
+
+          # Any failure must stop the job. Writing an empty result here would
+          # publish a zeroed dashboard over good data on the next step.
+          with urllib.request.urlopen(url, timeout=60) as response:
+              export_data = json.loads(response.read().decode())
+
           visits = export_data.get('visits', [])
-          
+          # All-time count from the database, not len(visits) — the export
+          # returns a bounded window, so counting rows here would freeze the
+          # running total at the window size.
+          total_visits = export_data.get('total')
+
+          print(f"Fetched {len(visits)} visits (all-time total: {total_visits})")
+
           if not visits:
-              print("No visits to aggregate")
-              stats = {
-                  "totalVisits": 0,
-                  "visitsByCountry": {},
-                  "visitsByRegion": {},
-                  "timeline": [],
-                  "visits": [],
-                  "lastUpdated": datetime.now().isoformat()
-              }
-          else:
-              # Aggregate by country
-              country_counts = defaultdict(int)
-              for visit in visits:
-                  country = visit.get('country', 'Unknown')
-                  country_counts[country] += 1
-              
-              # Aggregate by region
-              region_counts = defaultdict(int)
-              for visit in visits:
-                  country = visit.get('country')
-                  region = visit.get('region')
-                  if country and region:
-                      region_key = f"{region}, {country}"
-                      region_counts[region_key] += 1
-              
-              # Create timeline (group by day)
-              timeline_dict = defaultdict(int)
-              for visit in visits:
-                  timestamp = visit.get('timestamp', '')
-                  if timestamp:
-                      date = timestamp.split('T')[0]
-                      timeline_dict[date] += 1
-              
-              timeline = [{"date": date, "count": count} 
-                         for date, count in sorted(timeline_dict.items())]
-              
-              # Create aggregated stats object
-              stats = {
-                  "totalVisits": len(visits),
-                  "visitsByCountry": dict(country_counts),
-                  "visitsByRegion": dict(region_counts),
-                  "timeline": timeline,
-                  "visits": visits,
-                  "lastUpdated": datetime.now().isoformat()
-              }
-          
-          # Ensure assets/data directory exists (dashboard reads from this path)
+              sys.exit('Export returned zero visits; refusing to overwrite published data.')
+
+          if total_visits is None:
+              sys.exit('Export omitted the all-time total; refusing to publish a partial count.')
+
+          # Single pass: country, region and daily timeline.
+          country_counts = defaultdict(int)
+          region_counts = defaultdict(int)
+          timeline_counts = defaultdict(int)
+
+          for visit in visits:
+              country = visit.get('country')
+              region = visit.get('region')
+              timestamp = visit.get('timestamp', '')
+
+              country_counts[country or 'Unknown'] += 1
+              if country and region:
+                  region_counts[f"{region}, {country}"] += 1
+              if timestamp:
+                  timeline_counts[timestamp.split('T')[0]] += 1
+
+          stats = {
+              # All-time, across the whole table.
+              "totalVisits": total_visits,
+              # Everything below covers the published window only.
+              "visitsAnalyzed": len(visits),
+              "visitsByCountry": dict(country_counts),
+              "visitsByRegion": dict(region_counts),
+              "timeline": [{"date": d, "count": c} for d, c in sorted(timeline_counts.items())],
+              # Raw rows are kept deliberately: the dashboard's exploration
+              # views (timeline slider, country breakdown) read from them.
+              "visits": visits,
+              "lastUpdated": datetime.now(timezone.utc).isoformat()
+          }
+
           os.makedirs('assets/data', exist_ok=True)
           with open('assets/data/analytics-stats.json', 'w') as f:
               json.dump(stats, f, indent=2)
-          
-          print(f"Aggregated {stats['totalVisits']} visits")
+
+          print(f"All-time visits: {stats['totalVisits']}")
+          print(f"Analyzed window: {stats['visitsAnalyzed']}")
           print(f"Countries: {len(stats['visitsByCountry'])}")
           print(f"Regions: {len(stats['visitsByRegion'])}")
           EOF
@@ -140,4 +109,3 @@ jobs:
           else
             echo "No changes to commit"
           fi
-
