@@ -37,6 +37,11 @@ THANK YOU
     <textarea id="feedback-message" name="message" rows="6" required></textarea>
   </div>
 
+  <div class="form-group hp-field" aria-hidden="true">
+    <label for="feedback-website">Website (leave blank)</label>
+    <input type="text" id="feedback-website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
   <button type="submit" class="button">Send Anonymous Feedback</button>
   <div id="feedback-form-status" class="form-status" hidden></div>
 </form>

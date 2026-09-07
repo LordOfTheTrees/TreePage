@@ -614,3 +614,14 @@
     gap: $spacing-unit / 4;
   }
 }
+
+// Honeypot field: hidden from humans, visible to automated form fillers.
+// Deliberately not display:none - some bots skip fields hidden that way,
+// and this needs to look fillable to them. See netlify/functions/send-*.js.
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

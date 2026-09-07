@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
             name: nameInput.value.trim(),
             email: emailInput.value.trim(),
             subject: subjectInput.value.trim(),
-            message: messageInput.value.trim()
+            message: messageInput.value.trim(),
+            website: honeypotValue(contactForm)
           })
         });
 
@@ -134,7 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
           body: JSON.stringify({
             topic: topicInput.value,
             action: actionInput.value,
-            message: messageInput.value.trim()
+            message: messageInput.value.trim(),
+            website: honeypotValue(feedbackForm)
           })
         });
 
@@ -159,6 +161,12 @@ document.addEventListener('DOMContentLoaded', function() {
       statusEl.className = 'form-status ' + type;
       statusEl.hidden = false;
     }
+  }
+
+  // Honeypot value. Empty for humans; automated form fillers populate it.
+  function honeypotValue(form) {
+    const field = form.querySelector('input[name="website"]');
+    return field ? field.value : '';
   }
 
   function isValidEmail(email) {
