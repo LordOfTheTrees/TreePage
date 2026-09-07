@@ -1,4 +1,5 @@
 const { Resend } = require('resend');
+const { createClient } = require('@supabase/supabase-js');
 
 const TOPICS = {
   what: 'What I do',
@@ -22,6 +23,87 @@ const MAX_BODY_BYTES = 64 * 1024;
 // Honeypot: a field hidden from humans that automated form fillers populate.
 // Kept in sync with the input in pages/feedback.md.
 const HONEYPOT_FIELD = 'website';
+
+// Global send budget, shared by everyone. Deliberately NOT per-visitor: a
+// per-IP limit would require storing an identifier, which the site's privacy
+// position rules out (see docs/analytics.md). This caps total sends instead.
+//
+// Both endpoints together stay under Resend's free-tier daily allowance, so a
+// flood exhausts this budget - which costs nothing and recovers on its own -
+// rather than the upstream quota, which would silently break sending for the
+// rest of the day. Tune freely; these are not load-bearing.
+const MAX_SENDS_PER_HOUR = 10;
+const MAX_SENDS_PER_DAY = 40;
+
+// Counts sends in the trailing window for this endpoint. Returns null when the
+// send is allowed, or a retry hint when it is not.
+//
+// Fails OPEN on any error. A rate limiter that breaks must not take the
+// contact form down with it; losing the cap is a far smaller problem than
+// silently rejecting real messages.
+async function checkSendBudget(endpoint) {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase not configured; send budget not enforced.');
+    return null;
+  }
+
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const now = Date.now();
+
+    const windows = [
+      { label: 'hour', since: new Date(now - 60 * 60 * 1000), max: MAX_SENDS_PER_HOUR, retryAfter: 3600 },
+      { label: 'day', since: new Date(now - 24 * 60 * 60 * 1000), max: MAX_SENDS_PER_DAY, retryAfter: 86400 }
+    ];
+
+    for (const window of windows) {
+      const { count, error } = await supabase
+        .from('form_send_log')
+        .select('*', { count: 'exact', head: true })
+        .eq('endpoint', endpoint)
+        .gte('created_at', window.since.toISOString());
+
+      if (error) {
+        console.error('Send budget check failed; allowing send:', error.message);
+        return null;
+      }
+
+      if ((count || 0) >= window.max) {
+        console.warn(`Send budget exhausted for ${endpoint}: ${count} in the last ${window.label}.`);
+        return { retryAfter: window.retryAfter };
+      }
+    }
+
+    return null;
+  } catch (err) {
+    console.error('Send budget check threw; allowing send:', err.message);
+    return null;
+  }
+}
+
+// Records a send against the budget. Never throws: a failed write costs a slot
+// of accounting, not a delivered message.
+async function recordSend(endpoint) {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_ANON_KEY;
+  if (!supabaseUrl || !supabaseKey) return;
+
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    await supabase.from('form_send_log').insert([{ endpoint }]);
+    // Opportunistic prune so the table stays small. Failure is harmless.
+    await supabase
+      .from('form_send_log')
+      .delete()
+      .lt('created_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+  } catch (err) {
+    console.error('Failed to record send against budget:', err.message);
+  }
+}
+
 
 exports.handler = async (event) => {
   const corsHeaders = {
@@ -88,6 +170,17 @@ exports.handler = async (event) => {
   const topicLabel = TOPICS[topic] || 'Not specified';
   const actionLabel = ACTIONS[action] || 'Not specified';
 
+  const overBudget = await checkSendBudget('send-feedback');
+  if (overBudget) {
+    return {
+      statusCode: 429,
+      headers: { ...jsonHeaders, 'Retry-After': String(overBudget.retryAfter) },
+      body: JSON.stringify({
+        error: 'This form has reached its limit for now. Please try again later.'
+      })
+    };
+  }
+
   const resend = new Resend(resendApiKey);
 
   try {
@@ -102,6 +195,8 @@ exports.handler = async (event) => {
         message
       ].join('\n')
     });
+
+    await recordSend('send-feedback');
 
     return {
       statusCode: 200,
