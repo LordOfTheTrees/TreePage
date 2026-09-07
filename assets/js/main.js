@@ -2,166 +2,138 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu toggle functionality
   const header = document.querySelector('.site-header');
   const nav = document.querySelector('.site-nav');
-  
+
   if (window.innerWidth < 600) {
     const menuToggle = document.createElement('button');
     menuToggle.classList.add('menu-toggle');
     menuToggle.textContent = 'Menu';
-    
+
     menuToggle.addEventListener('click', function() {
       nav.classList.toggle('visible');
     });
-    
+
     header.insertBefore(menuToggle, nav);
     nav.classList.add('mobile');
   }
-  
+
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      
+
       document.querySelector(this.getAttribute('href')).scrollIntoView({
         behavior: 'smooth'
       });
     });
   });
-  
-  // Contact form submission
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    const statusEl = document.getElementById('form-status');
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
+  // Wires a form to a Netlify function. `collect` returns the JSON payload, or
+  // null after marking invalid fields, in which case `invalidMessage` is shown.
+  function wireForm({ formId, statusId, endpoint, idleLabel, successMessage, invalidMessage, collect }) {
+    const form = document.getElementById(formId);
+    if (!form) return;
 
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const messageInput = document.getElementById('message');
-      const subjectInput = document.getElementById('subject');
-
-      // Client-side validation
-      let isValid = true;
-      [nameInput, emailInput, messageInput].forEach(input => {
-        if (!input.value.trim() || (input === emailInput && !isValidEmail(input.value))) {
-          isValid = false;
-          input.classList.add('error');
-        } else {
-          input.classList.remove('error');
-        }
-      });
-
-      if (!isValid) {
-        showStatus('Please fill out all required fields correctly.', 'error');
-        return;
-      }
-
-      // Disable button and show sending state
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      statusEl.hidden = true;
-
-      const netlifyUrl = window.NETLIFY_FUNCTIONS_URL || '';
-      const functionUrl = `${netlifyUrl}/.netlify/functions/send-contact`;
-
-      try {
-        const response = await fetch(functionUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            subject: subjectInput.value.trim(),
-            message: messageInput.value.trim(),
-            website: honeypotValue(contactForm)
-          })
-        });
-
-        const data = await response.json();
-
-        if (response.ok && data.success) {
-          showStatus('Message sent! Thanks for reaching out.', 'success');
-          contactForm.reset();
-        } else {
-          showStatus(data.error || 'Something went wrong. Please try again.', 'error');
-        }
-      } catch (err) {
-        showStatus('Could not reach the server. Please try again later.', 'error');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-      }
-    });
+    const statusEl = document.getElementById(statusId);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const functionUrl = `${window.NETLIFY_FUNCTIONS_URL || ''}/.netlify/functions/${endpoint}`;
 
     function showStatus(msg, type) {
       statusEl.textContent = msg;
       statusEl.className = 'form-status ' + type;
       statusEl.hidden = false;
     }
-  }
 
-  // Anonymous feedback form submission
-  const feedbackForm = document.getElementById('feedback-form');
-  if (feedbackForm) {
-    const statusEl = document.getElementById('feedback-form-status');
-    const submitBtn = feedbackForm.querySelector('button[type="submit"]');
-
-    feedbackForm.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const topicInput = document.getElementById('feedback-topic');
-      const actionInput = document.getElementById('feedback-action');
-      const messageInput = document.getElementById('feedback-message');
-
-      if (!messageInput.value.trim()) {
-        messageInput.classList.add('error');
-        showStatus('Please enter your feedback before sending.', 'error');
+      const payload = collect(form);
+      if (!payload) {
+        showStatus(invalidMessage, 'error');
         return;
       }
-      messageInput.classList.remove('error');
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
       statusEl.hidden = true;
 
-      const netlifyUrl = window.NETLIFY_FUNCTIONS_URL || '';
-      const functionUrl = `${netlifyUrl}/.netlify/functions/send-feedback`;
-
       try {
         const response = await fetch(functionUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            topic: topicInput.value,
-            action: actionInput.value,
-            message: messageInput.value.trim(),
-            website: honeypotValue(feedbackForm)
-          })
+          body: JSON.stringify({ ...payload, website: honeypotValue(form) })
         });
 
         const data = await response.json();
 
         if (response.ok && data.success) {
-          showStatus('Feedback sent anonymously. Thank you.', 'success');
-          feedbackForm.reset();
+          showStatus(successMessage, 'success');
+          form.reset();
         } else {
           showStatus(data.error || 'Something went wrong. Please try again.', 'error');
         }
-      } catch (err) {
+      } catch {
         showStatus('Could not reach the server. Please try again later.', 'error');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Anonymous Feedback';
+        submitBtn.textContent = idleLabel;
       }
     });
-
-    function showStatus(msg, type) {
-      statusEl.textContent = msg;
-      statusEl.className = 'form-status ' + type;
-      statusEl.hidden = false;
-    }
   }
+
+  // Marks a field valid or invalid and returns whether it passed.
+  function validate(input, ok) {
+    input.classList.toggle('error', !ok);
+    return ok;
+  }
+
+  wireForm({
+    formId: 'contact-form',
+    statusId: 'form-status',
+    endpoint: 'send-contact',
+    idleLabel: 'Send Message',
+    successMessage: 'Message sent! Thanks for reaching out.',
+    invalidMessage: 'Please fill out all required fields correctly.',
+    collect() {
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const subject = document.getElementById('subject');
+      const message = document.getElementById('message');
+
+      // Evaluate every field so each one gets marked, not just the first failure.
+      const results = [
+        validate(name, Boolean(name.value.trim())),
+        validate(email, Boolean(email.value.trim()) && isValidEmail(email.value)),
+        validate(message, Boolean(message.value.trim()))
+      ];
+      if (!results.every(Boolean)) return null;
+
+      return {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        subject: subject.value.trim(),
+        message: message.value.trim()
+      };
+    }
+  });
+
+  wireForm({
+    formId: 'feedback-form',
+    statusId: 'feedback-form-status',
+    endpoint: 'send-feedback',
+    idleLabel: 'Send Anonymous Feedback',
+    successMessage: 'Feedback sent anonymously. Thank you.',
+    invalidMessage: 'Please enter your feedback before sending.',
+    collect() {
+      const message = document.getElementById('feedback-message');
+      if (!validate(message, Boolean(message.value.trim()))) return null;
+
+      return {
+        topic: document.getElementById('feedback-topic').value,
+        action: document.getElementById('feedback-action').value,
+        message: message.value.trim()
+      };
+    }
+  });
 
   // Honeypot value. Empty for humans; automated form fillers populate it.
   function honeypotValue(form) {
@@ -170,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function isValidEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 });

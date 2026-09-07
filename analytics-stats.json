@@ -1,6 +1,0 @@
----
-layout: null
-permalink: /analytics-stats.json
----
-{{ site.data.analytics-stats | jsonify }}
-

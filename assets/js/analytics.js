@@ -1,5 +1,7 @@
 // Updated analytics.js - Uses Netlify Functions for tracking
 document.addEventListener('DOMContentLoaded', function() {
+  const { escapeHtml } = window.TreePage;
+
   // Get Netlify function base URL
   // Since site is on GitHub Pages, we need to use the Netlify site URL
   const getNetlifyFunctionUrl = (functionName) => {
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update analytics view if we're on the analytics page
       if (window.location.pathname.includes('analytics-view.html')) {
-        updateAnalyticsView();
+        window.updateAnalyticsView();
       }
     } catch (error) {
       console.error('Failed to track visit:', error);
@@ -112,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (stats.visitsByCountry) {
         Object.keys(stats.visitsByCountry).sort().forEach(country => {
-          html += `<li><strong>${country}</strong>: ${stats.visitsByCountry[country]} visit(s)</li>`;
+          html += `<li><strong>${escapeHtml(country)}</strong>: ${escapeHtml(stats.visitsByCountry[country])} visit(s)</li>`;
         });
       }
       
@@ -122,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (stats.visitsByRegion) {
         Object.keys(stats.visitsByRegion).sort().forEach(region => {
-          html += `<li><strong>${region}</strong>: ${stats.visitsByRegion[region]} visit(s)</li>`;
+          html += `<li><strong>${escapeHtml(region)}</strong>: ${escapeHtml(stats.visitsByRegion[region])} visit(s)</li>`;
         });
       }
       

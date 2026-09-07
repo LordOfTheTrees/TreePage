@@ -26,11 +26,22 @@ Ruby 3.3.0 is installed at `/home/ubuntu/.rubies/ruby-3.3.0/bin` and added to `P
 
 ### Lint / Test
 
-There are no dedicated lint or test commands configured in this repository. Jekyll build itself (`bundle exec jekyll build`) serves as the primary validation — it will fail on Liquid template errors, invalid YAML front matter, or missing includes.
+- **Lint**: `npm run lint` — ESLint over `assets/js`, `netlify/`, and `tests/` (config in `eslint.config.js`).
+- **Test**: `npm test` — Node's built-in runner over `tests/`. Covers the Netlify functions (with Resend and Supabase stubbed) and the shared browser helpers.
+- **Build**: `bundle exec jekyll build` — fails on Liquid errors, bad front matter, missing includes, and non-ASCII characters in `_sass/` (Sass 3.7 parses SCSS as US-ASCII).
+
+CI runs all three on every pull request and push to `main` (`.github/workflows/ci.yml`).
 
 ### Netlify Functions
 
 Serverless functions live in `netlify/functions/` and require `SUPABASE_URL` and `SUPABASE_ANON_KEY` environment variables. These are only needed for the analytics subsystem and are **not required** for the Jekyll site to run locally.
+
+### Shared code
+
+- `netlify/lib/form-guard.js` — request handling and abuse guards shared by `send-contact` and `send-feedback`. Lives outside `netlify/functions/` on purpose so the bundler treats it as a dependency, not a function.
+- `assets/js/util.js` — `escapeHtml` and `debounce`, loaded first on every page as `window.TreePage`.
+- `assets/js/photo-utils.js` — photo fetching and filename parsing shared by the photography page and the homepage banner.
+- `_sass/` — all styling. There are no inline `<style>` blocks; page-specific rules live in `_home.scss`, `_photography.scss`, `_analytics.scss`.
 
 ### Analytics — read before editing
 

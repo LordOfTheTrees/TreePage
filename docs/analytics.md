@@ -195,12 +195,12 @@ window's real span. If full-year history is wanted later, the durable answer is 
 have `export-visits` return a full-history daily rollup (one small row per day)
 alongside the raw window — that restores 52 weeks without unbounding the payload.
 
-### Divergent copies of the stats file
 
-`_data/analytics-stats.json` (stale) and the root `analytics-stats.json` Liquid
-passthrough are a second, older copy of this data with a different total. Only
-`assets/data/analytics-stats.json` is written by the sync and read by the dashboard.
-The other two are unused and should be removed.
+## Rendering
+
+Every value the dashboard interpolates into HTML (country and region names, counts)
+passes through `escapeHtml` from `assets/js/util.js`. Geo strings come from Netlify's
+edge today, but the renderer does not assume that stays true.
 
 ## Operations
 
