@@ -57,6 +57,7 @@ permalink: /pages/photography/
   </div>
 </div>
 
+<script src="{{ site.baseurl }}/assets/js/photo-utils.js"></script>
 <script src="{{ site.baseurl }}/assets/js/photography.js"></script>
 
 <style>
