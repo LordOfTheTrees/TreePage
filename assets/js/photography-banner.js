@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!banner) return;
 
   const { escapeHtml, photos } = window.TreePage;
-  const { fetchPhotosFromGitHub, createDemoPhotos } = photos;
+  const { fetchPhotosFromGitHub } = photos;
 
   const BANNER_COUNT = 3;
   const portfolioUrl = `${window.location.origin}${window.location.pathname.replace(/\/[^/]*$/, '')}/pages/photography`;
@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
       latest = await fetchPhotosFromGitHub();
     } catch (error) {
       console.error('Failed to load photos for banner:', error);
-      latest = createDemoPhotos();
+      banner.innerHTML = '<div class="loading-photos"><p>Photos are temporarily unavailable.</p></div>';
+      return;
     }
     displayPhotoBanner(latest.slice(0, BANNER_COUNT));
   }

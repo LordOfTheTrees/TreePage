@@ -1,29 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle functionality
-  const header = document.querySelector('.site-header');
-  const nav = document.querySelector('.site-nav');
-
-  if (window.innerWidth < 600) {
-    const menuToggle = document.createElement('button');
-    menuToggle.classList.add('menu-toggle');
-    menuToggle.textContent = 'Menu';
-
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('visible');
-    });
-
-    header.insertBefore(menuToggle, nav);
-    nav.classList.add('mobile');
-  }
-
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Smooth scrolling for in-page anchor links (skips bare "#" placeholders).
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
 
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 

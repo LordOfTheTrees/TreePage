@@ -1,7 +1,7 @@
 // Photography page. Requires util.js and photo-utils.js.
 document.addEventListener('DOMContentLoaded', function () {
   const { escapeHtml, debounce, photos } = window.TreePage;
-  const { fetchPhotosFromGitHub, createDemoPhotos, formatDate } = photos;
+  const { fetchPhotosFromGitHub, formatDate } = photos;
 
   let allPhotos = [];
   let filteredPhotos = [];
@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
       allPhotos = await fetchPhotosFromGitHub();
     } catch (error) {
       console.error('Error loading photos from GitHub:', error);
-      allPhotos = createDemoPhotos();
+      gallery.innerHTML = '<div class="no-photos"><p>Photos are temporarily unavailable. Please try again later.</p></div>';
+      return;
     }
 
     populateFilters();

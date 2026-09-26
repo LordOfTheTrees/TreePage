@@ -67,13 +67,3 @@ describe('parsePhotoFilename', () => {
     assert.equal(escapeHtml(r.title), '&lt;script&gt;x&lt;/script&gt;');
   });
 });
-
-describe('createDemoPhotos', () => {
-  test('returns three well-formed placeholders', () => {
-    const demo = photos.createDemoPhotos();
-    assert.equal(demo.length, 3);
-    for (const p of demo) {
-      assert.ok(p.id && p.url && p.title && p.location && p.date instanceof Date);
-    }
-  });
-});

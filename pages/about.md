@@ -23,6 +23,6 @@ The consumer research I did at Yale's Center for Customer Insights pushed me fur
 
 I also can't stop building things. Not as a hobby, exactly. More like a compulsion. When I hit friction I can't stop thinking about it until I've either solved it or convinced myself it's unsolvable. That's led me to ship a consumer app for tactical cognitive training, build AI-powered automation tools for PM workflows, develop a quantitative platform for quarterback evaluation, and wire together a personalized news intelligence system. None of them started as portfolio pieces. Each one started with a specific annoyance I couldn't ignore.
 
-Outside of all that, I spent years as a nationally ranked Sabre fencer and have trained in five martial arts. I lived in Naples for two years and speak Italian well enough joke with other italians about Napoli. I'm currently at Yale finishing my MBA, where I spend a lot of time thinking about behavioral science, markets, and how to apply both to consumer products.
+Outside of all that, I spent years as a nationally ranked Sabre fencer and have trained in five martial arts. I lived in Naples for two years and speak Italian well enough to joke with other Italians about Napoli. I'm currently at Yale finishing my MBA, where I spend a lot of time thinking about behavioral science, markets, and how to apply both to consumer products.
 
 If any of that sounds like your kind of person, I'd like to talk.

@@ -68,39 +68,6 @@
       .sort((a, b) => b.date - a.date);
   }
 
-  // Placeholder set used when GitHub is unreachable.
-  function createDemoPhotos() {
-    return [
-      {
-        id: 'demo1',
-        filename: 'demo1.jpg',
-        url: 'https://picsum.photos/800/600?random=1',
-        title: 'Mountain Sunrise',
-        location: 'Rocky Mountains, Colorado',
-        date: new Date('2024-03-15'),
-        description: 'Early morning light hitting the mountain peaks'
-      },
-      {
-        id: 'demo2',
-        filename: 'demo2.jpg',
-        url: 'https://picsum.photos/800/600?random=2',
-        title: 'Ocean Waves',
-        location: 'Pacific Coast, California',
-        date: new Date('2024-02-20'),
-        description: 'Powerful waves crashing against the rocky shore'
-      },
-      {
-        id: 'demo3',
-        filename: 'demo3.jpg',
-        url: 'https://picsum.photos/800/600?random=3',
-        title: 'City Lights',
-        location: 'New York City, New York',
-        date: new Date('2024-01-10'),
-        description: 'Urban landscape at twilight'
-      }
-    ];
-  }
-
   function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -110,6 +77,6 @@
   }
 
   global.TreePage = Object.assign(global.TreePage || {}, {
-    photos: { parsePhotoFilename, fetchPhotosFromGitHub, createDemoPhotos, formatDate }
+    photos: { parsePhotoFilename, fetchPhotosFromGitHub, formatDate }
   });
 })(window);
