@@ -1,6 +1,6 @@
-# OctagonELO — live MMA prediction site + its training pipeline (one project, two repos sharing the same deploy)
+# OctagonELO — Live MMA prediction site (production deploy repo is private; no github_url)
 - title: "OctagonELO"
-  description: "Live pre-fight MMA handicapping site that turns tiered fight history, per-division ELO, and interpretable matchup features into calibrated six-outcome probability distributions with 90% confidence intervals. An interpretable modeling pipeline (ELO construction, ELO-weighted style features, multinomial logistic regression) ships weekly artifact exports to a FastAPI + React SPA at octagonelo.com."
+  description: "Live pre-fight MMA handicapping site that turns tiered fight history, per-division ELO, and interpretable matchup features into calibrated six-outcome probability distributions with 90% confidence intervals. Ships weekly artifact exports from the training pipeline to a FastAPI + React SPA at octagonelo.com."
   technologies:
     - Python
     - FastAPI
@@ -11,7 +11,6 @@
     - Multinomial Logistic Regression
     - ELO Rating System
     - Bootstrap Confidence Intervals
-  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
   live_url: "https://octagonelo.com"
   documentation: ""
   key_features:
@@ -21,9 +20,6 @@
     - Weekly model refresh from UFCStats ingest with JSON artifact export to production
     - About-the-model hub with data distribution charts and architecture decision records
     - Free tier for the next upcoming event; subscription unlocks full calendar, ELO trajectories, and hypothetical bouts
-    - "Pipeline: tiered CSV ingest across UFCStats, optional promotions, Sherdog, and chronological fights"
-    - "Pipeline: cross-promotion ELO construction with configurable era cutoffs, cold-start and pedigree priors for sparse fighter histories"
-    - "Pipeline: CLI entrypoints for train, full data rebuild, predict, and log-odds explain, with architecture docs and a phased roadmap"
 
 # NFL Quarterback Performance Analytics
 - title: "NFL Quarterback Evaluation Framework: 25-Year Performance Analysis"
@@ -77,6 +73,29 @@
     - Evidence-based research protocols covering nutrition, cardio, strength periodization, and skill acquisition
     - Training analytics with multi-week trends, GitHub-style activity calendars, and streak tracking
     - Cross-platform web and mobile clients with feature parity (React + Vite, React Native + Expo)
+
+# MMA Pre-Fight Handicapping Model (public modeling-pipeline repo; distinct from OctagonELO's private production deploy)
+- title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
+  description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines ELO construction, ELO-weighted fighter style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals based on track-record reliability. This pipeline's weekly output feeds the production OctagonELO site."
+  technologies:
+    - Python
+    - NumPy
+    - SciPy
+    - Multinomial Logistic Regression
+    - ELO Rating System
+    - Feature Engineering
+    - Statistical Modeling
+  github_url: "https://github.com/LordOfTheTrees/MMA_Handicapping"
+  live_url: ""
+  documentation: ""
+  key_features:
+    - Tiered CSV ingest: UFCStats stats, optional promotions, Sherdog, chronological fights
+    - Cross-promotion ELO construction with configurable era cutoffs for regression training
+    - Cold-start and pedigree priors in the rating stack for sparse fighter histories
+    - Six-class multinomial head with win, finish, and decision aggregate helpers
+    - Optional uncertainty layer on softmax probabilities (sparsity-aware parameterization)
+    - CLI entrypoints for train, optional full data rebuild, predict, log-odds explain
+    - Architecture documentation and phased roadmap for data, validation, and tuning
 
 # News Intelligence Pipeline
 - title: "News Intelligence Pipeline"
