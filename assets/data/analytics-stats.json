@@ -1,9 +1,9 @@
 {
-  "totalVisits": 1210,
+  "totalVisits": 1247,
   "visitsAnalyzed": 1000,
   "visitsByCountry": {
-    "Unknown": 404,
-    "United States": 579,
+    "Unknown": 373,
+    "United States": 610,
     "China": 5,
     "Colombia": 1,
     "Singapore": 8,
@@ -12,19 +12,16 @@
     "South Africa": 1
   },
   "visitsByRegion": {
-    "Unknown, Unknown": 404,
-    "Texas, United States": 1,
-    "Connecticut, United States": 12,
-    "Colorado, United States": 1,
-    "New Jersey, United States": 1,
-    "New York, United States": 10,
-    "California, United States": 32,
+    "Unknown, Unknown": 373,
+    "California, United States": 34,
+    "Connecticut, United States": 11,
+    "New York, United States": 8,
     "Beijing, China": 3,
-    "Unknown, United States": 382,
-    "Washington, United States": 13,
-    "Virginia, United States": 9,
+    "Unknown, United States": 410,
+    "Washington, United States": 14,
+    "Virginia, United States": 11,
     "Illinois, United States": 1,
-    "North Carolina, United States": 102,
+    "North Carolina, United States": 104,
     "Massachusetts, United States": 1,
     "Maryland, United States": 5,
     "Bogota D.C., Colombia": 1,
@@ -36,52 +33,14 @@
     "Bavaria, Germany": 1,
     "South Carolina, United States": 1,
     "Unknown, China": 2,
-    "Gauteng, South Africa": 1
+    "Gauteng, South Africa": 1,
+    "Tennessee, United States": 1,
+    "Nebraska, United States": 1
   },
   "timeline": [
     {
-      "date": "2026-03-30",
-      "count": 1
-    },
-    {
-      "date": "2026-03-31",
-      "count": 7
-    },
-    {
-      "date": "2026-04-01",
-      "count": 1
-    },
-    {
-      "date": "2026-04-02",
-      "count": 15
-    },
-    {
-      "date": "2026-04-03",
-      "count": 2
-    },
-    {
-      "date": "2026-04-04",
-      "count": 1
-    },
-    {
-      "date": "2026-04-05",
-      "count": 2
-    },
-    {
-      "date": "2026-04-06",
-      "count": 4
-    },
-    {
-      "date": "2026-04-07",
-      "count": 1
-    },
-    {
-      "date": "2026-04-08",
-      "count": 1
-    },
-    {
       "date": "2026-04-09",
-      "count": 4
+      "count": 2
     },
     {
       "date": "2026-04-10",
@@ -826,231 +785,37 @@
     {
       "date": "2026-10-25",
       "count": 2
+    },
+    {
+      "date": "2026-10-26",
+      "count": 7
+    },
+    {
+      "date": "2026-10-27",
+      "count": 2
+    },
+    {
+      "date": "2026-10-28",
+      "count": 7
+    },
+    {
+      "date": "2026-10-29",
+      "count": 9
+    },
+    {
+      "date": "2026-10-30",
+      "count": 5
+    },
+    {
+      "date": "2026-11-01",
+      "count": 5
+    },
+    {
+      "date": "2026-11-02",
+      "count": 2
     }
   ],
   "visits": [
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-30T23:19:40.262+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T13:03:14.668+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T13:03:18.25+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T13:03:21.345+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T13:29:31.096+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T13:29:35.7+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T14:20:44.624+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-03-31T14:20:46.281+00:00"
-    },
-    {
-      "country": "United States",
-      "region": "Texas",
-      "city": "Austin",
-      "timestamp": "2026-04-01T00:44:12.548+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T02:50:17.126+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T14:54:19.406+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:04:45.227+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:04:48.356+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:06:37.947+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:06:40.299+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:06:43.477+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:06:44.435+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:06:45.28+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:08:14.873+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:23:57.22+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:24:28.501+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:24:29.191+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-02T21:24:29.905+00:00"
-    },
-    {
-      "country": "United States",
-      "region": "Connecticut",
-      "city": "New Haven",
-      "timestamp": "2026-04-02T23:38:56.425+00:00"
-    },
-    {
-      "country": "United States",
-      "region": "Colorado",
-      "city": "Broomfield",
-      "timestamp": "2026-04-03T00:43:35.983+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-03T02:01:07.79+00:00"
-    },
-    {
-      "country": "United States",
-      "region": "New Jersey",
-      "city": "Secaucus",
-      "timestamp": "2026-04-04T00:42:36.105+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-05T16:33:44.293+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-05T23:46:07.616+00:00"
-    },
-    {
-      "country": "United States",
-      "region": "New York",
-      "city": "New York City",
-      "timestamp": "2026-04-06T22:18:58.811+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-06T22:19:15.651+00:00"
-    },
-    {
-      "country": "United States",
-      "region": "New York",
-      "city": "New York City",
-      "timestamp": "2026-04-06T22:19:17.053+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-06T22:19:32.509+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-07T00:08:35.04+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-08T00:05:39.469+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-09T17:50:57.4+00:00"
-    },
-    {
-      "country": "Unknown",
-      "region": "Unknown",
-      "city": "Unknown",
-      "timestamp": "2026-04-09T22:03:28.001+00:00"
-    },
     {
       "country": "Unknown",
       "region": "Unknown",
@@ -6828,7 +6593,229 @@
       "region": "Unknown",
       "city": "Unknown",
       "timestamp": "2026-10-25T22:57:04.626+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-26T09:40:18.007+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-26T09:40:18.07+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-26T11:36:09.691+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-26T15:59:11.145+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Raleigh",
+      "timestamp": "2026-10-26T20:55:12.612+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "North Carolina",
+      "city": "Raleigh",
+      "timestamp": "2026-10-26T20:55:13.42+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-26T23:09:40.347+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-27T03:31:51.74+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-27T05:20:50.155+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-28T12:07:56.692+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-28T12:07:56.825+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-28T13:04:37.136+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-28T13:04:37.188+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-28T16:00:34.698+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Virginia",
+      "city": "Boydton",
+      "timestamp": "2026-10-28T19:24:17.431+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Washington",
+      "city": "Unknown",
+      "timestamp": "2026-10-28T21:16:53.777+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T05:03:10.61+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Virginia",
+      "city": "Ashburn",
+      "timestamp": "2026-10-29T05:52:18.125+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T08:16:19.605+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T10:55:03.194+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T10:55:03.294+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T20:32:28.56+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T20:32:33.893+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T23:19:30.987+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-29T23:19:31.019+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Tennessee",
+      "city": "Gallatin",
+      "timestamp": "2026-10-30T12:31:50.503+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-30T14:49:35.807+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-30T17:22:48.812+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "California",
+      "city": "San Jose",
+      "timestamp": "2026-10-30T18:26:23.064+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-10-30T19:07:23.543+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-11-01T09:37:23.919+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-11-01T09:55:30.391+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-11-01T09:55:32.85+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Nebraska",
+      "city": "Springfield",
+      "timestamp": "2026-11-01T11:31:46.226+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-11-01T21:54:03.663+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "California",
+      "city": "Santa Clara",
+      "timestamp": "2026-11-02T02:27:48.825+00:00"
+    },
+    {
+      "country": "United States",
+      "region": "Unknown",
+      "city": "Unknown",
+      "timestamp": "2026-11-02T03:32:57.24+00:00"
     }
   ],
-  "lastUpdated": "2026-10-26T03:21:21.930601+00:00"
+  "lastUpdated": "2026-11-02T04:35:13.376694+00:00"
 }
