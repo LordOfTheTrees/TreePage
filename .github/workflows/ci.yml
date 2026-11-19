@@ -8,8 +8,11 @@ on:
 jobs:
   # The site must build. This is the check that catches Liquid errors, bad
   # front matter, missing includes, and non-ASCII in _sass (Sass 3.7 rejects it).
+  # ubuntu-latest is 26.04, and ruby/setup-ruby no longer publishes 3.3.0
+  # for that image (only the latest 3.3 patch). 24.04 still has the
+  # .ruby-version pin, so the build job stays on that runner.
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
