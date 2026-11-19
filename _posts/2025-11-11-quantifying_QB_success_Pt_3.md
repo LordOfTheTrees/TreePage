@@ -3,6 +3,10 @@ layout: post
 title: "Quantifying QB Success: Archetypal Trajectories and Current Pending Decisions (Part 3)"
 date: 2025-11-11
 categories: [Analytics, Quarterbacks, Tableau]
+homepage: list
+homepage_title: "Quantifying QB success, part 3: archetypal trajectories"
+homepage_excerpt: "The last piece in a three-part look at first-round quarterback performance and the shapes those careers actually take."
+homepage_image: /assets/images/home/qb.jpg
 ---
 
 ### Opening: The Daniel Jones Problem

@@ -1,28 +1,59 @@
-// Colors
-$primary-color: #0366d6;
-$secondary-color: #24292e;
-$text-color: #24292e;
-$background-color: #ffffff;
-$border-color: #e1e4e8;
-$lighter-gray: #f6f8fa;
-$gray: #586069;
+// Visual tokens for the v5 site. CSS custom properties are the runtime
+// source of truth. The SCSS variables below alias them for partials that
+// still compile color and type through Sass.
 
-// Typography
-$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-$heading-font-family: $base-font-family;
+:root {
+  --gold: #e3c56d;
+  --gutter: #{'clamp(1.2rem, 4vw, 2.25rem)'};
+  --max: 72rem;
+  --content-inset: #{'max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)))'};
+
+  // Option 4, mobile and tablet (max-width 900px)
+  --ink: #1b2a4a;
+  --ink-deep: #121c33;
+  --sage: #e4eee8;
+  --sage-ink: #1a3328;
+  --lavender: #e8e4f0;
+  --lavender-ink: #2a2440;
+  --lavender-accent: #4c3d8a;
+  --gray: #eef2f6;
+  --body: #1c2430;
+  --muted: #536070;
+  --line: #c9d3de;
+
+  // Option 1, desktop (min-width 901px)
+  --forest: #14352c;
+  --forest-deep: #0d241e;
+  --forest-mid: #1c4d40;
+  --mist: #eef3f0;
+  --forest-ink: #13211c;
+  --forest-muted: #4e6159;
+  --forest-line: #d5e0da;
+}
+
+// Sass aliases. $primary-color is the light-ground link color (forest-mid).
+$primary-color: #1c4d40;
+$secondary-color: #13211c;
+$text-color: #13211c;
+$background-color: #ffffff;
+$border-color: #d5e0da;
+$lighter-gray: #eef3f0;
+$gray: #4e6159;
+
+$base-font-family: "Source Sans 3", "Segoe UI", Helvetica, sans-serif;
+$heading-font-family: "Source Serif 4", Georgia, serif;
 $code-font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 
-$base-font-size: 16px;
+$base-font-size: 17px;
 $small-font-size: 14px;
 $large-font-size: 18px;
 $huge-font-size: 24px;
 
-// Layout
-$content-width: 1200px;
+$content-width: 72rem;
 $prose-width: 720px;
 $spacing-unit: 30px;
-$border-radius: 4px;
+$border-radius: 0;
 
-// Breakpoints
-$mobile-width: 600px;
+// v5 breakpoints. 600px assumptions are retired.
+$mobile-width: 560px;
 $tablet-width: 900px;

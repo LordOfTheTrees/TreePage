@@ -35,10 +35,8 @@ Below is a selection of personal and academic projects I've worked on.
           <a href="{{ project.github_url }}" class="button" target="_blank" rel="noopener">View on GitHub</a>
         {% endif %}
         
-        {% if project.live_url != "" %}
+        {% if project.live_url and project.live_url != "" %}
           <a href="{{ project.live_url }}" class="button" target="_blank" rel="noopener">View Live</a>
-        {% else %}
-          <span class="button disabled">View Live</span>
         {% endif %}
       </div>
     </div>

@@ -6,7 +6,7 @@ prose: true
 ---
 
 <div class="profile-image-container">
-  <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Andrew Erbs" class="profile-image">
+  <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Portrait of Andrew Erbs" class="profile-image" width="400" height="400">
 </div>
 
 I'm drawn to the gap between how things are supposed to work and how they actually work.

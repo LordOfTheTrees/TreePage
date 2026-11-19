@@ -1,112 +1,122 @@
 ---
-layout: default
-title: Home
+layout: home
+full_bleed: true
+title: "Andrew Erbs — Work and writing"
+description: "Andrew Erbs, Director of AI Solutions at GO Media. Writing and projects on product, data, and applied AI."
+image:
+  path: /assets/images/profile.jpg
+  width: 400
+  height: 400
+  alt: Portrait of Andrew Erbs
 ---
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="profile-image-container">
-      <img src="{{ site.baseurl }}/assets/images/profile.jpg" alt="Andrew Erbs" class="profile-image">
-    </div>
-    <h1>Andrew Erbs</h1>
-    <p class="subtitle">Product and Strategy leader. Naval Officer, Yale MBA. Amazon product experience. Focused on consumer behavior, operational leverage, and building things that actually work.</p>
-    <div class="cta-buttons">
-      <a href="{{ site.baseurl }}/pages/projects" class="button primary">View My Work</a>
-      <a href="{{ site.baseurl }}/pages/contact" class="button secondary">Contact Me</a>
+<section class="work" id="work">
+  <div class="wrap section-head">
+    <h2>Selected work</h2>
+    <div class="carousel-nav">
+      <button type="button" data-dir="-1" aria-label="Previous projects">&#8249;</button>
+      <button type="button" data-dir="1" aria-label="Next projects">&#8250;</button>
     </div>
   </div>
-</section>
-
-<section class="featured-projects">
-  <h2>Featured Projects</h2>
-  <div class="projects-grid" id="featured-projects-grid">
-    {% for project in site.data.projects %}
-    <div class="project-card" data-index="{{ forloop.index0 }}">
-      <div class="project-card-header">
-        <h3>{{ project.title }}</h3>
-        {% if project.in_progress %}
-        <span class="project-status" title="Active development" aria-label="This project is in progress">In progress</span>
+  <div class="scroller" id="scroller">
+    {% assign selected = site.data.projects | where_exp: "project", "project.homepage_rank" | sort: "homepage_rank" %}
+    {% for project in selected %}
+      {% if project.live_url and project.live_url != "" %}
+        {% assign project_href = project.live_url %}
+      {% else %}
+        {% assign project_href = project.github_url %}
+      {% endif %}
+    <article class="card">
+      <a class="media" href="{{ project_href }}" target="_blank" rel="noopener noreferrer">
+        {% if forloop.first %}
+          {% assign card_loading = "eager" %}
+        {% else %}
+          {% assign card_loading = "lazy" %}
         {% endif %}
-      </div>
-      <p>{{ project.description }}</p>
-      <div class="project-links">
-        {% if project.live_url and project.live_url != "" %}
-          <a href="{{ project.live_url }}" class="button" target="_blank" rel="noopener">View Live</a>
-        {% elsif project.github_url %}
-          <a href="{{ project.github_url }}" class="button" target="_blank" rel="noopener">View on GitHub</a>
+        {% include responsive-image.html src=project.homepage_image alt=project.homepage_image_alt width="1600" height="1000" loading=card_loading %}
+      </a>
+      <div class="copy">
+        {% if project.homepage_kicker %}
+        <p class="kicker">{{ project.homepage_kicker }}</p>
         {% endif %}
+        <h3><a href="{{ project_href }}" target="_blank" rel="noopener noreferrer">{{ project.homepage_title }}</a></h3>
+        <p class="desc desc-short">{{ project.card_description }}</p>
+        <p class="desc desc-long">{{ project.homepage_blurb }}</p>
+        <p class="meta">{{ project.homepage_meta }} · <a href="{{ project_href }}" target="_blank" rel="noopener noreferrer">{{ project.homepage_link_label }}</a></p>
       </div>
-    </div>
-    {% endfor %}
-  </div>
-  <div class="more-projects">
-    <a href="{{ site.baseurl }}/pages/projects" class="button">See All Projects</a>
-  </div>
-</section>
-
-<section class="featured-photography">
-  <h2>Latest Photography</h2>
-  <p class="section-subtitle">Capturing moments through my lens</p>
-  <div id="photography-banner" class="photography-banner">
-    <div class="loading-photos">
-      <p>Loading latest photos...</p>
-    </div>
-  </div>
-  <div class="more-photography">
-    <a href="{{ site.baseurl }}/pages/photography" class="button">View Full Portfolio</a>
-  </div>
-</section>
-
-<section class="latest-posts">
-  <h2>Latest Posts</h2>
-  <div class="posts-list">
-    {% for post in site.posts limit:3 %}
-    <article class="post-item">
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
-      <p>{{ post.excerpt }}</p>
     </article>
     {% endfor %}
   </div>
+  <div class="wrap more-work">
+    <h3>More work</h3>
+    <ul>
+      {% assign more_work = site.data.projects | where_exp: "project", "project.homepage_more_rank" | sort: "homepage_more_rank" %}
+      {% for project in more_work %}
+      <li><a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">{{ project.homepage_more_label }}</a>{% if project.in_progress %} (in progress){% endif %}</li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>
 
-<script src="{{ site.baseurl }}/assets/js/photo-utils.js"></script>
-<script src="{{ site.baseurl }}/assets/js/photography-banner.js"></script>
+<section class="writing" id="writing">
+  <div class="wrap">
+    <h2>Writing</h2>
+    <div class="writing-layout">
+      <div>
+        {% assign features = site.posts | where: "homepage", "feature" %}
+        {% assign feature = features | first %}
+        {% if feature %}
+        <article class="lead">
+          <a class="media" href="{{ feature.url | relative_url }}">
+            {% include responsive-image.html src=feature.homepage_image alt=feature.homepage_image_alt width="1600" height="1000" loading="lazy" %}
+          </a>
+          <p class="date">{{ feature.date | date: "%B %-d, %Y" }}</p>
+          <h3><a href="{{ feature.url | relative_url }}">{{ feature.homepage_title }}</a></h3>
+          <p>{{ feature.homepage_excerpt }}</p>
+        </article>
+        {% endif %}
+        {% assign listed = site.posts | where: "homepage", "list" %}
+        {% for post in listed %}
+        <article class="post">
+          <div>
+            <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.homepage_title }}</a></h3>
+            <p class="excerpt">{{ post.homepage_excerpt }}</p>
+          </div>
+          <a class="thumb" href="{{ post.url | relative_url }}">
+            {% include responsive-image.html src=post.homepage_image alt="" width="1600" height="1000" loading="lazy" %}
+          </a>
+        </article>
+        {% endfor %}
+        <a class="archive" href="{{ '/pages/posts/' | relative_url }}">All writing</a>
+      </div>
+      <aside class="subscribe">
+        <h3>Follow the writing</h3>
+        <p>New notes on product, data, and applied AI. There isn’t a mailing list yet; this is the signup I would put here when there is one.</p>
+        <form action="#" method="post" onsubmit="return false;">
+          <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="alt"><a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="{{ '/pages/posts/' | relative_url }}">Archive</a></p>
+      </aside>
+    </div>
+  </div>
+</section>
 
-<script>
-// Responsive featured projects display
-document.addEventListener('DOMContentLoaded', function() {
-  function adjustFeaturedProjects() {
-    const grid = document.getElementById('featured-projects-grid');
-    const projects = grid.querySelectorAll('.project-card');
-    
-    // Get screen width
-    const screenWidth = window.innerWidth;
-    let maxProjects;
-    
-    // Determine how many projects to show based on screen size
-    if (screenWidth >= 900) { // Desktop
-      maxProjects = 6; // 2 rows of 3
-    } else if (screenWidth >= 600) { // Tablet
-      maxProjects = 4; // 2 rows of 2
-    } else { // Mobile
-      maxProjects = 3; // 3 rows of 1
-    }
-    
-    // Show/hide projects based on screen size
-    projects.forEach((project, index) => {
-      if (index < maxProjects) {
-        project.style.display = 'block';
-      } else {
-        project.style.display = 'none';
-      }
-    });
-  }
-  
-  // Initial adjustment
-  adjustFeaturedProjects();
-  
-  // Adjust on window resize
-  window.addEventListener('resize', adjustFeaturedProjects);
-});
-</script>
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <div class="about-grid">
+      {% include responsive-image.html src="/assets/images/profile.jpg" alt="Portrait of Andrew Erbs" width="400" height="400" loading="lazy" %}
+      <div>
+        <p>I’m interested in the gap between how systems are supposed to work and how people actually behave in them. That thread runs through eight years as a Navy surface warfare officer, product work at Amazon, research at Yale’s Center for Customer Insights, and the projects above.</p>
+        <p>I studied computer engineering and philosophy at Penn State, and since September 2026 I have led applied AI work at GO Media in Raleigh.</p>
+      </div>
+    </div>
+    <ol class="experience">
+      {% for row in site.data.experience %}
+      <li><span class="role">{{ row.role }}</span><span class="org">{{ row.org }}</span><span class="when">{{ row.dates }}</span></li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

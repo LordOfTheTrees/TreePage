@@ -5,6 +5,11 @@ date: 2026-6-13
 categories: [Product, Combat Sports, Data Science]
 banner_image: /assets/images/octagon-elo/octagon-elo-banner.png
 banner_alt: "OctagonELO: MMA fight predictions and analytics"
+homepage: feature
+homepage_title: "OctagonELO is live: pre-fight MMA predictions you can read"
+homepage_excerpt: "OctagonELO is live today at octagonelo.com. Here is the problem it solves, how the model turns fight history into calibrated probabilities, and what you get on the site right now."
+homepage_image: /assets/images/home/octagon-live.jpg
+homepage_image_alt: "OctagonELO homepage listing upcoming UFC cards"
 ---
 
 *OctagonELO is live today at [octagonelo.com](https://octagonelo.com). Here is the problem it solves, how the model turns fight history into calibrated probabilities, and what you get on the site right now.*
