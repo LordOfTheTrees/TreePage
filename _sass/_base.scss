@@ -8,19 +8,25 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $base-font-family;
-  font-size: $base-font-size;
-  line-height: 1.6;
-  color: $text-color;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--body);
   background-color: $background-color;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
+  font-optical-sizing: auto;
   font-weight: 600;
-  line-height: 1.3;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   margin-bottom: $spacing-unit / 2;
 }
 
@@ -49,13 +55,31 @@ p, ul, ol, dl, figure, blockquote {
 }
 
 a {
-  color: $primary-color;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  
-  &:hover, &:focus {
-    color: darken($primary-color, 10%);
-    text-decoration: underline;
+  color: var(--ink);
+  text-underline-offset: 0.16em;
+
+  &:hover {
+    color: #0d1630;
+  }
+}
+
+@media (min-width: 901px) {
+  body {
+    color: var(--forest-ink);
+  }
+
+  a {
+    color: var(--forest-mid);
+
+    &:hover {
+      color: var(--forest);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
@@ -86,10 +110,15 @@ img {
   display: block;
 }
 
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .button {
   display: inline-block;
   padding: 0.5em 1em;
-  background-color: $primary-color;
+  background-color: var(--forest);
   color: white;
   border-radius: $border-radius;
   text-decoration: none;
@@ -97,16 +126,16 @@ img {
   transition: background-color 0.2s ease;
   
   &:hover, &:focus {
-    background-color: darken($primary-color, 10%);
+    background-color: var(--forest-deep);
     color: white;
     text-decoration: none;
   }
   
   &.secondary {
-    background-color: $gray;
+    background-color: var(--forest-muted);
     
     &:hover, &:focus {
-      background-color: darken($gray, 10%);
+      background-color: var(--forest);
     }
   }
 
@@ -129,25 +158,17 @@ img {
   }
 }
 
-// Additional content padding for all pages
+// Subpage content uses the same inset as .wrap. The homepage does not use
+// this class; its sections are full-bleed.
 .content {
-  padding: $spacing-unit 1.5rem;
-  min-height: calc(100vh - 200px);
+  width: #{'min(var(--max), 100%)'};
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem var(--gutter) 3rem;
+  min-height: calc(100vh - 8rem);
 }
 
-// Ensure consistent padding across all content types
-.page-content, .post-content, .hero-content {
-  padding: 0 1rem;
+.page-content, .post-content {
   max-width: 100%;
   overflow-x: auto;
-}
-
-@media (max-width: $mobile-width) {
-  .content {
-    padding: $spacing-unit 1rem;
-  }
-  
-  .page-content, .post-content, .hero-content {
-    padding: 0 0.5rem;
-  }
 }

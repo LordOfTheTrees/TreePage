@@ -1,0 +1,5 @@
+{%- assign webp = include.src | replace: ".jpg", ".webp" -%}
+<picture>
+  <source srcset="{{ webp | relative_url }}" type="image/webp">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" width="{{ include.width }}" height="{{ include.height }}" loading="{{ include.loading | default: 'lazy' }}" decoding="async">
+</picture>
