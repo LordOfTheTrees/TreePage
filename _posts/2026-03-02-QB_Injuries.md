@@ -3,6 +3,10 @@ layout: post
 title: "QB Injuries: Do NFL GM's Assume Health?"
 date: 2026-3-02
 categories: [Analytics, Quarterbacks, Decision Psychology]
+homepage: list
+homepage_title: "QB injuries: do NFL GMs assume health?"
+homepage_excerpt: "Do general managers assume health for their quarterbacks, or do they assume that previous injury trends will continue?"
+homepage_image: /assets/images/home/qb-inflation.jpg
 ---
 
 *Ongoing Insights from my work evaluating first-round drafted quarterback success and failure since 2000.*

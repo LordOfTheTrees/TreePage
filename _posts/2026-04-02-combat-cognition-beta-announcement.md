@@ -5,6 +5,10 @@ date: 2026-4-02
 categories: [Product, Combat Sports, Behavioral Science]
 banner_image: /assets/images/combat-cognition/feature-graphic.png
 banner_alt: "Combat Cognition: Master the mental game"
+homepage: list
+homepage_title: "Combat Cognition beta: train the space between classes"
+homepage_excerpt: "The mat is where skill is proven, but most of the week is not on the mat. A focused beta built around spaced rehearsal and load management."
+homepage_image: /assets/images/home/combat-feature.jpg
 ---
 
 *We’re opening a focused beta for gyms and serious practitioners. Here’s the problem we’re solving, how the app is built around learning science, and how to get involved.*

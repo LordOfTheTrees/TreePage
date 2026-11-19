@@ -1,5 +1,14 @@
 # OctagonELO — Live MMA prediction site
 - title: "OctagonELO"
+  homepage_rank: 1
+  homepage_title: "OctagonELO"
+  homepage_kicker: "Live product"
+  card_description: "Pre-fight MMA probabilities from ELO and matchup data, shipped weekly to a live site."
+  homepage_blurb: "A pre-fight MMA handicapping site that turns fight history, per-division ELO, and matchup features into calibrated six-outcome probabilities. The model retrains weekly and ships to a live FastAPI and React app."
+  homepage_meta: "Python, FastAPI, React"
+  homepage_link_label: "octagonelo.com"
+  homepage_image: "/assets/images/home/octagon.jpg"
+  homepage_image_alt: "OctagonELO bout page with six-outcome probabilities"
   description: "Live pre-fight MMA handicapping site that turns tiered fight history, per-division ELO, and interpretable matchup features into calibrated six-outcome probability distributions with 90% confidence intervals. Ships weekly artifact exports from the training pipeline to a FastAPI + React SPA at octagonelo.com."
   technologies:
     - Python
@@ -24,6 +33,14 @@
 
 # NFL Quarterback Performance Analytics
 - title: "NFL Quarterback Evaluation Framework: 25-Year Performance Analysis"
+  homepage_rank: 3
+  homepage_title: "NFL Quarterback Evaluation Framework"
+  card_description: "A 25-year framework for QB performance and contracts, using era-adjusted metrics."
+  homepage_blurb: "A 25-year analysis of quarterback performance and contracts, using era-adjusted metrics and ridge regression to surface organizational biases."
+  homepage_meta: "Python, Tableau"
+  homepage_link_label: "GitHub"
+  homepage_image: "/assets/images/home/qb.jpg"
+  homepage_image_alt: "Era-adjusted quarterback performance chart"
   description: "A comprehensive analytical framework for evaluating NFL quarterback performance and contract decisions through advanced statistical modeling and era-adjusted metrics. Combines systematic data collection from Pro Football Reference with ridge regression analysis to reveal organizational biases in quarterback evaluation and predict contract outcomes."
   technologies:
     - Python
@@ -50,6 +67,14 @@
 
 # Combat Cognition App
 - title: "Combat Cognition"
+  homepage_rank: 2
+  homepage_title: "Combat Cognition"
+  card_description: "A BJJ training app that uses spaced repetition and short visualization sessions between classes."
+  homepage_blurb: "A Brazilian jiu-jitsu training app that uses spaced repetition and short visualization sessions to help people learn techniques between classes."
+  homepage_meta: "React Native, TypeScript"
+  homepage_link_label: "App Store"
+  homepage_image: "/assets/images/home/combat.jpg"
+  homepage_image_alt: "Combat Cognition app dashboard"
   description: "A progressive BJJ training application that accelerates skill acquisition through spaced repetition (SM-2 algorithm) and evidence-based mental visualization techniques. Combines physical training logs, guided 5-minute visualization sessions, smart scheduling, research protocols (nutrition, cardio, strength), and comprehensive progress tracking."
   technologies:
     - React
@@ -77,6 +102,8 @@
 
 # MMA Pre-Fight Handicapping Model (training pipeline)
 - title: "MMA Pre-Fight Prediction: ELO + Multinomial Handicapping"
+  homepage_more_rank: 1
+  homepage_more_label: "MMA Pre-Fight Prediction"
   description: "An interpretable pre-fight MMA handicapping pipeline that estimates a calibrated six-outcome probability distribution (win/lose by finish or decision) from tiered fight and fighter data. Combines ELO construction, ELO-weighted fighter style features, matchup interactions, multinomial logistic regression, and explicit confidence intervals based on track-record reliability."
   technologies:
     - Python
@@ -100,6 +127,14 @@
 
 # News Intelligence Pipeline
 - title: "News Intelligence Pipeline"
+  homepage_rank: 4
+  homepage_title: "News Intelligence Pipeline"
+  card_description: "Automated briefings: targeted queries, article intake, and summaries delivered as GitHub Issues."
+  homepage_blurb: "An automated briefing system that writes search queries, pulls articles, and delivers summaries through GitHub Issues."
+  homepage_meta: "Python, Claude API"
+  homepage_link_label: "GitHub"
+  homepage_image: "/assets/images/home/news.jpg"
+  homepage_image_alt: "News intelligence briefing pipeline"
   description: "An automated news aggregation and analysis system that uses Claude AI to generate targeted search queries, fetches articles from NewsAPI, synthesizes summaries, and delivers reports via GitHub Issues with intelligent caching."
   technologies:
     - Python
@@ -145,6 +180,8 @@
 
 # Enron email graph anomaly detection
 - title: "Enron Email Graph: GNN-Based Anomaly Detection"
+  homepage_more_rank: 3
+  homepage_more_label: "Enron Email Graph"
   description: "A research-oriented pipeline that models the Enron corpus as a communication graph and aims to surface behaviorally unusual actors from structure and metadata alone (headers, timing, threading, CC patterns). The design uses person-level nodes, a directed multigraph, rolling temporal windows with per-person baselines, and self-supervised graph autoencoders with optional temporal drift."
   technologies:
     - Python
@@ -191,6 +228,8 @@
 
 # FlowState Jiu-Jitsu App
 - title: "FlowState: Jiu-Jitsu Strategy Generator"
+  homepage_more_rank: 2
+  homepage_more_label: "FlowState"
   description: "An AI-powered application that analyzes jiu-jitsu techniques and generates personalized training strategies, flow charts, adversary response plans, and analytical insights for practitioners of all levels."
   technologies:
     - Python
@@ -238,6 +277,8 @@
 
 # Yale Football Calendar Generator
 - title: "Yale Football Calendar Generator"
+  homepage_more_rank: 4
+  homepage_more_label: "Yale Football Schedule Scraper"
   description: "A Python web scraper that automatically extracts Yale football schedule information and generates an iCalendar file for easy integration with calendar applications."
   technologies:
     - Python

@@ -1,11 +1,20 @@
 # Site settings
 title: Andrew Erbs
 description: >
-  Professional website and portfolio of Andrew Erbs
+  Andrew Erbs, Director of AI Solutions at GO Media. Writing and projects on
+  product, data, and applied AI.
+author: Andrew Erbs
+logo: /assets/images/profile.jpg
 baseurl: "/TreePage" # the subpath of your site, e.g. /blog
 url: "https://lordofthetrees.github.io" # Replace with your GitHub username
 github_username: lordofthetrees
 linkedin_username: andrew-erbs-59bb9365
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/profile.jpg
 
 # Analytics settings
 netlify_functions_url: "https://remarkable-syrniki-5c721e.netlify.app" # Your Netlify site URL for Functions

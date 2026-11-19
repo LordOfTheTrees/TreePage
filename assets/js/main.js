@@ -1,29 +1,85 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle functionality
+  // Menu button is in the header markup. It stays hidden while the links fit
+  // on one row (the approved 390 and 560 layouts) and only collapses the nav
+  // when the row would overflow.
   const header = document.querySelector('.site-header');
-  const nav = document.querySelector('.site-nav');
+  const wrap = header ? header.querySelector('.wrap') : null;
+  const nav = document.getElementById('site-nav');
+  const toggle = header ? header.querySelector('.menu-toggle') : null;
 
-  if (window.innerWidth < 600) {
-    const menuToggle = document.createElement('button');
-    menuToggle.classList.add('menu-toggle');
-    menuToggle.textContent = 'Menu';
+  if (wrap && nav && toggle) {
+    function setOpen(open) {
+      wrap.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? 'Close' : 'Menu';
+    }
 
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('visible');
+    function rowFits() {
+      const wasMenu = wrap.classList.contains('is-menu');
+      const wasOpen = wrap.classList.contains('is-open');
+      wrap.classList.remove('is-menu', 'is-open');
+      const previousWrap = nav.style.flexWrap;
+      const previousShrink = nav.style.flexShrink;
+      nav.style.flexWrap = 'nowrap';
+      nav.style.flexShrink = '0';
+      const overflows = wrap.scrollWidth > wrap.clientWidth + 1;
+      nav.style.flexWrap = previousWrap;
+      nav.style.flexShrink = previousShrink;
+      if (wasMenu) wrap.classList.add('is-menu');
+      if (wasOpen) wrap.classList.add('is-open');
+      return !overflows;
+    }
+
+    function syncMenu() {
+      if (rowFits()) {
+        wrap.classList.remove('is-menu');
+        setOpen(false);
+        return;
+      }
+      wrap.classList.add('is-menu');
+    }
+
+    toggle.addEventListener('click', function () {
+      setOpen(!wrap.classList.contains('is-open'));
     });
 
-    header.insertBefore(menuToggle, nav);
-    nav.classList.add('mobile');
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (!wrap.classList.contains('is-menu')) return;
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || !wrap.classList.contains('is-open')) return;
+      setOpen(false);
+      toggle.focus();
+    });
+
+    syncMenu();
+    const onResize = window.TreePage && window.TreePage.debounce
+      ? window.TreePage.debounce(syncMenu, 100)
+      : syncMenu;
+    window.addEventListener('resize', onResize);
   }
 
-  // Smooth scrolling for anchor links
+  // Smooth scrolling for anchor links. CSS scroll-behavior covers the common
+  // case; this also moves focus for the skip link and honors reduced motion.
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+      const id = this.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
       e.preventDefault();
-
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      if (id === '#main') {
+        target.focus({ preventScroll: true });
+      }
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, '', id);
+      }
     });
   });
 
