@@ -92,12 +92,12 @@ image:
       </div>
       <aside class="subscribe">
         <h3>Follow the writing</h3>
-        <p>New notes on product, data, and applied AI. There isn’t a mailing list yet; this is the signup I would put here when there is one.</p>
-        <form action="#" method="post" onsubmit="return false;">
-          <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+        <p>New notes on product, data, and applied AI. Subscribe and they go to your inbox through Substack.</p>
+        <form action="https://treeflow.substack.com/api/v1/free?nojs=true" method="post" target="_blank">
+          <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
           <button type="submit">Subscribe</button>
         </form>
-        <p class="alt"><a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="{{ '/pages/posts/' | relative_url }}">Archive</a></p>
+        <p class="alt"><a href="https://treeflow.substack.com" target="_blank" rel="noopener noreferrer">Substack</a> · <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="{{ '/pages/posts/' | relative_url }}">Archive</a></p>
       </aside>
     </div>
   </div>
