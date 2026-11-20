@@ -72,7 +72,7 @@ Keys and variant names are a lowercase letter followed by lowercase letters, dig
 
 The function parses a JSON body whether the content type is `text/plain` or `application/json`. Opt-out, and a missing salt or missing Supabase env, return 204 and write nothing. Bodies larger than 4 KB, invalid JSON, and unknown event names return 400. An `experiment_exposure` without a valid key and variant returns 400. Each coarse session may record 180 events per 60 seconds inside one instance; the next request returns 429. The limit lives in memory, so two instances each keep their own counter.
 
-The insert uses the Supabase REST API (`/rest/v1/treepage_events`) with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. A failed insert is logged and still returns 204.
+The insert uses the Supabase REST API (`/rest/v1/treepage_events`). The database key is `SUPABASE_SECRET_KEY` when that Edge Function secret is set, and `SUPABASE_SERVICE_ROLE_KEY` otherwise. Every REST call sends `apikey`. `Authorization: Bearer` is added only when the key starts with `eyJ`, which is how a legacy JWT service-role key is shaped. New secret keys (`sb_secret_...`) are not JWTs, so they are sent as `apikey` only. A failed insert is logged and still returns 204.
 
 ### `verify_jwt`
 
@@ -87,7 +87,7 @@ This is a public beacon. `sendBeacon` cannot send a JWT. Deploying with verifica
 
 ## Deploy
 
-Apply the migration in the Supabase SQL editor for project `uwwokqqfnqtdlddbvqgk` (Website Visit Tracking). Paste `supabase/migrations/20261120200000_create_treepage_events.sql` and run it once. Do not use `supabase db push` against this project from a second repo: OctagonELO migrations may already be in the remote history, and a push from this checkout can refuse to run.
+`supabase/migrations/20261120200000_create_treepage_events.sql` is already applied on project `uwwokqqfnqtdlddbvqgk` (Website Visit Tracking). It created `public.treepage_events` and `public.telemetry_config`, including the `treepage_salt` row. Do not run it again. On a fresh project, paste that file into the SQL editor and run it once. Do not use `supabase db push` against this project from a second repo: OctagonELO migrations may already be in the remote history, and a push from this checkout can refuse to run.
 
 The script creates `public.treepage_events` and `public.telemetry_config`, indexes `created_at` and `event`, enables and forces row level security, and creates no policies. `anon` and `authenticated` have no grants. It inserts `treepage_salt` only when that key is absent.
 
@@ -107,7 +107,7 @@ supabase functions deploy treepage-track
 
 `verify_jwt = false` comes from `supabase/config.toml`. The equivalent one-shot flag is `supabase functions deploy treepage-track --no-verify-jwt`.
 
-`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are provided to Edge Functions automatically. Set `TELEMETRY_SALT` only if you want to override the table salt. Do not put the service role key in the site, in git, or in GitHub Pages.
+`SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are provided to Edge Functions automatically. Legacy JWT keys (`eyJ...`) retire in early 2027. To future-proof this function, set `SUPABASE_SECRET_KEY` (an `sb_secret_...` value) as an Edge Function secret before then. The function reads that secret first and falls back to `SUPABASE_SERVICE_ROLE_KEY`. Set `TELEMETRY_SALT` only if you want to override the table salt. Do not put either key in the site, in git, or in GitHub Pages.
 
 Local Jekyll (`http://localhost:4000/TreePage/`) is an allowed origin, so a deployed function will accept events from `jekyll serve`. The function has to be deployed first. Missing configuration returns 204, so a local page with the function unreachable still renders.
 

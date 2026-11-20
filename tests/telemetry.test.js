@@ -192,6 +192,43 @@ test('experiment exposure requires a valid key and variant, and rate limits per 
   assert.equal(last, 429);
 });
 
+test('database key prefers SUPABASE_SECRET_KEY and sends Bearer only for a JWT', () => {
+  const jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.signature';
+  const secret = 'sb_secret_example_key';
+
+  assert.equal(telemetry.resolveSupabaseKey({
+    SUPABASE_SECRET_KEY: `  ${secret}  `,
+    SUPABASE_SERVICE_ROLE_KEY: jwt
+  }), secret);
+  assert.equal(telemetry.resolveSupabaseKey({
+    SUPABASE_SECRET_KEY: '   ',
+    SUPABASE_SERVICE_ROLE_KEY: `  ${jwt}  `
+  }), jwt);
+  assert.equal(telemetry.resolveSupabaseKey({}), '');
+
+  const secretHeaders = telemetry.supabaseRestHeaders(secret, {
+    'Content-Type': 'application/json',
+    Prefer: 'return=minimal',
+    Authorization: 'Bearer should-not-stick'
+  });
+  assert.equal(secretHeaders.apikey, secret);
+  assert.equal(secretHeaders.Authorization, undefined);
+  assert.equal(secretHeaders['Content-Type'], 'application/json');
+  assert.equal(secretHeaders.Prefer, 'return=minimal');
+
+  const jwtHeaders = telemetry.supabaseRestHeaders(jwt);
+  assert.equal(jwtHeaders.apikey, jwt);
+  assert.equal(jwtHeaders.Authorization, `Bearer ${jwt}`);
+
+  const source = fs.readFileSync(
+    path.join(ROOT, 'supabase/functions/treepage-track/index.ts'),
+    'utf8'
+  );
+  assert.match(source, /resolveSupabaseKey/);
+  assert.match(source, /supabaseRestHeaders/);
+  assert.equal(source.includes('Authorization: `Bearer'), false);
+});
+
 test('country codes XX and T1 are omitted and a desktop hint is kept', async () => {
   const unknown = await ingest({ event: 'page_view', device_class: 'desktop' }, {
     'cf-ipcountry': 'XX',

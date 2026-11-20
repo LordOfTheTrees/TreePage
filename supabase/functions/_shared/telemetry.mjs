@@ -232,6 +232,26 @@ export async function buildRow({ body, headers, salt, now }) {
   return row;
 }
 
+// New Supabase secret keys (sb_secret_...) are not JWTs. Legacy service-role
+// keys are JWTs and start with eyJ. Callers send apikey always, and
+// Authorization: Bearer only for a JWT.
+export function resolveSupabaseKey(env) {
+  const source = env || {};
+  const secret = String(source.SUPABASE_SECRET_KEY || '').trim();
+  if (secret) return secret;
+  return String(source.SUPABASE_SERVICE_ROLE_KEY || '').trim();
+}
+
+export function supabaseRestHeaders(key, extra) {
+  const headers = { ...(extra || {}), apikey: key };
+  if (typeof key === 'string' && key.startsWith('eyJ')) {
+    headers.Authorization = `Bearer ${key}`;
+  } else {
+    delete headers.Authorization;
+  }
+  return headers;
+}
+
 export function consumeRateLimit(sessionId, nowMs) {
   const now = typeof nowMs === 'number' ? nowMs : Date.now();
   if (rateBuckets.size >= 4096) {
