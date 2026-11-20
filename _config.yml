@@ -15,6 +15,12 @@ defaults:
       path: ""
     values:
       image: /assets/images/profile.jpg
+  # Static HTML (no front matter) is still listed by jekyll-sitemap. This
+  # keeps the Search Console verification file out of sitemap.xml.
+  - scope:
+      path: "googlefdb247ce0b7de941.html"
+    values:
+      sitemap: false
 
 # Analytics settings
 netlify_functions_url: "https://remarkable-syrniki-5c721e.netlify.app" # Your Netlify site URL for Functions
