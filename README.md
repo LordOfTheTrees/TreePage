@@ -68,6 +68,8 @@ stale, larger than 800px on the long side, or over about 120 KB.
   published data contract, and the design decisions behind it. **Read this before
   changing the analytics functions, the sync workflow, or the dashboard.** Several
   choices there look like bugs and are deliberate.
+- [`docs/telemetry.md`](docs/telemetry.md) — first-party product events
+  (`public.treepage_events`). Separate from the visits table.
 - [`AGENTS.md`](AGENTS.md) — build, serve, and lint/test commands.
 
 ## Deployment

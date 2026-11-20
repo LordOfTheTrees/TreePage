@@ -24,8 +24,14 @@ visitor loads /analytics-view.html
        └─ analytics-display.js renders country bars + weekly timeline
 ```
 
-Only `track-visit` runs per page view. The dashboard reads a static file; it never
+Only `track-visit` writes `public.visits`. The dashboard reads a static file; it never
 queries Supabase directly.
+
+A separate event log, documented in [`docs/telemetry.md`](telemetry.md), records
+`page_view` and a few engagement events in `public.treepage_events`. It does not
+replace this pipeline. Leave `public.visits`, `track-visit`, and the weekly export
+in place. The visits table can be retired later, once the new page views have a
+comparable history.
 
 ## Stored fields
 

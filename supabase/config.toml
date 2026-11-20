@@ -1,0 +1,12 @@
+# Function configuration for the TreePage beacon.
+# project_id is the local CLI name. The remote project is Website Visit Tracking:
+#   supabase link --project-ref uwwokqqfnqtdlddbvqgk
+
+project_id = "treepage"
+
+# Public beacon. The static site has no user JWT to send.
+# `supabase functions deploy treepage-track` reads this and deploys with
+# JWT verification off. Do not flip it back on: sendBeacon cannot attach
+# an Authorization header, and the gateway would reject every event.
+[functions.treepage-track]
+verify_jwt = false

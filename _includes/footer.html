@@ -8,6 +8,7 @@
       <a href="{{ '/pages/photography/' | relative_url }}">Photography</a>
     </nav>
   </div>
+  <p class="privacy-note">This site counts pages you open. No cookies and no ad network. The stored id is a daily hash, not your IP address, and the subscribe form does not send your email with it.</p>
 </footer>
 
 <!-- Add analytics scripts -->
@@ -19,3 +20,7 @@
 {% endif %}
 <script src="{{ site.baseurl }}/assets/js/analytics.js"></script>
 <script src="{{ site.baseurl }}/assets/js/analytics-display.js"></script>
+<script
+  src="{{ site.baseurl }}/assets/js/track.js"
+  data-endpoint="https://uwwokqqfnqtdlddbvqgk.supabase.co/functions/v1/treepage-track"
+  data-experiments="{{ site.data.experiments.experiments | jsonify | escape }}"></script>
