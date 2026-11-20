@@ -128,6 +128,17 @@
   margin: 0;
 }
 
+.site-footer .privacy-note {
+  width: #{'min(var(--max), 100%)'};
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-bottom: 1.15rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
 .site-footer a {
   color: #a9b4c9;
   text-decoration: none;

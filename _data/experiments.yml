@@ -1,0 +1,11 @@
+# No experiments are running. To start one, add an entry and redeploy the site.
+# The browser hashes (key + a tab-session random) and logs experiment_exposure.
+# Keys and variant names are lowercase letters, digits, and underscores.
+# The random value stays in sessionStorage and is never sent.
+#
+# experiments:
+#   - key: example_copy
+#     variants:
+#       - control
+#       - short
+experiments: []
