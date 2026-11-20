@@ -5,7 +5,11 @@
 
   const GITHUB_USERNAME = 'LordOfTheTrees';
   const REPO_NAME = 'TreePage';
+  // Full-size originals. The contents API lists this directory only, not
+  // subfolders, and thumbnails live in a sibling folder so they are never
+  // returned as extra photos.
   const PHOTOS_FOLDER = 'assets/images/photography';
+  const THUMBS_FOLDER = 'assets/images/photography-thumbs';
   const PHOTO_EXTENSION = /\.(jpg|jpeg|png|gif|webp)$/i;
   const DATE_IN_NAME = /(\d{4}-\d{2}-\d{2})/;
 
@@ -36,12 +40,29 @@
     return result;
   }
 
+  // Grid thumbnail name. The generator always writes a JPEG, even if a
+  // future original is a PNG.
+  function thumbnailName(filename) {
+    return filename.replace(/\.[^.]+$/i, '.jpg');
+  }
+
+  // Same Git ref as the original download URL, different folder.
+  function thumbnailUrl(downloadUrl, filename) {
+    if (!downloadUrl) return '';
+    const thumb = thumbnailName(filename);
+    return downloadUrl.replace(
+      `/${PHOTOS_FOLDER}/${filename}`,
+      `/${THUMBS_FOLDER}/${thumb}`
+    );
+  }
+
   function toPhoto(file) {
     const meta = parsePhotoFilename(file.name);
     return {
       id: file.sha.substring(0, 8),
       filename: file.name,
       url: file.download_url,
+      thumbUrl: thumbnailUrl(file.download_url, file.name),
       title: meta.title || stripExtension(file.name),
       location: meta.location || 'Unknown',
       // Undated files sort as newest.
@@ -110,6 +131,12 @@
   }
 
   global.TreePage = Object.assign(global.TreePage || {}, {
-    photos: { parsePhotoFilename, fetchPhotosFromGitHub, createDemoPhotos, formatDate }
+    photos: {
+      parsePhotoFilename,
+      fetchPhotosFromGitHub,
+      createDemoPhotos,
+      formatDate,
+      thumbnailUrl
+    }
   });
 })(window);

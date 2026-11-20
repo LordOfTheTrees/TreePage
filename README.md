@@ -45,6 +45,23 @@ This repository contains the source code for my personal website, built with Jek
 - Update `_data/projects.yml` to showcase your work
 - Add documents to be shared in `_data/documents.yml`
 
+## Photography thumbnails
+
+Full-size photos stay in `assets/images/photography/`. The gallery grid and the
+homepage banner load JPEGs from `assets/images/photography-thumbs/` (800px on
+the long side, about 100 KB). The lightbox still opens the original. Thumbnails
+live in that sibling folder so the GitHub contents listing of the originals
+does not treat them as extra photos.
+
+After adding or replacing a photo, generate its thumbnail and commit it:
+
+```
+npm run photos:thumbs
+```
+
+CI runs `npm run photos:thumbs:check` and fails if a thumbnail is missing,
+stale, larger than 800px on the long side, or over about 120 KB.
+
 ## Documentation
 
 - [`docs/analytics.md`](docs/analytics.md) — how visitor tracking works, the

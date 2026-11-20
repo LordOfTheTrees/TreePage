@@ -55,16 +55,51 @@ describe('parsePhotoFilename', () => {
     assert.deepEqual(parse('photo.jpg'), {});
   });
 
-  test('hyphen after date attaches to the first part (existing behavior preserved)', () => {
-    const r = parse('2024-10-15-New_York_Columbia.jpg');
-    assert.equal(r.location, 'York');
+  test('hyphen after the date still attaches to the first part', () => {
+    // The Columbia file on disk was renamed to use an underscore. This case
+    // only documents the parser, which still treats a hyphen as part of the date token.
+    const r = parse('2020-01-01-Old_Town_Square.jpg');
+    assert.equal(r.location, 'Town');
+    assert.equal(r.title, 'Square');
+  });
+
+  test('renamed Columbia file parses the place and the title', () => {
+    const r = parse('2024-10-15_New_York_Columbia.jpg');
+    assert.equal(r.date.toISOString().slice(0, 10), '2024-10-15');
+    assert.equal(r.location, 'New, York');
     assert.equal(r.title, 'Columbia');
+  });
+
+  test('renamed Neuschwanstein file parses the place and the title', () => {
+    const r = parse('2022-08-01_Neuschwanstein_Castle.jpg');
+    assert.equal(r.date.toISOString().slice(0, 10), '2022-08-01');
+    assert.equal(r.location, 'Neuschwanstein');
+    assert.equal(r.title, 'Castle');
   });
 
   test('output is data, not markup: a hostile filename parses to inert strings', () => {
     const r = parse('2024-01-01_<b>Bold</b>_<script>x</script>.jpg');
     assert.equal(r.location, '<b>Bold</b>');
     assert.equal(escapeHtml(r.title), '&lt;script&gt;x&lt;/script&gt;');
+  });
+});
+
+describe('thumbnailUrl', () => {
+  test('points at the sibling thumbs folder and a jpeg name', () => {
+    const original = 'https://raw.githubusercontent.com/LordOfTheTrees/TreePage/main/assets/images/photography/2024-10-15_New_York_Columbia.jpg';
+    const thumb = photos.thumbnailUrl(original, '2024-10-15_New_York_Columbia.jpg');
+    assert.equal(
+      thumb,
+      'https://raw.githubusercontent.com/LordOfTheTrees/TreePage/main/assets/images/photography-thumbs/2024-10-15_New_York_Columbia.jpg'
+    );
+  });
+
+  test('a non-jpeg original still gets a jpeg thumbnail url', () => {
+    const original = 'https://example.com/assets/images/photography/shot.png';
+    assert.equal(
+      photos.thumbnailUrl(original, 'shot.png'),
+      'https://example.com/assets/images/photography-thumbs/shot.jpg'
+    );
   });
 });
 

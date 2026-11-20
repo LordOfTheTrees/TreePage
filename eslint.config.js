@@ -42,7 +42,7 @@ module.exports = [
     rules
   },
   {
-    files: ['netlify/**/*.js', 'tests/**/*.js', 'eslint.config.js'],
+    files: ['netlify/**/*.js', 'tests/**/*.js', 'scripts/**/*.js', 'eslint.config.js'],
     languageOptions: { ecmaVersion: 2022, sourceType: 'commonjs', globals: nodeGlobals },
     rules
   }

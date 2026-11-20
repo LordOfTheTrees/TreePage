@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return `
       <div class="photo-item ${currentView}-view" data-index="${index}">
-        <img src="${escapeHtml(photo.url)}" alt="${title}" class="photo-image" loading="lazy">
+        <img src="${escapeHtml(photo.thumbUrl || photo.url)}" alt="${title}" class="photo-image" loading="lazy">
         <div class="photo-overlay">
           <div class="photo-title">${title}</div>
           <div class="photo-location">${location}</div>

@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     banner.innerHTML = latest.map((photo) => `
       <div class="photo-preview">
-        <img src="${escapeHtml(photo.url)}" alt="${escapeHtml(photo.title)}" loading="lazy">
+        <img src="${escapeHtml(photo.thumbUrl || photo.url)}" alt="${escapeHtml(photo.title)}" loading="lazy">
         <div class="photo-preview-overlay">
           <div class="photo-preview-title">${escapeHtml(photo.title)}</div>
           <div class="photo-preview-location">${escapeHtml(photo.location)}</div>
