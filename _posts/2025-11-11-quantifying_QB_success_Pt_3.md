@@ -3,6 +3,9 @@ layout: post
 title: "Quantifying QB Success: Archetypal Trajectories and Current Pending Decisions (Part 3)"
 date: 2025-11-11
 categories: [Analytics, Quarterbacks, Tableau]
+description: "Archetypal paths for first-round quarterbacks since 2000, and how the Daniel Jones extension shows recency bias treating volume as a stand-in for efficiency."
+redirect_from:
+  - /TreePage/analytics/quarterbacks/tableau/2025/11/11/quantifying_QB_success_Pt_3.html
 homepage: list
 homepage_title: "Quantifying QB success, part 3: archetypal trajectories"
 homepage_excerpt: "The last piece in a three-part look at first-round quarterback performance and the shapes those careers actually take."

@@ -2,6 +2,9 @@
 layout: page
 title: Photography
 permalink: /pages/photography/
+description: "Photography by Andrew Erbs: a grid and a list of places and moments, with smaller previews in the gallery and the original image in the lightbox."
+redirect_from:
+  - /TreePage/pages/photography/
 ---
 
 <div class="photography-header">

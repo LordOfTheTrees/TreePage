@@ -3,6 +3,9 @@ layout: post-banner
 title: "OctagonELO Is Live: Pre-Fight MMA Predictions You Can Read"
 date: 2026-6-13
 categories: [Product, Combat Sports, Data Science]
+description: "OctagonELO is live at octagonelo.com with pre-fight MMA probabilities, finish and decision splits, and intervals that widen when a bout is hard to call."
+redirect_from:
+  - "/TreePage/product/combat sports/data science/2026/06/13/octagon-elo-launch.html"
 banner_image: /assets/images/octagon-elo/octagon-elo-banner.png
 banner_alt: "OctagonELO: MMA fight predictions and analytics"
 homepage: feature

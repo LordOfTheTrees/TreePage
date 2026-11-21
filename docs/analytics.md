@@ -1,3 +1,13 @@
+---
+layout: default
+permalink: /docs/analytics.html
+sitemap: false
+title: Analytics subsystem
+description: "How visit tracking works: a Netlify function stores country, region, and city, and a weekly job publishes the newest rows together with an all-time count."
+redirect_from:
+  - /TreePage/docs/analytics.html
+---
+
 # Analytics subsystem
 
 How visitor tracking works, what it publishes, and — most importantly — **why it is
@@ -27,7 +37,7 @@ visitor loads /analytics-view.html
 Only `track-visit` writes `public.visits`. The dashboard reads a static file; it never
 queries Supabase directly.
 
-A separate event log, documented in [`docs/telemetry.md`](telemetry.md), records
+A separate event log, documented in [`docs/telemetry.md`](telemetry.html), records
 `page_view` and a few engagement events in `public.treepage_events`. It does not
 replace this pipeline. Leave `public.visits`, `track-visit`, and the weekly export
 in place. The visits table can be retired later, once the new page views have a

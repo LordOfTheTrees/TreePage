@@ -14,6 +14,8 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
+  # Pinned to the GitHub Pages whitelist (pages.github.com/versions.json).
+  gem "jekyll-redirect-from", "0.16.0"
 end
 
 # Windows and JRuby specific gems

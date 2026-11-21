@@ -3,6 +3,9 @@ layout: post
 title: "Quantifying QB Success: Temporal Weighting Patterns in Contract Decisions, Part 2"
 date: 2025-11-01
 categories: [Analytics, Quarterbacks, Tableau]
+description: "First-round quarterback extensions overweight the latest season. Year 2 carries 69.9% of a Year 3 decision, against a 33.3% equal-weight baseline."
+redirect_from:
+  - /TreePage/analytics/quarterbacks/tableau/2025/11/01/quantifying_QB_success_PT_2.html
 ---
 
 Article 1 established which metrics predict quarterback contract decisions most strongly, identifying Total Yards (era-adjusted) and ANY/A (era-adjusted)¹ as the key granular and open-source predictors which balance volume production with efficiency. However, that analysis treated all career years equally, averaging performance across Years 1-3 with uniform weights. This approach optimized overall prediction accuracy but obscured a crucial dimension of organizational evaluation: teams don't weight all career years equally when making contract decisions.

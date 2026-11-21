@@ -3,6 +3,9 @@ layout: page
 title: Contact
 permalink: /pages/contact/
 prose: true
+description: "Contact Andrew Erbs about a collaboration or a role. LinkedIn and GitHub are listed, along with a short form, or use the anonymous feedback page instead."
+redirect_from:
+  - /TreePage/pages/contact/
 ---
 
 

@@ -3,6 +3,9 @@ layout: post-banner
 title: "Combat Cognition Beta: Train the Space Between Classes"
 date: 2026-4-02
 categories: [Product, Combat Sports, Behavioral Science]
+description: "Combat Cognition is a gym beta for the hours off the mat: log real sessions, then use short spaced visualization so the next class builds on the last one."
+redirect_from:
+  - "/TreePage/product/combat sports/behavioral science/2026/04/02/combat-cognition-beta-announcement.html"
 banner_image: /assets/images/combat-cognition/feature-graphic.png
 banner_alt: "Combat Cognition: Master the mental game"
 homepage: list

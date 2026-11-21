@@ -4,7 +4,7 @@
   'use strict';
 
   const GITHUB_USERNAME = 'LordOfTheTrees';
-  const REPO_NAME = 'TreePage';
+  const REPO_NAME = 'lordofthetrees.github.io';
   // Full-size originals. The contents API lists this directory only, not
   // subfolders, and thumbnails live in a sibling folder so they are never
   // returned as extra photos.

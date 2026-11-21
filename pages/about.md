@@ -3,6 +3,9 @@ layout: page
 title: About Me
 permalink: /pages/about/
 prose: true
+description: "Andrew Erbs on the gap between how systems are supposed to work and how people behave, from the Navy and Amazon to research at Yale and applied AI at GO Media."
+redirect_from:
+  - /TreePage/pages/about/
 ---
 
 <div class="profile-image-container">
