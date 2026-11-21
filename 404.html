@@ -1,13 +1,26 @@
-```html
 ---
 layout: default
 permalink: /404.html
+description: "That page is not here. It may have been renamed or removed. Return to Andrew Erbs's home page for selected work, writing, and a way to get in touch."
 ---
 
 <div class="error-page">
   <h1>404</h1>
   <h2>Page Not Found</h2>
   <p>The page you're looking for doesn't exist or has been moved.</p>
-  <a href="{{ site.baseurl }}/" class="button">Return to Home</a>
+  <a href="{{ '/' | relative_url }}" class="button">Return to Home</a>
 </div>
-```
+<script>
+  // GitHub Pages cannot host a second 404 under /TreePage/. If a request for an
+  // old path lands here, send it to the same path at the domain root.
+  // Leave the Search Console file alone: google*.html stays a plain root file.
+  (function () {
+    var path = window.location.pathname;
+    if (path !== "/TreePage" && path.indexOf("/TreePage/") !== 0) return;
+    var next = path.replace(/^\/TreePage/, "") || "/";
+    var leaf = next.split("/").pop();
+    if (/^google[^/]*\.html$/i.test(leaf)) return;
+    if (next.charAt(0) !== "/") next = "/" + next;
+    window.location.replace(next + window.location.search + window.location.hash);
+  })();
+</script>

@@ -3,6 +3,9 @@ layout: post
 title: "Quantifying QB Success: A 25-Year Analysis of First-Round Performance, Part 1"
 date: 2025-10-18
 categories: [Analytics, Quarterbacks, Tableau]
+description: "29 of 65 first-round QBs (2000-2020) earned a second contract (44.6%). Era-adjusted public stats and ridge regression show which numbers track retention."
+redirect_from:
+  - /TreePage/analytics/quarterbacks/tableau/2025/10/18/quantifying_QB_success_Pt_1.html
 ---
 
 The current state of discourse regarding professional American football is poor, suffering from an overabundance of meaningless data, without any effective filtering mechanism for the public to understand what drives quarterback performance and retention decisions. Advanced proprietary metrics dominate front office decision-making, but their data is not accessible to the general fan to contextualize the performance of their favorite players. Public analysis remains constrained to basic box score statistics and subjective evaluation frameworks. This saturated landscape results in confusion about which statistics are actually meaningful, and which are just noise. There is always a stat available to suit any subjective argument being put forward, and the current fan has no way to determine which statistics matter, and which ones do not.

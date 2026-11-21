@@ -1,3 +1,13 @@
+---
+layout: default
+permalink: /docs/telemetry.html
+sitemap: false
+title: Product telemetry
+description: "How this site records product events such as page views, subscribe intent, and experiments, in a table kept separate from the public visits dashboard."
+redirect_from:
+  - /TreePage/docs/telemetry.html
+---
+
 # Product telemetry
 
 TreePage records first-party product events so a biweekly review can measure traffic, engagement, Substack signup intent, and simple experiments. The browser sends a small JSON body to the Supabase Edge Function `treepage-track`. The function writes rows to `public.treepage_events` in the Supabase project **Website Visit Tracking** (`uwwokqqfnqtdlddbvqgk`).
@@ -8,7 +18,7 @@ The tracker is `assets/js/track.js` (about 7 KB of source, under 3 KB gzipped, w
 
 ## Relationship to `public.visits`
 
-The existing visit pipeline is unchanged. `assets/js/analytics.js` still POSTs to the Netlify `track-visit` function, which still inserts `country`, `region`, `city`, and `timestamp` into `public.visits`. The weekly export, `assets/data/analytics-stats.json`, and the public dashboard still read that table. See [`docs/analytics.md`](analytics.md).
+The existing visit pipeline is unchanged. `assets/js/analytics.js` still POSTs to the Netlify `track-visit` function, which still inserts `country`, `region`, `city`, and `timestamp` into `public.visits`. The weekly export, `assets/data/analytics-stats.json`, and the public dashboard still read that table. See [`docs/analytics.md`](analytics.html).
 
 `page_view` in `treepage_events` is an additional event, not a replacement. Once it has a comparable history, `public.visits` can be retired. Until then, do not delete the table or stop `track-visit`.
 
@@ -109,7 +119,7 @@ supabase functions deploy treepage-track
 
 `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are provided to Edge Functions automatically. Legacy JWT keys (`eyJ...`) retire in early 2027. To future-proof this function, set `SUPABASE_SECRET_KEY` (an `sb_secret_...` value) as an Edge Function secret before then. The function reads that secret first and falls back to `SUPABASE_SERVICE_ROLE_KEY`. Set `TELEMETRY_SALT` only if you want to override the table salt. Do not put either key in the site, in git, or in GitHub Pages.
 
-Local Jekyll (`http://localhost:4000/TreePage/`) is an allowed origin, so a deployed function will accept events from `jekyll serve`. The function has to be deployed first. Missing configuration returns 204, so a local page with the function unreachable still renders.
+Local Jekyll (`http://localhost:4000/`) is an allowed origin, so a deployed function will accept events from `jekyll serve`. The function has to be deployed first. Missing configuration returns 204, so a local page with the function unreachable still renders.
 
 ## Example queries
 

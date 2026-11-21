@@ -1,3 +1,13 @@
+---
+layout: default
+permalink: /AGENTS.html
+sitemap: false
+title: Agent notes
+description: "Build, serve, and test notes for this Jekyll site: local commands, analytics choices that are deliberate, and the lint, test, and photo checks CI runs."
+redirect_from:
+  - /TreePage/AGENTS.html
+---
+
 # AGENTS.md
 
 ## Cursor Cloud specific instructions
@@ -10,9 +20,9 @@ This is **TreePage**, a Jekyll-based personal portfolio/blog site with Netlify s
 
 | Service | Command | URL |
 |---|---|---|
-| Jekyll dev server | `bundle exec jekyll serve --host 0.0.0.0 --port 4000` | `http://localhost:4000/TreePage/` |
+| Jekyll dev server | `bundle exec jekyll serve --host 0.0.0.0 --port 4000` | `http://localhost:4000/` |
 
-Note the `/TreePage/` baseurl — navigating to `http://localhost:4000/` alone returns a 404.
+The site is served from the domain root (`baseurl` is empty). Locally that is `http://localhost:4000/`.
 
 ### Ruby
 
@@ -40,13 +50,13 @@ Serverless functions live in `netlify/functions/` and require `SUPABASE_URL` and
 
 - `netlify/lib/form-guard.js` — request handling and abuse guards shared by `send-contact` and `send-feedback`. Lives outside `netlify/functions/` on purpose so the bundler treats it as a dependency, not a function.
 - `assets/js/util.js` — `escapeHtml` and `debounce`, loaded first on every page as `window.TreePage`.
-- `assets/js/track.js` and `supabase/functions/treepage-track/` — first-party product events in `public.treepage_events`. Read [`docs/telemetry.md`](docs/telemetry.md) before editing them. This sits beside the visits pipeline; do not retarget `track-visit` at the new table.
+- `assets/js/track.js` and `supabase/functions/treepage-track/` — first-party product events in `public.treepage_events`. Read [`docs/telemetry.md`](docs/telemetry.html) before editing them. This sits beside the visits pipeline; do not retarget `track-visit` at the new table.
 - `assets/js/photo-utils.js` — photo fetching and filename parsing shared by the photography page and the homepage banner. The grid uses `thumbUrl` (files in `assets/images/photography-thumbs/`); the lightbox uses the original `url`. Regenerate thumbnails with `npm run photos:thumbs`. CI checks them with `npm run photos:thumbs:check`. See README.
 - `_sass/` — all styling. There are no inline `<style>` blocks; page-specific rules live in `_home.scss`, `_photography.scss`, `_analytics.scss`.
 
 ### Analytics — read before editing
 
-**Read [`docs/analytics.md`](docs/analytics.md) before changing anything in
+**Read [`docs/analytics.md`](docs/analytics.html) before changing anything in
 `netlify/functions/export-visits.js`, `netlify/functions/track-visit.js`,
 `.github/workflows/sync-analytics.yml`, `assets/js/analytics*.js`, or the disclosure
 text in `analytics-view.html`.**

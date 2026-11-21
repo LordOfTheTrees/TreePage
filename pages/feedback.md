@@ -3,6 +3,9 @@ layout: page
 title: Anonymous Feedback
 permalink: /pages/feedback/
 prose: true
+description: "Send Andrew Erbs candid feedback with no name and no email. Choose a topic and a suggested action, and leave out anything that would identify you."
+redirect_from:
+  - /TreePage/pages/feedback/
 ---
 
 I would truly like to know your candid feedback about anything. Whatever you want to share, I'd like to hear it.

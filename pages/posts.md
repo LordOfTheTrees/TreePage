@@ -3,6 +3,9 @@ layout: page
 title: Posts & Written Investigations
 permalink: /pages/posts/
 prose: true
+description: "All of Andrew Erbs's writing, from first-round quarterback contracts and injuries to consumer behavior, combat training, and the OctagonELO launch."
+redirect_from:
+  - /TreePage/pages/posts/
 ---
 
 <div class="posts-archive">

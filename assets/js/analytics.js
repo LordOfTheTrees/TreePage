@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     try {
-      // Fetch aggregated stats from the data file (updated weekly by GitHub Actions)
-      const baseUrl = window.location.origin + (window.location.pathname.includes('/TreePage') ? '/TreePage' : '');
-      const dataUrl = `${baseUrl}/assets/data/analytics-stats.json?t=${Date.now()}`;
+      // Fetch aggregated stats from the data file (updated weekly by GitHub Actions).
+      // The site is served from the domain root, so the file is always at /assets.
+      const dataUrl = `${window.location.origin}/assets/data/analytics-stats.json?t=${Date.now()}`;
       console.log('Fetching analytics data from:', dataUrl);
       
       const statsResponse = await fetch(dataUrl);

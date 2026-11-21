@@ -1,14 +1,17 @@
 # Site settings
 title: Andrew Erbs
-description: >
-  Andrew Erbs, Director of AI Solutions at GO Media. Writing and projects on
-  product, data, and applied AI.
+description: "Andrew Erbs, Director of AI Solutions at GO Media. Work and writing on product, data, and applied AI, from Navy systems and Yale research to the tools he ships."
 author: Andrew Erbs
 logo: /assets/images/profile.jpg
-baseurl: "/TreePage" # the subpath of your site, e.g. /blog
-url: "https://lordofthetrees.github.io" # Replace with your GitHub username
+# Domain root. The repo is lordofthetrees.github.io, so the site is not under /TreePage/.
+baseurl: ""
+url: "https://lordofthetrees.github.io"
 github_username: lordofthetrees
 linkedin_username: andrew-erbs-59bb9365
+
+# Posts only. Pages keep the permalink in their own front matter.
+# :title keeps the filename slug (case and underscores), with no category segment.
+permalink: /posts/:title/
 
 defaults:
   - scope:
@@ -34,6 +37,12 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
+
+# Redirect pages are generated from front matter. Skip the extra redirects.json,
+# which is not site content and would otherwise be written into the sitemap set.
+redirect_from:
+  json: false
 
 # Collections
 collections:
@@ -50,3 +59,4 @@ exclude:
   - supabase
   - .gitignore
   - README.md
+  - tests
